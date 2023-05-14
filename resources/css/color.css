@@ -1,0 +1,39 @@
+.customYellow{
+    background-color:#fde801;
+}
+
+.customCyan{
+    background-color: #00d4a1;
+}
+
+.customRed{
+    background-color: #f62e30;
+}
+
+.textRed{
+    color: #f62e30;
+}
+
+.textDark{
+    color: #010101;
+}
+
+.textCyan{
+    color: #00d4a1;
+}
+
+.textRegister{
+    color: #02bbf3;
+}
+
+.textHere{
+    color: #045acf;
+}
+
+.backgroundNav{
+    background: linear-gradient(to bottom, #fde801 0%, #fde801 25%,#010101 25%,#010101 75%, #fde801 50%, #fde801 100% );
+}
+
+.textWhite{
+    color: #ffff;
+}
