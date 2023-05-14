@@ -18,7 +18,7 @@
             @auth
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/real.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
                         <div>
                             <a href="{{ route('dashboard') }}" class="textWhite nav-link" aria-current="page">Inicio</a>
                         </div>
@@ -34,17 +34,17 @@
             @guest
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/logo_melody.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
                         <div>
                             <a href="{{ route('home') }}" class="textWhite nav-link" aria-current="page">Inicio</a>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <div>
-                                <a href="#" class="text-right textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                <a href="{{ route('login') }}" class="text-right textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
                             </div>
                             <div>
-                                <a href="#" class="text-right textWhite nav-link active" aria-current="page">Crear Cuenta</a>
+                                <a href="{{ route('register') }}" class="text-right textWhite nav-link active" aria-current="page">Crear Cuenta</a>
                             </div>
                         </div>
                     </div>

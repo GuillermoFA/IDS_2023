@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Concert extends Model
+class concert extends Model
 {
     use HasFactory;
-
-    protected $fillable=[
+    protected $fillable = [
         'name',
-        'date',
+        'price',
         'stock',
-        'price'
+        'date'
     ];
 
-    public static function getConcerts(){
+    public static function getConcerts()
+    {
         return self::all();
     }
+
 }

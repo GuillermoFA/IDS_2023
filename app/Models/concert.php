@@ -15,4 +15,9 @@ class concert extends Model
         'date'
     ];
 
+    public static function getConcerts()
+    {
+        return self::all();
+    }
+
 }
