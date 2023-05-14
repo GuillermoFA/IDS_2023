@@ -3,21 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-/*use App\Models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;*/
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
     public function index()
     {
+
         return view('auth.login');
     }
 
     public function dashboard()
     {
         // Retornar al dashboard
-        return view('layouts.dashboard');
+
+        return view('login');  
     }
 
     public function loginAuth(Request $request)
@@ -38,6 +40,5 @@ class LoginController extends Controller
 
         return redirect()->route('dashboard');
     }
-
 
 }

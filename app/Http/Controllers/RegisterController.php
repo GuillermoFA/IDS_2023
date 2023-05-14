@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('auth.register');
+        return view('auth/register');
     }
 
     public function show()
@@ -31,6 +31,7 @@ class RegisterController extends Controller
             'password' => ['required', 'min:8','regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/']
         ], $messages);
         //'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/]
+
         // Crear al usuario
         User::create([
             'name' => $request->name,
