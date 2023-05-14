@@ -20,8 +20,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
             </div>
-            <div>
-                <a class="text-right textWhite nav-link active" aria-current="page" href="#">Salir</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
             </div>
         </div>
     </nav>

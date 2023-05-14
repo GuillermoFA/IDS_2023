@@ -26,9 +26,13 @@
                 <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
             </div>
             @endif
-            <div>
-                <a class="text-right textWhite nav-link active" aria-current="page" href="#">Salir</a>
-            </div>
+            @auth
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
+            </form>
+            @endauth
+
 
         </div>
     </nav>

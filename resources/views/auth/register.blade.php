@@ -16,8 +16,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
             </div>
-            <div>
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Salir</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
             </div>
 
         </div>

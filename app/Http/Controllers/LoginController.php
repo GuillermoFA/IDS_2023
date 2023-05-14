@@ -39,5 +39,14 @@ class LoginController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function logout(request $request){
+        auth()->logout();
+
+        $request->seccion()->invalidate();
+
+        $request->seccion()->regenerateToken();
+        return redirect()->route('layouts.dashboard');
+    }
+
 
 }
