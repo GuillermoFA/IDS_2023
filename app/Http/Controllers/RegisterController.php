@@ -11,12 +11,11 @@ class RegisterController extends Controller
 {
     public function index()
     {
-       return view('auth.register');
+        return view('auth.register');
     }
 
     public function show()
     {
-        // dd('registrando');
         return view('formulario');
     }
 
@@ -27,11 +26,11 @@ class RegisterController extends Controller
         $messages = makeMessages();
         // Validación
         $this->validate($request, [
-            'name' => ['required', 'min:2'],
+            'name' => ['required', 'min:3','regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'min:8']
+            'password' => ['required', 'min:8','regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/']
         ], $messages);
-
+        //'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/]
         // Crear al usuario
         User::create([
             'name' => $request->name,
@@ -47,6 +46,6 @@ class RegisterController extends Controller
         ]);
 
         // Redireccionar al usuario
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard'); //MODIFICAR
     }
 }

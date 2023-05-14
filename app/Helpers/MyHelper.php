@@ -16,6 +16,8 @@ function makeMessages()
         'email.email' => 'Ingrese una dirección de correo electrónico válida',
         'email.unique' => 'El correo electrónico ya esta registrado',
         'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+        'name.regex' => 'El nombre tiene caracteres no permitidos. Ingrese solo letras',
+        'password.regex' => 'La contraseña ingresada no es alfanumerica',
     ];
 
     return $messages;

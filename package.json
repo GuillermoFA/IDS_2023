@@ -1,6 +1,11 @@
 {
     "private": true,
     "scripts": {
+
+            "aaa": "npm run development",
+            "development": "mix",
+
+
         "dev": "vite",
         "build": "vite build"
     },

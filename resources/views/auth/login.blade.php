@@ -1,25 +1,28 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Melody - Registrate</title>
-    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
-    <!-- Style CSS -->
+    <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
     @vite('resources/css/color.css')
+    @vite('resources/css/app.css')
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
         <div class="container">
-            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
+            <div style="" >
+                <img src="{{ asset('img/logo.png') }}" class="" >
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
             </div>
             <div>
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Salir</a>
+                <a class="text-right textWhite nav-link active" aria-current="page" href="#">Salir</a>
             </div>
-
         </div>
     </nav>
     <div class="container mt-5">
@@ -27,21 +30,11 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="font-weight-bold text-3xl card-header customYellow text-center">
-                        <h4>Registrar usuario</h4>
+                        <h4>Inicia Sesión en Melody</h4>
                     </div>
                     <div class="card-body rounded-5">
-                        <form action="{{ route('register')}}" method="POST" novalidate>
+                        <form action="{{ route('login')}}" method="POST" novalidate>
                             @csrf
-                            <div class="mb-3 font-weight-bold text-3xl textRegister">
-                                <label for="name" class="form-label">Nombre</label>
-                                <input type="text"  id="name" name="name" placeholder="Nombre" class="form-control
-                            @error('name')
-                                textRed
-                            @enderror">
-                                @error('name')
-                                    <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
-                                @enderror
-                            </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="correo" class="form-label">Correo electrónico</label>
                                 <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control
@@ -63,11 +56,11 @@
                                 @enderror
                             </div>
                             <div class= "text-center rounded-5">
-                                <button type="submit" class="customYellow " >Registrarse</button>
+                                <button type="submit" class="customYellow " >Iniciar Sesión</button>
                             </div>
                             <div class= "textRegister text-center">
-                                <label for="cuenta">¿Ya tienes una cuenta?</label>
-                                <a class="textHere" href="login">Iniciar sesión aquí</a>
+                                <label for="cuenta">¿No tiene una cuenta?</label>
+                                <a class="textHere" href="register">Registrate</a>
                             </div>
 
 
@@ -78,8 +71,5 @@
             </div>
         </div>
     </div>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
 </body>
-</html>
 </html>
