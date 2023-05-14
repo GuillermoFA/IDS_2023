@@ -58,7 +58,7 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>
-                                <a class="textHere" href="#">Registrate</a>
+                                <a class="textHere" href="{{ route('register')}}">Registrate</a>
                             </div>
 
 

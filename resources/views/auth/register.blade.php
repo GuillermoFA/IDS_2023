@@ -67,7 +67,7 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿Ya tienes una cuenta?</label>
-                                <a class="textHere" href="####################">Iniciar sesión aquí</a>
+                                <a class="textHere" href="{{ route('loginAuth')}}">Iniciar sesión aquí</a>
                             </div>
 
 
