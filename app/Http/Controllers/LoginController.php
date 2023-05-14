@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,11 +20,18 @@ class LoginController extends Controller
     {
         // Retornar al dashboard
 
-        return view('login');  
+        return view('layouts.dashboard');  
+    }
+
+    public function logOut()
+    {
+        Auth::logout();
+        return view('layouts.dashboard');  
     }
 
     public function loginAuth(Request $request)
     {
+        require_once 'D:\Proyectos\ProyectoMelody\app\Helpers\MyHelper.php';
         $messages = makeMessages();
         // Validar la información
         $this->validate($request, [
@@ -35,10 +43,7 @@ class LoginController extends Controller
         {
             return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
         }
-
-
-
+        Auth::logout();
         return redirect()->route('dashboard');
     }
-
 }
