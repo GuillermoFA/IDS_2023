@@ -5,18 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Concert extends Model
+class Usuario extends Model
 {
     use HasFactory;
-
     protected $fillable=[
-        'name',
-        'date',
-        'stock',
-        'price'
+        'correo',
+        'tipo',
+        'contraseña',
+        'nombre'
     ];
-
-    public static function getConcerts(){
-        return self::all();
-    }
 }
