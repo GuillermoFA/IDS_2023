@@ -3,7 +3,11 @@
     Dashboard
 @endsection
 @section('title-page')
-    Bienvenido {{ auth()->user()->name }}
+    <div class="container">
+        <div class="d-grid gap-4">
+            <h1 class="text-center">Bienvenido {{ auth()->user()->name }}</h1>
+        </div>
+    </div>
 @endsection
 @section('content')
     @if (auth()->user()->role === 1)
@@ -12,11 +16,16 @@
 
     @if (auth()->user()->role === 2)
         {{-- Opciones Administrador --}}
-        <div>
-            <h2>Selecciona una opción</h2>
-            <div>
-                <div>
-                    <a href="#">Agregar Concierto</a>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body rounded-5">
+                            <div>
+                                <a href="{{ route('concert.create') }}" class="text-center rounded-5 customYellow">Agregar Concierto</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
