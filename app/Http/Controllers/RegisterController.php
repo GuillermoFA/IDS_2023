@@ -26,10 +26,11 @@ class RegisterController extends Controller
         $messages = makeMessages();
         // Validación
         $this->validate($request, [
-            'name' => ['required', 'min:3','alpha'],
+            'name' => ['required', 'min:3','regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'min:8','regex:/^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]+$/']
+            'password' => ['required', 'min:8','regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/']
         ], $messages);
+        //'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/]
 
         // Crear al usuario
         User::create([
@@ -46,7 +47,6 @@ class RegisterController extends Controller
         ]);
 
         // Redireccionar al usuario
-        //return redirect()->route('register'); //MODIFICAR
-        dd('se registro el usuuario');
+        return redirect()->route('dashboard'); //MODIFICAR
     }
 }

@@ -2,7 +2,11 @@
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\registerUser;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ConcertController;
+use App\Http\Controllers\RegisterController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,19 +20,21 @@ use App\Http\Controllers\registerUser;
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('layouts.dashboard');
+})->name('dashboard');
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-
-//Route::get('/login', function () {
-//  return view('login');
-//})->name('login');
-
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
-Route::get('/', [LoginController::class, 'welcome'])->name('welcome');
 
+
+Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+
+
+Route::group(['middleware' => 'admin'], function () {
+    Route::post('concert', [ConcertController::class, 'store'])->name('concert');
+    Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
+});
 
