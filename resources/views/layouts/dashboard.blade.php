@@ -4,7 +4,7 @@
 @endsection
 @section('title-page')
     <div class="container">
-        <div class="d-grid gap-4">
+        <div class="mb-4">
             <h1 class="text-center">Bienvenido {{ auth()->user()->name }}</h1>
         </div>
     </div>
@@ -12,6 +12,7 @@
 @section('content')
     @if (auth()->user()->role === 1)
         {{-- Opciones Cliente --}}
+        {{-- mostrar los conciertos disponibles --}}
     @endif
 
     @if (auth()->user()->role === 2)
