@@ -18,8 +18,6 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-
-Route::get('/', function () {
     return view('layouts.dashboard');
 })->name('dashboard');
 
@@ -37,4 +35,3 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
 });
-

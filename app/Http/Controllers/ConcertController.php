@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Concert;
 use Illuminate\Http\Request;
 
 class ConcertController extends Controller
 {
-
 
     public function __construct()
     {
@@ -19,6 +20,11 @@ class ConcertController extends Controller
     {
         // Retornar al dashboard
         return view('layouts.dashboard');
+    }
+
+    public function welcome()
+    {
+        return view('welcome');
     }
 
     public function create()
