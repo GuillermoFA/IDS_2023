@@ -22,11 +22,6 @@ class ConcertController extends Controller
         return view('layouts.dashboard');
     }
 
-    public function welcome()
-    {
-        return view('welcome');
-    }
-
     public function create()
     {
         return view('concert.create');
