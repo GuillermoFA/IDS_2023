@@ -22,6 +22,7 @@ class LoginController extends Controller
 
     public function loginAuth(Request $request)
     {
+        require_once 'D:\Proyectos\ProyectoMelody\app\Helpers\MyHelper.php';
         $messages = makeMessages();
         // Validar la información
         $this->validate($request, [
@@ -33,9 +34,7 @@ class LoginController extends Controller
         {
             return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
         }
-
-
-
+        Auth::logout();
         return redirect()->route('dashboard');
     }
 

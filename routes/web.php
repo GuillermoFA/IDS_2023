@@ -19,18 +19,19 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
     return view('layouts.dashboard');
-})->name('dashboard');
+});
 
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('register', [RegisterController::class, 'store'])->name('register');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+//Route::post('/create' , [registerUser::class, 'make']);
 
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
-
+Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
 
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');

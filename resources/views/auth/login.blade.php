@@ -33,7 +33,7 @@
                         <h4>Inicia Sesión en Melody</h4>
                     </div>
                     <div class="card-body rounded-5">
-                        <form action="{{ route('login')}}" method="POST" novalidate>
+                        <form action="{{ route('loginAuth')}}" method="POST" novalidate>
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="correo" class="form-label">Correo electrónico</label>
@@ -56,9 +56,6 @@
                                 <label for="cuenta">¿No tiene una cuenta?</label>
                                 <a class="textHere" href="register">Registrate</a>
                             </div>
-
-
-
                         </form>
                     </div>
                 </div>

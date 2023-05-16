@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Helpers\MyHelper\makeMessage;
 
 class RegisterController extends Controller
 {
@@ -22,6 +23,8 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
+
+        require_once('D:\Proyectos\ProyectoMelody\app\Helpers\MyHelper.php');
 
         $messages = makeMessages();
         // Validación
