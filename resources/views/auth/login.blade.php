@@ -37,20 +37,14 @@
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="correo" class="form-label">Correo electrónico</label>
-                                <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control
-                            @error('email')
-                                    textRed
-                            @enderror">
+                                <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control">
                                 @error('email')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="contraseña" class="form-label">Contraseña</label>
-                                <input type="password" placeholder="Ingrese su contraseña" id="password" name="password" class="form-control
-                            @error('password')
-                                textRed
-                            @enderror">
+                                <input type="password" placeholder="Ingrese su contraseña" id="password" name="password" class="form-control">
                                 @error('password')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror

@@ -29,7 +29,9 @@
             @auth
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
+                <button type="submit" class="btn">
+                    <a class="text-right textWhite nav-link active" aria-current="page">Cerrar Sesión</a>
+                </button>
             </form>
             @endauth
 
@@ -49,10 +51,6 @@
                            </div>
                            @endif
                         @endif
-
-
-
-
                         </form>
                     </div>
                 </div>
