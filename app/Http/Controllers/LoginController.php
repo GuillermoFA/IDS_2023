@@ -3,30 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+/*use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;*/
 
 class LoginController extends Controller
 {
     public function index()
     {
-
         return view('auth.login');
     }
 
     public function dashboard()
     {
         // Retornar al dashboard
-
-        return view('layouts.dashboard');  
-    }
-
-    public function logOut()
-    {
-        Auth::logout();
-        return view('layouts.dashboard');  
+        return view('layouts.dashboard');
     }
 
     public function loginAuth(Request $request)
@@ -46,4 +37,15 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('dashboard');
     }
+
+    public function logout(request $request){
+        auth()->logout();
+
+        $request->seccion()->invalidate();
+
+        $request->seccion()->regenerateToken();
+        return redirect()->route('layouts.dashboard');
+    }
+
+
 }

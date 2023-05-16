@@ -14,14 +14,12 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
         <div class="container">
-            <div style="" >
-                <img src="{{ asset('img/logo.png') }}" class="" >
+            <img src="{{ asset('img/real 3.png') }}" class="" style="float: left">
+            <div>
+                <a class="textWhite nav-link" aria-current="page" href="#">Inicio</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
+            <div>
+                <a class="text-right textWhite nav-link active" aria-current="page" href="#">Salir</a>
             </div>
         </div>
     </nav>
@@ -37,7 +35,7 @@
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="correo" class="form-label">Correo electrónico</label>
-                                <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control">
+                                <input type="email" placeholder="correoelectronico@gmail.com" id="email" name="email" class="form-control">
                                 @error('email')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
@@ -54,7 +52,7 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>
-                                <a class="textHere" href="register">Registrate</a>
+                                <a class="textHere" href="{{ route('register')}}">Registrate</a>
                             </div>
                         </form>
                     </div>
