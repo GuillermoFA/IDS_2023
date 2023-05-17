@@ -31,6 +31,11 @@
                     <div class="card-body rounded-5">
                         <form action="{{ route('loginAuth')}}" method="POST" novalidate>
                             @csrf
+                            @if (session('message'))
+                                <div class="textRed my-2 rounded-lg text-lg p-2">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="correo" class="form-label">Correo electrónico</label>
                                 <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control">
