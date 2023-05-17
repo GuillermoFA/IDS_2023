@@ -9,18 +9,18 @@ class registerUser extends Controller
 {
     public function make()
     {
+        dd();
         User::create([
             'name' => 'Ignacio',
             'email' => 'i@g',
-            'password' => '123',
-            'role' => 1
+            'password' => Hash::make('123'),
+            'role' => 2
         ]);
 
         auth()->attempt([
             'email' => 'i@g',
             'password' => '123'
         ]);
-        return view('welcome');
     }
 }
 
