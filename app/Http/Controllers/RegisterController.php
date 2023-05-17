@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Helpers\MyHelper\makeMessage;
 
 class RegisterController extends Controller
 {
@@ -23,6 +24,8 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
 
+        require_once('D:\Proyectos\ProyectoMelody\app\Helpers\MyHelper.php');
+
         $messages = makeMessages();
         // Validación
         $this->validate($request, [
@@ -31,7 +34,6 @@ class RegisterController extends Controller
             'password' => ['required', 'min:8','regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/']
         ], $messages);
         //'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/]
-
         // Crear al usuario
         User::create([
             'name' => $request->name,

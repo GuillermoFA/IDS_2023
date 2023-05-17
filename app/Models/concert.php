@@ -8,16 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Concert extends Model
 {
     use HasFactory;
-    protected $fillable = [
+
+    protected $fillable=[
         'name',
-        'price',
+        'date',
         'stock',
-        'date'
+        'price'
     ];
 
-    public static function getConcerts()
-    {
+    public static function getConcerts(){
         return self::all();
     }
-
 }

@@ -1,10 +1,24 @@
-
-@extends('layouts.app')
-@section('title')
-    Registrar Cliente
-@endsection
-
-@section('content')
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Melody - Registrate</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <!-- Style CSS -->
+    @vite('resources/css/color.css')
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
+        <div class="container">
+            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
+            </div>
 
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -18,30 +32,21 @@
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name" class="form-label">Nombre</label>
-                                <input type="text"  id="name" name="name" placeholder="Nombre" class="form-control
-                            @error('name')
-                                textRed
-                            @enderror">
+                                <input type="text"  id="name" name="name" placeholder="Nombre" class="form-control">
                                 @error('name')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="correo" class="form-label">Correo electrónico</label>
-                                <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control
-                            @error('email')
-                                    textRed
-                            @enderror">
+                                <input type="email" placeholder="nombre@ejemplo.com" id="email" name="email" class="form-control">
                                 @error('email')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
-                                <label for="contraseña" class="form-label">Contraseña</label>
-                                <input type="password" placeholder="Ingrese su contraseña" id="password" name="password" class="form-control
-                            @error('password')
-                                textRed
-                            @enderror">
+                                <label for="contraseña" class="form-label ">Contraseña</label>
+                                <input type="password" placeholder="Ingrese su contraseña" id="password" name="password" class="form-control">
                                 @error('password')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
