@@ -58,9 +58,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
-</body>
-</html>
-</html>
+    @endif
+@endsection
