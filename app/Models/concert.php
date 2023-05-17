@@ -19,5 +19,5 @@ class Concert extends Model
     {
         return self::all();
     }
-    
+
 }
