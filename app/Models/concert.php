@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Concert extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'name',
         'price',
@@ -20,5 +19,5 @@ class Concert extends Model
     {
         return self::all();
     }
-    
+
 }
