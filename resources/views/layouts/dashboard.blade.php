@@ -21,6 +21,13 @@
                 <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
             </div>
             @endif
+                @if (auth()->user())
+                    @if(auth()->user()->role===2)
+                   <div class="collapse navbar-collapse" id="navbarNav">
+                        <a class="text-right textWhite nav-link active" aria-current="page" href="concert">Crear concierto</a>
+                   </div>
+                   @endif
+                @endif
             @if(!auth()->user())
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
@@ -29,7 +36,7 @@
             @auth
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
-                <button type="submit" class="font-bold uppercase hover:text-white transition">Cerrar Sesión</button>
+                <button type="submit" class="customTransparent">Cerrar Sesión</button>
             </form>
             @endauth
 
@@ -41,19 +48,12 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body rounded-5">
-                        @if (auth()->user())
-                            @if(auth()->user()->role===2)
-                            <div> <a href="{{ route('concert.create') }}"
-                                class= "text-center rounded-5">
-                               <button type="submit" class="customYellow " >crear concierto</button>
-                           </div>
-                           @endif
-                        @endif
 
 
 
 
-                        </form>
+
+
                     </div>
                 </div>
             </div>

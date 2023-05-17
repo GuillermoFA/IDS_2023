@@ -2,6 +2,12 @@
     background-color:#fde801;
 }
 
+.customTransparent{
+    background-color: transparent;
+    color: white;
+    border: transparent;
+}
+
 .customCyan{
     background-color: #00d4a1;
 }

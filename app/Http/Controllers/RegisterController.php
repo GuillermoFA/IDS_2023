@@ -26,14 +26,14 @@ class RegisterController extends Controller
         $messages = makeMessages();
         // Validación
         $this->validate($request, [
-            'name' => ['required', 'min:3','regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
+            'name_user' => ['required', 'min:3','regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8','regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/']
         ], $messages);
         //'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\dñÑ]+$/]
         // Crear al usuario
         User::create([
-            'name' => $request->name,
+            'name' => $request->name_user,
             'email' => Str::lower($request->email),
             'password' => Hash::make($request->password),
             'role' => 1
