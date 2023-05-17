@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
-    @vite('resources/css/color.css')
-    @vite('resources/css/app.css')
+
+@extends('layouts.app')
+@section('title')
+    Iniciar Sesión
+@endsection
+
+@section('content')
 
 </head>
 <body>
@@ -54,13 +50,14 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>
-                                <a class="textHere" href="register">Registrate</a>
+                                <a class="textHere" href="{{ route('register')}}">Registrate</a>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+
+@endsection

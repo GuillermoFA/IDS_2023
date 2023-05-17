@@ -51,6 +51,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Style CSS -->
     @vite('resources/css/color.css')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <title>Melody - @yield('title')</title>
 </head>
 
@@ -60,7 +62,7 @@
             @auth
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/real.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
                         <div>
                             <a href="{{ route('dashboard')}}" class="textWhite nav-link" aria-current="page">Inicio</a>
                         </div>
@@ -77,17 +79,17 @@
             @guest
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/logo_melody.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
                         <div>
                             <a href="{{ route('home') }}" class="textWhite nav-link" aria-current="page">Inicio</a>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <div>
-                                <a href="#" class="text-right textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                <a href="{{ route('login') }}" class="text-right textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
                             </div>
                             <div>
-                                <a href="{{ route ()}}" class="text-right textWhite nav-link active" aria-current="page">Crear Cuenta</a>
+                                <a href="{{ route('register') }}" class="text-right textWhite nav-link active" aria-current="page">Crear Cuenta</a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +102,7 @@
         @yield('content')
     </main>
     <footer>
-        <div class="container text-center customYellow mw-100">
+        <div class="container text-center customYellow mw-100 mt-4">
             {{-- agregar un posicionamiento de bottom --}}
             Melody - Todos los derechos reservados {{ now()->year }}
         </div>

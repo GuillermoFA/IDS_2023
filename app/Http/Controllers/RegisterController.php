@@ -49,6 +49,6 @@ class RegisterController extends Controller
         ]);
 
         // Redireccionar al usuario
-        return redirect()->route('dashboard'); //MODIFICAR
+        return view('layouts.dashboard');
     }
 }
