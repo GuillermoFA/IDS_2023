@@ -32,7 +32,8 @@ class LoginController extends Controller
 
         if(!auth()->attempt($request->only('email', 'password'), $request->remember))
         {
-            return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
+            // return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
+            return back()->with('message', 'Las credenciales son incorrectas');
         }
         Auth::logout();
         return redirect()->route('dashboard');

@@ -18,11 +18,15 @@ function makeMessages()
         'date.required' => 'El campo fecha es obligatorio.',
         'stock.required' => 'El campo stock es obligatorio.',
         'stock.between' => 'El rango de entradas es de 100 y 400.',
+
         'email.email' => 'Ingrese una dirección de correo electrónico válida',
         'email.unique' => 'El correo electrónico ya está registrado',
         'password.min' => 'La contraseña debe tener al menos :min caracteres.',
         'name_user.regex' => 'El nombre tiene caracteres no permitidos. Ingrese solo letras',
         'password.regex' => 'La contraseña ingresada no es alfanumerica',
+        'stock.numeric' => 'El valor ingresado no es numérico.',
+        'price.numeric' => 'El valor ingresado no es numérico.',
+        'name.min' => 'El campo nombre del concierto no puede ser inferior a :min caracteres.',
     ];
 
     return $messages;
