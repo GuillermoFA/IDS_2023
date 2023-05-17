@@ -37,18 +37,12 @@
                 @auth
                 <form action="logout" method="POST">
                     @csrf
-                    <button type="submit" class="customTransparent">Cerrar Sesión</button>
+                    <!-- <button type="submit" class="customTransparent">Cerrar Sesión</button> -->
+                    <button href="/dashboard" type="submit" class="btn textWhite text-right nav-link">Cerrar Sesión</button>
                 </form>
                 @endauth
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body rounded-5">
-                    </div>
-                </div>
-            </div>
-        </div>
+</head>
+</html>
