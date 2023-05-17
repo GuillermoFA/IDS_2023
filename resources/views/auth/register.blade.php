@@ -14,14 +14,18 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
         <div class="container">
-            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
-            </div>
+            <img src="{{ asset('img/real 3.png') }}" class="" style="float: left">
 
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="textWhite nav-link active" aria-current="page" href="login">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -36,10 +40,7 @@
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name_user" class="form-label">Nombre</label>
-                                <input type="text"  id="name_user" name="name_user" placeholder="Nombre" class="form-control
-                            @error('name_user')
-                                textRed
-                            @enderror">
+                                <input type="text"  id="name_user" name="name_user" placeholder="Nombre" class="form-control">
                                 @error('name_user')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror

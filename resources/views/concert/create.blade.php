@@ -23,9 +23,9 @@
     }
 </script>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
         <div class="container">
-            <img src="img/logo.png" class="" style="float: left">
+            <img src="img/real 3.png" class="" style="float: left">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
             </div>
@@ -35,6 +35,8 @@
                 <button type="submit" class="customTransparent">Cerrar Sesión</button>
             </form>
             @endauth
+        </div>
+    </nav> -->
 
 @extends('layouts.app')
 @section('title')
@@ -76,10 +78,7 @@
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="date" class="form-label">Fecha</label>
-                                <input type="date" placeholder="Ingrese la fecha" id="date" name="date" class="form-control
-                            @error('date')
-                                textRed
-                            @enderror">
+                                <input type="date" placeholder="Ingrese la fecha" id="date" name="date" class="form-control">
                                 @error('date')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
@@ -126,8 +125,8 @@
             }
         })
     })
-</script>
-
+    </script>
+@endsection
 </body>
 </html>
 </html>

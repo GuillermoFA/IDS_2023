@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
         <div class="container">
             <div style="" >
                 <img src="{{ asset('img/logo.png') }}" class="" >
@@ -20,7 +20,7 @@
                 <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -50,7 +50,7 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>
-                                <a class="textHere" href="{{ route('register')}}">Registrate</a>
+                                <a class="textHere" href="register">Registrate</a>
                             </div>
                         </form>
 

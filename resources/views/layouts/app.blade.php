@@ -1,45 +1,3 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Melody - menu</menu></title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
-    <!-- Style CSS -->
-    @vite('resources/css/color.css')
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-        <div class="container">
-            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            @if(!auth()->user())
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
-            </div>
-            @endif
-            @if(!auth()->user())
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
-            </div>
-            @endif
-            @auth
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
-            @endauth
-
-
-        </div>
-    </nav>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
-</body>
-</html>
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -62,15 +20,19 @@
             @auth
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
                         <div>
-                            <a href="{{ route('dashboard')}}" class="textWhite nav-link" aria-current="page">Inicio</a>
-                        </div>
-                        <div>
-                            <form action="">
-                                @csrf
-                                <button href="/dashboard" type="submit" class="btn textWhite">Cerrar Sesión</button>
-                            </form>
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard')}}" class="textWhite nav-link active" aria-current="page">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form action="logout" method="POST"">
+                                        @csrf
+                                        <button href="/dashboard" type="submit" class="btn textWhite">Cerrar Sesión</button>
+                                    </form>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     
@@ -79,18 +41,19 @@
             @guest
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/logo.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
-                        <div>
-                            <a href="{{ route('home') }}" class="textWhite nav-link" aria-current="page">Inicio</a>
-                        </div>
-
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <div>
-                                <a href="{{ route('login') }}" class="text-right textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
-                            </div>
-                            <div>
-                                <a href="{{ route('register') }}" class="text-right textWhite nav-link active" aria-current="page">Crear Cuenta</a>
-                            </div>
+                        <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <div> 
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="textWhite nav-link active" aria-current="page">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                </li>                                
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}" class="textWhite nav-link active" aria-current="page">Registrate</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </nav>

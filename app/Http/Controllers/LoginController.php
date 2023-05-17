@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 /*use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;*/
@@ -35,18 +36,18 @@ class LoginController extends Controller
             // return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
             return back()->with('message', 'Las credenciales son incorrectas');
         }
-        Auth::logout();
+        //Auth::logout();
         return redirect()->route('dashboard');
     }
 
-    public function logout(request $request){
-        auth()->logout();
+    // public function logout(request $request){
+    //     auth()->logout();
 
-        $request->seccion()->invalidate();
+    //     $request->session()->invalidate();
 
-        $request->seccion()->regenerateToken();
-        return redirect()->route('layouts.dashboard');
-    }
+    //     $request->session()->regenerateToken();
+    //     return redirect()->route('dashboard');
+    // }
 
 
 }

@@ -12,35 +12,35 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
         <div class="container">
-            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            @if(!auth()->user())
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
-            </div>
-            @endif
-                @if (auth()->user())
-                    @if(auth()->user()->role===2)
-                   <div class="collapse navbar-collapse" id="navbarNav">
-                        <a class="text-right textWhite nav-link active" aria-current="page" href="concert">Crear concierto</a>
-                   </div>
-                   @endif
+            <img src="{{ asset('img/real 3.png') }}" class="" style="float: left">
+            <ul class="nav justify-content-end">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
+                </div>
+                @if(!auth()->user())
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
+                </div>
                 @endif
-            @if(!auth()->user())
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
-            </div>
-            @endif
-            @auth
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="customTransparent">Cerrar Sesión</button>
-            </form>
-            @endauth
-
-
+                    @if (auth()->user())
+                        @if(auth()->user()->role===2)
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                            <a class="text-right textWhite nav-link active" aria-current="page" href="concert">Crear concierto</a>
+                    </div>
+                    @endif
+                    @endif
+                @if(!auth()->user())
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
+                </div>
+                @endif
+                @auth
+                <form action="logout" method="POST">
+                    @csrf
+                    <button type="submit" class="customTransparent">Cerrar Sesión</button>
+                </form>
+                @endauth
+            </ul>
         </div>
     </nav>
     <div class="container mt-5">
@@ -48,15 +48,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body rounded-5">
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
         </div>
-    @endif
-@endsection
