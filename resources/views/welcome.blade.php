@@ -3,16 +3,13 @@
 @section('title')
     Inicio
 @endsection
-@section('title-page')
+@section('content')
+
     <div class="container">
         <div class="mb-4">
             <h1 class="text-center">Bienvenido a Melody</h1>
         </div>
     </div>
-@endsection
-
-@section('content')
-
     <div class="container">
         <div class="mb-4 justify-content-md-center">
 

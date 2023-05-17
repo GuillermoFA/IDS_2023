@@ -3,8 +3,7 @@
 @section('title')
     Iniciar Sesión
 @endsection
-@section('title-page')
-@endsection
+
 @section('content')
 
     <div class="container mt-5">
