@@ -1,0 +1,70 @@
+
+
+.concertRow{
+
+    padding: 50px 50px 0 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img{
+    width: 250px;
+    height: 200px;
+}
+
+.buttonRow{
+    padding: 10px 130px 0 130px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.button{
+    text-align: center;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 90px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+
+.button:hover{
+
+    background: #00D3A2;
+
+}
+
+.button:active{
+    background-color: #009572;
+}
+
+.concertInfoRow{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.concertInfo{
+    text-align: center;
+    width: 350px;
+    height: 10px;
+}
+
+.formButton{
+    text-align: center;
+    background-color: #fde801;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+.formButton:hover{
+
+    background: #00D3A2;
+    color: white;
+
+}

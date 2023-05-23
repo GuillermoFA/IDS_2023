@@ -39,7 +39,7 @@
                                 @enderror
                             </div>
                             <div class= "text-center rounded-5">
-                                <button type="submit" class="customYellow " >Iniciar Sesión</button>
+                                <button type="submit" class="formButton" >Iniciar Sesión</button>
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>

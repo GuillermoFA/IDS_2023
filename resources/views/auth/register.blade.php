@@ -41,7 +41,7 @@
                                 @enderror
                             </div>
                             <div class="text-center rounded-5">
-                                <input id="boton" type="button" value="Registrarse" class="customYellow">
+                                <input id="boton" type="button" value="Registrarse >" class="formButton">
                               </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿Ya tienes una cuenta?</label>
@@ -67,8 +67,8 @@
                 title: '¿Estás seguro que quieres enviar estos datos?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#4DD091',
-                cancelButtonColor: '#FF5C77',
+                confirmButtonColor: '#00D3A2',
+                cancelButtonColor: '#FF5733',
                 confirmButtonText: 'Enviar',
                 cancelButtonText: 'Cancelar',
                 allowOutsideClick: false,
