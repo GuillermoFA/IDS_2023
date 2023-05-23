@@ -24,7 +24,6 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
 
-        require_once('D:\Proyectos\ProyectoMelody\app\Helpers\MyHelper.php');
 
         $messages = makeMessages();
         // Validación
@@ -49,6 +48,7 @@ class RegisterController extends Controller
         ]);
 
         // Redireccionar al usuario
-        return view('layouts.dashboard');
+        echo "<script> alert('El usuario se registró correctamente'); location.href='dashboard'; </script>";
+        //return view('layouts.dashboard');
     }
 }

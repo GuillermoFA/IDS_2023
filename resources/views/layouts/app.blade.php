@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
     <title>Melody - @yield('title')</title>
+
 </head>
 
 <body>
@@ -20,12 +21,16 @@
             @auth
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
+                        <a href="{{ route('dashboard')}}">
+                        <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
+                        </a>
                         <div>
                             <ul class="nav justify-content-end">
-                                <li class="nav-item">
-                                    <a href="{{ route('dashboard')}}" class="textWhite nav-link active" aria-current="page">Inicio</a>
-                                </li>
+                                @if(auth()->user()->role===2)
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                        <a class="text-right textWhite nav-link active" aria-current="page" href="concert">Crear concierto</a>
+                                </div>
+                                @endif
                                 <li class="nav-item">
                                     <form action="logout" method="POST"">
                                         @csrf
@@ -35,21 +40,20 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                 </nav>
             @endauth
             @guest
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
-                        <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody">
-                        <div> 
+                        <a href="{{ route('dashboard')}}">
+                            <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
+                            </a>
+                        <div>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
-                                    <a href="{{ route('dashboard') }}" class="textWhite nav-link active" aria-current="page">Inicio</a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="{{ route('login') }}" class="textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
-                                </li>                                
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ route('register') }}" class="textWhite nav-link active" aria-current="page">Registrate</a>
                                 </li>

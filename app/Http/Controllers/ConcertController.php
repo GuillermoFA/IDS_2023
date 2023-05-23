@@ -59,7 +59,7 @@ class ConcertController extends Controller
             'date' => $request->date,
 
         ]);
-
-        return redirect()->route('dashboard');
+        echo "<script> alert('El concierto se creó correctamente'); location.href='dashboard'; </script>";
+        //return redirect()->route('dashboard');
     }
 }

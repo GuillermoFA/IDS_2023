@@ -8,19 +8,7 @@
 
 </head>
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-        <div class="container">
-            <div style="" >
-                <img src="{{ asset('img/logo.png') }}" class="" >
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="register">Registrate</a>
-            </div>
-        </div>
-    </nav> -->
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">

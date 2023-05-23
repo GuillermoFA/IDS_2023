@@ -23,7 +23,6 @@ class LoginController extends Controller
 
     public function loginAuth(Request $request)
     {
-        require_once 'D:\Proyectos\ProyectoMelody\app\Helpers\MyHelper.php';
         $messages = makeMessages();
         // Validar la información
         $this->validate($request, [
