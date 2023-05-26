@@ -1,27 +1,12 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Melody - Registrate</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
-    <!-- Style CSS -->
-    @vite('resources/css/color.css')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
+@extends('layouts.app')
+@section('title')
+    Registrar
+@endsection
+
+@section('content')
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-        <div class="container">
-            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
-            </div>
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -36,10 +21,7 @@
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name_user" class="form-label">Nombre</label>
-                                <input type="text"  id="name_user" name="name_user" placeholder="Nombre" class="form-control
-                            @error('name_user')
-                                textRed
-                            @enderror">
+                                <input type="text"  id="name_user" name="name_user" placeholder="Nombre" class="form-control">
                                 @error('name_user')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
@@ -59,7 +41,7 @@
                                 @enderror
                             </div>
                             <div class="text-center rounded-5">
-                                <input id="boton" type="button" value="Registrarse" class="customYellow">
+                                <input id="boton" type="button" value="Registrarse >" class="formButton">
                               </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿Ya tienes una cuenta?</label>
@@ -85,8 +67,8 @@
                 title: '¿Estás seguro que quieres enviar estos datos?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#4DD091',
-                cancelButtonColor: '#FF5C77',
+                confirmButtonColor: '#00D3A2',
+                cancelButtonColor: '#FF5733',
                 confirmButtonText: 'Enviar',
                 cancelButtonText: 'Cancelar',
                 allowOutsideClick: false,
@@ -98,6 +80,8 @@
             })
         })
     </script>
+@endsection
 </body>
 </html>
 </html>
+
