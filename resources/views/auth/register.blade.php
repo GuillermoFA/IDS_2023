@@ -1,25 +1,12 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Melody - Registrate</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
-    <!-- Style CSS -->
-    @vite('resources/css/color.css')
+@extends('layouts.app')
+@section('title')
+    Registrar
+@endsection
+
+@section('content')
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-        <div class="container">
-            <img src="{{ asset('img/logo.png') }}" class="" style="float: left">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="dashboard">Inicio</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="text-right textWhite nav-link active" aria-current="page" href="login">Inicia Sesión</a>
-            </div>
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -28,12 +15,14 @@
                         <h4>Registrar usuario</h4>
                     </div>
                     <div class="card-body rounded-5">
-                        <form id="formulario" action="{{ route('registerUser')}}" method="POST" novalidate>
+
+                        <form id="formulario" action="{{ route('register')}}" method="POST" novalidate>
+
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
-                                <label for="name" class="form-label">Nombre</label>
-                                <input type="text"  id="name" name="name" placeholder="Nombre" class="form-control">
-                                @error('name')
+                                <label for="name_user" class="form-label">Nombre</label>
+                                <input type="text"  id="name_user" name="name_user" placeholder="Nombre" class="form-control">
+                                @error('name_user')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -51,9 +40,9 @@
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class= "text-center rounded-5">
-                                <button id="boton" type="button" class="customYellow " >Registrarse</button>
-                            </div>
+                            <div class="text-center rounded-5">
+                                <input id="boton" type="button" value="Registrarse >" class="formButton">
+                              </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿Ya tienes una cuenta?</label>
                                 <a class="textHere" href="login">Iniciar sesión aquí</a>
@@ -64,34 +53,35 @@
             </div>
         </div>
     </div>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
 
-@endsection
+    <script>
+        // Aqui va nuestro script de sweetalert
+        const boton = document.getElementById("boton");
+        const formulario = document.getElementById("formulario");
 
-
-
-@section('alerta')
-<script>
-    // Aqui va nuestro script de sweetalert
-    const boton = document.getElementById("boton");
-    const formulario = document.getElementById("formulario");
-
-    boton.addEventListener('click', (e) => {
-        e.preventDefault();
-        Swal.fire({
-            title: '¿Estás seguro que quieres enviar estos datos?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#01BA80',
-            cancelButtonColor: '#E53537',
-            confirmButtonText: 'Enviar',
-            cancelButtonText: 'Cancelar',
-            allowOutsideClick: false,
-        }).then((result) => {
-            if (result.isConfirmed) {
-                formulario.submit();
-            }
+        boton.addEventListener('click', (e) => {
+            e.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro que quieres enviar estos datos?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#00D3A2',
+                cancelButtonColor: '#FF5733',
+                confirmButtonText: 'Enviar',
+                cancelButtonText: 'Cancelar',
+                allowOutsideClick: false,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    formulario.submit();
+                }
+            })
         })
-    })
-</script>
+    </script>
 @endsection
+</body>
+</html>
+</html>
 

@@ -32,7 +32,7 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 //Route::post('/create' , [registerUser::class, 'make']);
 
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
-Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
+// Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
 
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');

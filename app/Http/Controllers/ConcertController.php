@@ -35,7 +35,7 @@ class ConcertController extends Controller
             'name' => ['required', 'min:5'],
             'price' => ['required', 'numeric', 'min:20000', 'max:2147483647'],
             'stock' => ['required', 'numeric', 'between:100,400'],
-            'date' => ['required', 'date']
+            'date' => ['required', 'date', 'after:today','unique:Concerts,date']
         ], $messages);
 
         //  Verificamos si la fecha ingresada es mayor a la fecha actual.
@@ -59,7 +59,7 @@ class ConcertController extends Controller
             'date' => $request->date,
 
         ]);
-
-        return redirect()->route('dashboard');
+        echo "<script> alert('El concierto se creó correctamente'); location.href='dashboard'; </script>";
+        //return redirect()->route('dashboard');
     }
 }

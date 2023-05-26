@@ -12,7 +12,9 @@
                         <h4>Crear concierto</h4>
                     </div>
                     <div class="card-body rounded-5">
-                        <form id="formulario" action="{{ route('concert')}}" method="POST" novalidate>
+
+                        <form id="formulario" action="{{ route('concert')}}" method="POST" class="fomulario-crear"novalidate>
+
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name" class="form-label">Nombre</label>
@@ -38,13 +40,13 @@
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="date" class="form-label">Fecha</label>
                                 <input type="date" placeholder="Ingrese la fecha" id="date" name="date" class="form-control">
-                                @error('password')
+                                @error('date')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class= "text-center rounded-5">
-                                <button id="boton" type="submit" class="customYellow " >Registrar</button>
-                            </div>
+                            <div class="text-center rounded-5">
+                                <input id="boton" type="button" value="Crear Concierto" class="customYellow">
+                              </div>
                         </form>
 
                     </div>
@@ -53,13 +55,11 @@
         </div>
     </div>
 
-@endsection
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+    <!-- doble confirmacion-->
+    <script>
 
-
-
-
-@section('alerta')
-<script>
     // Aqui va nuestro script de sweetalert
     const boton = document.getElementById("boton");
     const formulario = document.getElementById("formulario");
@@ -67,21 +67,28 @@
     boton.addEventListener('click', (e) => {
         e.preventDefault();
         Swal.fire({
-            title: '¿Estás seguro que quieres enviar estos datos?',
+
+            title: '¿Estás seguro que quieres crear un concierto con estos datos?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#01BA80',
-            cancelButtonColor: '#E53537',
+            confirmButtonColor: '#4DD091',
+            cancelButtonColor: '#FF5C77',
+
             confirmButtonText: 'Enviar',
             cancelButtonText: 'Cancelar',
             allowOutsideClick: false,
         }).then((result) => {
+
+            /* Read more about isConfirmed, isDenied below */
+
             if (result.isConfirmed) {
                 formulario.submit();
             }
         })
     })
-</script>
+    </script>
 @endsection
-
+</body>
+</html>
+</html>
 
