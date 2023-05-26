@@ -35,10 +35,10 @@
         </div>
     </div>
     <div class="buttonRow">
-        <button class="button">Comprar</button>
-        <button class="button">Comprar</button>
-        <button class="button">Comprar</button>
-        <button class="button">Comprar</button>
+        <button class="buyButton">Comprar</button>
+        <button class="buyButton">Comprar</button>
+        <button class="buyButton">Comprar</button>
+        <button class="buyButton">Comprar</button>
     </div>
     <div class="concertRow">
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
@@ -69,10 +69,10 @@
         </div>
     </div>
     <div class="buttonRow">
-        <button class="button">Comprar</button>
-        <button class="button">Comprar</button>
-        <button class="button">Comprar</button>
-        <button class="button">Comprar</button>
+        <button class="buyButton">Comprar</button>
+        <button class="buyButton">Comprar</button>
+        <button class="buyButton">Comprar</button>
+        <button class="buyButton">Comprar</button>
     </div>
 </div>
 @endsection

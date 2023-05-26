@@ -35,7 +35,7 @@
                                 <li class="nav-item">
                                     <form action="logout" method="POST"">
                                         @csrf
-                                        <button href="/dashboard" type="submit" class="btn textWhite">Cerrar Sesión</button>
+                                        <button href="/dashboard" type="submit" class="btn textWhite logOutButton">Cerrar Sesión</button>
                                     </form>
                                 </li>
                             </ul>
@@ -56,7 +56,7 @@
                                     <a href="{{ route('login') }}" class="textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('register') }}" class="textWhite nav-link active" aria-current="page">Registrate</a>
+                                    <a href="{{ route('register') }}" class="textWhite nav-link active" aria-current="page">Regístrate</a>
                                 </li>
                             </ul>
                         </div>

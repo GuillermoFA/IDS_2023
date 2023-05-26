@@ -12,14 +12,24 @@
     height: 200px;
 }
 
+.logOutButton{
+    text-align: center;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 120px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+
 .buttonRow{
     padding: 10px 130px 0 130px;
     display: flex;
     justify-content: space-between;
-    
 }
 
-.button{
+.buyButton{
     text-align: center;
     background-color: #FF5733;
     color: white;
@@ -30,13 +40,13 @@
     transition-duration: 0.2s;
 }
 
-.button:hover{
+.buyButton:hover{
 
     background: #00D3A2;
-
+    padding: 0 0 10px 0;
 }
 
-.button:active{
+.buyButton:active{
     background-color: #009572;
 }
 
