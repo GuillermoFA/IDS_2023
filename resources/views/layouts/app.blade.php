@@ -28,10 +28,6 @@
                         <div class="jumbotron bg-black">
                             <h1 class="display-7 text-white small">Bienvenido/a {{auth()->user()->name}}</h1>
                           </div>
-                        <div class="jumbotron bg-black">
-                            <h1 class="display-7 text-white small">Bienvenido/a {{auth()->user()->name}}</h1>
-                          </div>
-                        <div>
                             <ul class="nav justify-content-end">
                                 @if(auth()->user()->role===2)
                                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,7 +37,7 @@
                                 <li class="nav-item">
                                     <form action="logout" method="POST"">
                                         @csrf
-                                        <button href="/dashboard" type="submit" class="btn textWhite logOutButton navButton">Cerrar Sesión</button>
+                                        <button href="/dashboard" type="submit" class=" logOutButton">Cerrar Sesión</button>
                                     </form>
                                     </li>
                                 </ul>

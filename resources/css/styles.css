@@ -13,18 +13,6 @@
     height: 200px;
 }
 
-/* Ajutes para: Botón "Cerrar Sesión" */
-.logOutButton{
-    text-align: center;
-    background-color: #FF5733;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    width: 120px;
-    height: 40px;
-    transition-duration: 0.2s;
-}
-
 /* Ajustes para: Fila de Botones "Comprar" en Dashboard */
 .buttonRow{
     padding: 10px 130px 0 130px;
@@ -49,6 +37,7 @@
 
     background: #00D3A2;
     padding: 0 0 10px 0;
+    font-weight: bold;
 }
 
 /* Animación para: Botón "Comprar" al hacer click en el.  */
@@ -94,17 +83,38 @@
 .navButton{
     
     height: 50px;
-    width: 130px;
+    width: 140px;
     color: white;
 
     padding: 13px 10px;
 
-    transition-duration: 0.2s;
+    transition-duration: 0s;
 
 }
 
 /* Animación para: Botónes en la barra de navegación. */
 .navButton:hover{
+
+    color: #00D3A2;
+    font-weight: bold;
+    text-decoration: overline;
+
+}
+
+/* Ajutes para: Botón "Cerrar Sesión" */
+.logOutButton{
+    text-align: left;
+    background-color: transparent;
+    padding: 16px 10px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 140px;
+    transition-duration: 0;
+}
+
+.logOutButton:hover{
 
     color: #00D3A2;
     font-weight: bold;
