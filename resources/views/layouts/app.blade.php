@@ -29,13 +29,13 @@
                             <ul class="nav justify-content-end">
                                 @if(auth()->user()->role===2)
                                 <div class="collapse navbar-collapse" id="navbarNav">
-                                        <a class="text-right textWhite nav-link active" aria-current="page" href="concert">Crear concierto</a>
+                                        <a class="text-right textWhite nav-link active navButton" aria-current="page" href="concert">Crear concierto</a>
                                 </div>
                                 @endif
                                 <li class="nav-item">
                                     <form action="logout" method="POST"">
                                         @csrf
-                                        <button href="/dashboard" type="submit" class="btn textWhite logOutButton">Cerrar Sesión</button>
+                                        <button href="/dashboard" type="submit" class="btn textWhite logOutButton navButton">Cerrar Sesión</button>
                                     </form>
                                 </li>
                             </ul>
@@ -53,10 +53,10 @@
                         <div>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                    <a href="{{ route('login') }}" class="navButton textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('register') }}" class="textWhite nav-link active" aria-current="page">Regístrate</a>
+                                    <a href="{{ route('register') }}" class="navButton textWhite nav-link active" aria-current="page">Regístrate</a>
                                 </li>
                             </ul>
                         </div>

@@ -6,7 +6,7 @@
 <body>
 @section('content')
 <div >
-    <div class="concertRow">
+    <div class="imgRow">
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
@@ -40,7 +40,7 @@
         <button class="buyButton">Comprar</button>
         <button class="buyButton">Comprar</button>
     </div>
-    <div class="concertRow">
+    <div class="imgRow">
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
         <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>

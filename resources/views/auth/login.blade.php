@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="font-weight-bold text-3xl card-header customYellow text-center">
-                        <h4>Inicia Sesión en Melody</h4>
+                        <h4>Iniciar Sesión en Melody</h4>
                     </div>
                     <div class="card-body rounded-5">
                         <form action="{{ route('loginAuth')}}" method="POST" novalidate>
