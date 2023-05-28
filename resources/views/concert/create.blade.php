@@ -45,7 +45,7 @@
                                 @enderror
                             </div>
                             <div class="text-center rounded-5">
-                                <input id="boton" type="button" value="Crear Concierto" class="customYellow">
+                                <input id="boton" type="button" value="Crear concierto >" class="formButton">
                               </div>
                         </form>
 
@@ -74,7 +74,7 @@
             confirmButtonColor: '#4DD091',
             cancelButtonColor: '#FF5C77',
 
-            confirmButtonText: 'Enviar',
+            confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar',
             allowOutsideClick: false,
         }).then((result) => {

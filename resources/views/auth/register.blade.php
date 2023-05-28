@@ -69,7 +69,7 @@
                 showCancelButton: true,
                 confirmButtonColor: '#00D3A2',
                 cancelButtonColor: '#FF5733',
-                confirmButtonText: 'Enviar',
+                confirmButtonText: 'Aceptar',
                 cancelButtonText: 'Cancelar',
                 allowOutsideClick: false,
             }).then((result) => {
