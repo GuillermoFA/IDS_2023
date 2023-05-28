@@ -25,6 +25,9 @@
                         <a href="{{ route('dashboard')}}">
                         <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
                         </a>
+                        <div class="jumbotron bg-black">
+                            <h1 class="display-7 text-white small">Bienvenido/a {{auth()->user()->name}}</h1>
+                          </div>
                         <div>
                             <ul class="nav justify-content-end">
                                 @if(auth()->user()->role===2)
@@ -37,8 +40,9 @@
                                         @csrf
                                         <button href="/dashboard" type="submit" class="btn textWhite logOutButton navButton">Cerrar Sesión</button>
                                     </form>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

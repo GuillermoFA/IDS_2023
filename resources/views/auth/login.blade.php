@@ -42,7 +42,7 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>
-                                <a class="textHere" href="register">Registrate</a>
+                                <a class="textHere" href="register">Regístrate</a>
                             </div>
                         </form>
 
