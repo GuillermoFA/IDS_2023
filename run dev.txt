@@ -1,0 +1,6 @@
+start serve.bat
+start rundev.bat
+cd C:\xampp
+start xampp-control
+cd C:\Users\vicente\Desktop\ramas proyectors\respaldo\Proyecto-Melody
+php artisan migrate:fresh

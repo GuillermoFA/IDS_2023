@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('concerts', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable');
+            #name of the concert
             $table->string('name');
-            $table->string('token', 64)->unique();
-            $table->text('abilities')->nullable();
-            $table->timestamp('last_used_at')->nullable();
-            $table->timestamp('expires_at')->nullable();
+            #date of the concert
+            $table->date('date')->unique();
+            #ticket stock
+            $table->integer('stock');
+            #prico of teh ticket
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('concierts');
     }
 };
