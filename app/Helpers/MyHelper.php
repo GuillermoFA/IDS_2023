@@ -9,7 +9,7 @@ function makeMessages()
     'password.required' => 'Este campo es obligatorio*',
     'password.min' => 'La contraseña posee menos de 8 caracteres*',
     'name.alpha' => 'El nombre tiene caracteres no permitidos. Ingrese solo letras',
-    'password.regex' => 'La contraseña ingresada no es alfanumerica'
+    'password.alpha_num' => 'La contraseña ingresada no es alfanumérica'
     ];
 
     return $messages;}
