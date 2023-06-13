@@ -62,4 +62,10 @@ class ConcertController extends Controller
         echo "<script> alert('El concierto se creó correctamente'); location.href='dashboard'; </script>";
         //return redirect()->route('dashboard');
     }
+
+    //Obtiene las datos del usuario que inició sesión.
+    public function myConcerts()
+    {
+        return view('detail.detail', ['user' => auth()->user()]);
+    }
 }

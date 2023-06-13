@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date')->unique();
             #ticket stock
             $table->integer('stock');
-            #prico of teh ticket
+            #price of the ticket
             $table->integer('price');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('concierts');
+        Schema::dropIfExists('concerts');
     }
 };
