@@ -23,31 +23,33 @@
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                     <div class="container">
                         <a href="{{ route('dashboard')}}">
-                            <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
+                        <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
                         </a>
-                        <!-- <div class="jumbotron bg-black">
+                        <div class="jumbotron bg-black">
                             <h1 class="display-7 text-white small">Bienvenido/a {{auth()->user()->name}}</h1>
-                        </div> -->
+                          </div>
                             <ul class="nav justify-content-end">
                                 @if(auth()->user()->role===2)
-                                <div class="collapse navbar-collapse">
+                                <div class="collapse navbar-collapse" id="navbarNav">
                                         <a class="text-right textWhite nav-link active navButton" aria-current="page" href="concert">Crear concierto</a>
                                 </div>
                                 @endif
-                                @if(auth()->user()->role===1)
-                                <div class="collapse navbar-collapse">
-                                        <a class="text-right textWhite nav-link active navButton" aria-current="page" href="detail">Detalle de Compras</a>
-                                </div>
-                                @endif
-                                <div class="collapse navbar-collapse">
+                                <li class="nav-item">
                                     <form action="logout" method="POST"">
                                         @csrf
-                                        <button href="/dashboard" type="submit" class="logOutButton">Cerrar Sesión</button>
+                                        <button href="/dashboard" type="submit" class=" logOutButton">Cerrar Sesión</button>
                                     </form>
-                                </div>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </nav>
             @endauth
             @guest
@@ -76,7 +78,7 @@
         @yield('content')
     </main>
     <footer>
-        <div class="container text-center customYellow mw-100">
+        <div class="container text-center customYellow mw-100 mt-4">
             {{-- agregar un posicionamiento de bottom --}}
             Melody - Todos los derechos reservados {{ now()->year }}
         </div>

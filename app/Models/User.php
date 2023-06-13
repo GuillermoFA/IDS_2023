@@ -18,7 +18,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id',
         'email',
         'role',
         'password',
@@ -43,11 +42,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    //Obtiene los datos de las ventas que coinciden con el 'id' del usuario.
-    public function salesData()
-    {
-        return $this->hasMany(Sales::class, 'userId');
-    }
 
 }

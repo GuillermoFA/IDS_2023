@@ -6,7 +6,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +29,10 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+//Route::post('/create' , [registerUser::class, 'make']);
 
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
-
-//Entrega la vista con lo detalles.
-Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
+// Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
 
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
