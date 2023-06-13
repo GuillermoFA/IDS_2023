@@ -82,9 +82,8 @@
 /* Ajustes para: Botónes en la barra de navegación. */
 .navButton{
     
-    white-space: normal;
-    /* height: 50px;
-    width: 140px; */
+    height: 50px;
+    width: 140px;
     color: white;
 
     padding: 13px 10px;
@@ -97,31 +96,28 @@
 .navButton:hover{
 
     color: #00D3A2;
+    font-weight: bold;
     text-decoration: overline;
 
 }
 
 /* Ajutes para: Botón "Cerrar Sesión" */
 .logOutButton{
-    white-space: normal;
     text-align: left;
     background-color: transparent;
-    padding: 13px 10px;
+    padding: 16px 10px;
     color: white;
     border: none;
-    /* height: 40px;
-    width: 140px; */
+    border-radius: 15px;
+    height: 40px;
+    width: 140px;
     transition-duration: 0;
 }
 
 .logOutButton:hover{
 
     color: #00D3A2;
+    font-weight: bold;
     text-decoration: overline;
 
-}
-
-/* Padding para dejar la tabla del detalle centrada */
-.tablePadding{
-    padding: 50px 20px 30px 20px;
 }
