@@ -20,7 +20,9 @@ use App\Http\Controllers\SalesController;
 */
 
 Route::get('/', function () {
-    return view('layouts.dashboard');
+
+    return view('auth.login');
+
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -31,16 +33,31 @@ Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+
+Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
+Route::post('concert-search', [ConcertController::class, 'searchDate'])->name('concert.search');
+
+Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
+// Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
+
+
 
 //Entrega la vista con lo detalles.
 Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
 
+
 Route::get('viewPdf', [SalesController::class, 'generatePdf'])->name('viewPdf');
+
 
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
 });
+
+
+
+Route::get('/concert-order/{id}', [SalesController::class, 'create'])->name('concert.buy');
+Route::post('/concert-order/{id}', [SalesController::class, 'store'])->name('concert.order.pay');
+Route::get('download-pdf/{id}', [SalesController::class, 'downloadPDF'])->name('pdf.download');
 
 

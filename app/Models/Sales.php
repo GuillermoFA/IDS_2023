@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Sales extends Model
 {
     use HasFactory;
-
     protected $fillable = [
+
         'id',
         'userId',
         'concertId',
@@ -17,14 +17,17 @@ class Sales extends Model
         'paymentMethod',
         'totalSale',
         'quantity',
-        'created_at'
+        'pdf_name',
+        'path',
+        'date'
     ];
 
-    //Obtiene los datos del conciertos que coinciden con la 'concertoId' de la venta.
-    public function concertData()
+    public function concertDates()
     {
+
         
         return $this->belongsTo(Concert::class, "concertId");
+
 
     }
 
