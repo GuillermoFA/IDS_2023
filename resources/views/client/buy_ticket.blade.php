@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-{{ $concert->name }}
+    Comprar Entrada
 @endsection
 
 
@@ -11,6 +11,7 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="font-weight-bold text-3xl card-header customYellow text-center">
+                        <h4>Comprar Entrada</h4>
                     </div>
                     <div class="card-body rounded-5">
                         <form id="formulario" action="{{ route('concert.order.pay', ['id' => $concert->id]) }}" method="POST" class="" novalidate>
@@ -44,12 +45,8 @@
 
                             <div class="mb-4">
                                 <label for="quantity" class="">Cantidad de entradas:</label>
-                                <select id="quantity" name="quantity" class="form-select">
-                                    <option selected value="0">--Seleccione la cantidad de entradas--</option>
-                                    @for ($i = 1; $i <= $concert->stock; $i++)
-                                        <option value = "{{ $i }}"> {{ $i }} </option>
-                                    @endfor
-                                </select>
+                                <input type="stock" placeholder="--Ingrese la cantidad de entradas--" id="quantity" name="quantity" class="form-control">
+
                             </div>
                             @error('quantity')
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }}</p>
@@ -60,13 +57,13 @@
                             @endif
 
                             <div class="mb-4">
-                                <label for="pay_method" class="">Forma de pago</label>
+                                <label for="pay_method" class="">Medio de pago</label>
                                 <select id="pay_method" name="pay_method" class="form-select" aria-label="Default select ">
                                     <option selected value="">--Seleccione un método de pago--</option>
                                     <option value="1">Efectivo</option>
                                     <option value="2">Transferencia</option>
-                                    <option value="3">Débito</option>
-                                    <option value="4">Crédito</option>
+                                    <option value="3">Tarjeta de Débito</option>
+                                    <option value="4">Tarjeta de Crédito</option>
                                 </select>
                             </div>
 
@@ -109,14 +106,13 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     formulario.submit();
-
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Tu compra se ha realizado con éxito',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-end',
+                    //     icon: 'success',
+                    //     title: 'Tu compra se ha realizado con éxito',
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
                 }
             })
         })
@@ -126,7 +122,7 @@
 @section('script')
     <script>
         const cantidad = document.getElementById('quantity');
-        cantidad.addEventListener('click', (e) => {
+        cantidad.addEventListener('change', (e) => {
             e.preventDefault();
             const venta = {{ $concert->price }} * cantidad.value;
             document.getElementById('total-sum').value = venta;

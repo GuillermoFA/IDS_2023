@@ -87,7 +87,7 @@
     <div class="total">
         <p class="total-pay">Total pagado: {{ $detail_order->total }}</p>
 
-        <p class="total-pay">Método de pago</p>
+        <p class="total-pay">Medio de pago</p>
         @switch($detail_order->payment_method)
             @case(1)
                 <p class="method-pay">Efectivo</p>
@@ -98,11 +98,11 @@
             @break
 
             @case(3)
-                <p class="method-pay">Débito</p>
+                <p class="method-pay">Tarjeta de Débito</p>
             @break
 
             @case(4)
-                <p class="method-pay">Crédito</p>
+                <p class="method-pay">Tarjeta de Crédito</p>
             @break
         @endswitch
     </div>

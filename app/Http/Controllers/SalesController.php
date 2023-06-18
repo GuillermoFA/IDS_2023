@@ -37,7 +37,7 @@ class SalesController extends Controller
         $validStock = verifyStock($id, $request->quantity);
 
         if (!$validStock) {
-            return back()->with('message', 'No se dispone del stock suficiente para este concierto.');
+            return back()->with('message', 'La cantidad de entredas ingresadas supera las entradas disponibles a comprar.');
         }
 
         //Crear la orden de compra
@@ -90,8 +90,10 @@ class SalesController extends Controller
         $detail_order->save();
 
 
+
         // Terminada la transaccion, redireccionar al usuario
-        return redirect()->route('dashboard');
+        echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='dashboard'; </script>";
+        // return redirect()->route('dashboard');
     }
 
 
