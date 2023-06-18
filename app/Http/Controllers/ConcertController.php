@@ -17,8 +17,8 @@ class ConcertController extends Controller
 
     public function index()
     {
-        // Retornar al dashboard
-        return view('layouts.dashboard');
+        $concerts = concert::getConcerts();
+        return view('layouts.dashboard',['concerts'=>$concerts]);
     }
 
     public function create()
@@ -61,5 +61,39 @@ class ConcertController extends Controller
         ]);
         echo "<script> alert('El concierto se creó correctamente'); location.href='dashboard'; </script>";
         //return redirect()->route('dashboard');
+    }
+
+    public function concertsList()
+    {
+        $concerts = Concert::getConcerts();
+        return view('layouts.dashboard', [
+            'concerts' => $concerts,
+        ]);
+    }
+
+    public function searchDate(Request $request)
+    {
+
+        $date=$request->date;
+
+        if($date === null){
+            $concerts = Concert::getConcerts();
+            return view('layouts.dashboard', [
+                'concerts' => $concerts,
+            ]);
+        }
+        $concerts = Concert::whereDate('date','=',$date)->get();
+        if($concerts->count() == 0)
+        {
+            return redirect(url('dashboard'))->with('successmessage','data saved successfully');
+        }
+        return view('layouts.dashboard',compact('concerts'));
+
+
+    //Obtiene las datos del usuario que inició sesión.
+    public function myConcerts()
+    {
+        return view('detail.detail', ['user' => auth()->user()]);
+
     }
 }

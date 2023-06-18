@@ -20,6 +20,7 @@
     <header>
         <div>
             @auth
+
             <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                 <div>
                     <div class="rectangule">
@@ -51,7 +52,9 @@
                         <div>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
+
                                     <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+
                                 </li>
                                 <div class= "rectanguleMain">
                                     <li class="nav-item">
@@ -71,8 +74,10 @@
         @yield('title-page')
         @yield('content')
     </main>
+
     <footer class="footer">
         <div class="">
+
             {{-- agregar un posicionamiento de bottom --}}
             Melody - Todos los derechos reservados {{ now()->year }}
         </div>
@@ -80,7 +85,9 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+    @yield('script')
     @yield('alerta')
+
 </html>
 
 
