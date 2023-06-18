@@ -40,7 +40,13 @@
                     <div class="jumbotron bg-black">
                         <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
                     </div>
+
                 </div>
+                <li class="nav-item">
+
+                    <a href="{{ route('detail') }}" class="onText textWhite nav-link active" aria-current="page">detalle</a>
+
+                </li>
             </nav>
             @endauth
             @guest
@@ -51,6 +57,7 @@
                         </a>
                         <div>
                             <ul class="nav justify-content-end">
+
                                 <li class="nav-item">
 
                                     <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>

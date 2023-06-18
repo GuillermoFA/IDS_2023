@@ -25,7 +25,7 @@ class SalesController extends Controller
 
         $user = User::where('id', $sale->userId)->first();
         $concert = Concert::where('id', $sale->concertId)->first();
-        
+
         $view = view('detail.viewPdf', ['sale' => $sale])->render();
 
         $pdf->loadHtml($view);
@@ -47,10 +47,10 @@ class SalesController extends Controller
             'created_at' => $sale->created_at
         ]);
 
-        
+
         return view('detail.detail', ['user' => auth()->user()]);
     }
-//nicolas 
+//nicolas
     public function create($id)
     {
         $concert = Concert::find($id);
@@ -61,14 +61,14 @@ class SalesController extends Controller
 
     public function store(Request $request, $id)
     {
-        $reservation_number = generateReservationNumber();
+        $reservationNumber = generateReservationNumber();
 
-        $request->request->add(['reservation_number' => $reservation_number]);
+        $request->request->add(['reservationNumber' => $reservationNumber]);
 
         $messages = makeMessages();
         $this->validate($request, [
             'quantity' => ['required', 'numeric', 'min:1'],
-            'pay_method' => ['required'],
+            'payMethod' => ['required'],
             'total' => ['required']
         ], $messages);
 
@@ -81,14 +81,14 @@ class SalesController extends Controller
 
         //Crear la orden de compra
         $detail_order = Sales::create([
-            'reservation_number' => $request->reservation_number,
+            'reservationNumber' => $request->reservationNumber,
             'quantity' => $request->quantity,
             'total' => $request->total,
-            'payment_method' => $request->pay_method,
-            'user_id' => auth()->user()->id,
-            'concert_id' => $id,
+            'paymentMethod' => $request->payMethod,
+            'userId' => auth()->user()->id,
+            'concertId' => $id,
 
-            'pdf_name' => NULL,
+            'pdfName' => NULL,
             'path' => NULL,
             'date' => NULL
         ]);
@@ -123,7 +123,7 @@ class SalesController extends Controller
         Storage::disk('public')->put($path, $domPDF->output());
 
 
-        $detail_order->pdf_name = $filename;
+        $detail_order->pdfName = $filename;
         $detail_order->path = $path;
         $detail_order->date = date("Y-m-d");
         $detail_order->save();

@@ -15,7 +15,7 @@ class Sales extends Model
         'concertId',
         'reservationNumber',
         'paymentMethod',
-        'totalSale',
+        'total',
         'quantity',
         'pdf_name',
         'path',
@@ -24,15 +24,11 @@ class Sales extends Model
 
     public function concertDates()
     {
-
-        
         return $this->belongsTo(Concert::class, "concertId");
-
-
     }
 
-    // public function userData()
-    // {
-    //     return $this->belongsTo(User::class, "id");
-    // }
+     public function userData()
+    {
+         return $this->belongsTo(User::class, "id");
+    }
 }

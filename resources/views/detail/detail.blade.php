@@ -31,19 +31,19 @@
                         {{$saleDetail->reservationNumber}}
                     </th>
                     <th>
-                        {{$saleDetail->concertData->name}}  
+                        {{$saleDetail->concertDates->name}}
                     </th>
                     <th>
-                        {{$saleDetail->concertData->date}}
+                        {{$saleDetail->concertDates->date}}
                     </th>
                     <th>
-                        {{$saleDetail->created_at}}  
+                        {{$saleDetail->created_at}}
                     </th>
                     <th>
                         {{$saleDetail->quantity}}
                     </th>
                     <th>
-                        ${{$saleDetail->totalSale/1000}}.000
+                        ${{$saleDetail->total/1000}}.000
                     </th>
                     <th>
                         {{$saleDetail->paymentMethod}}
