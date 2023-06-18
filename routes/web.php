@@ -20,7 +20,7 @@ use App\Http\Controllers\SalesController;
 */
 
 Route::get('/', function () {
-    return view('layouts.dashboard');
+    return view('login');
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -40,5 +40,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
 });
+
+
+Route::get('/concert-order/{id}', [SalesController::class, 'create'])->name('concert.buy');
+Route::post('/concert-order/{id}', [SalesController::class, 'store'])->name('concert.order.pay');
+Route::get('download-pdf/{id}', [SalesController::class, 'downloadPDF'])->name('pdf.download');
 
 
