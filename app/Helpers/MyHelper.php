@@ -27,7 +27,14 @@ function makeMessages()
         'stock.numeric' => 'El valor ingresado no es numérico.',
         'price.numeric' => 'El valor ingresado no es numérico.',
         'name.min' => 'El campo nombre del concierto no puede ser inferior a :min caracteres.',
-        'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos'
+        'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos',
+
+        'quantity.required' => 'El campo cantidad de entradas es requerido.',
+        'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
+        'quantity.numeric' => 'La cantidad de entradas ingresadas no es numérica.',
+        'pay_method.required' => 'El método de pago es requerido.',
+
+
     ];
 
     return $messages;
@@ -59,6 +66,7 @@ function existConcertDay($date_concert)
     return false;
 }
 
+
 function verifyStock($id, $quantity)
 {
     $concert = Concert::find($id);
@@ -78,10 +86,12 @@ function discountStock($id, $quantity)
     return true;
 }
 
+
 function generateReservationNumber()
 {
     do {
         $number = mt_rand(1000, 9999);
+
         // ejecutar foreach
     } while (substr($number, 0, 1) === '0');
 

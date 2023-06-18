@@ -1,16 +1,20 @@
 
-
-.concertRow{
+/* Ajustes para: Fila de imagenes de conciertos. */
+.imgRow{
 
     padding: 50px 50px 0 50px;
     display: flex;
     justify-content: space-between;
 }
 
+/* Ajuste para: imagen de concierto */
 .img{
     width: 250px;
     height: 200px;
 }
+
+
+/* Ajustes para: Fila de Botones "Comprar" en Dashboard */
 
 .buttonRow{
     padding: 10px 130px 0 130px;
@@ -19,7 +23,10 @@
 
 }
 
-.button{
+
+/* Ajustes para: Botón "Comprar" en Dashboard */
+.buyButton{
+
     text-align: center;
     background-color: #FF5733;
     color: white;
@@ -30,6 +37,7 @@
     transition-duration: 0.2s;
 }
 
+
 .button:hover{
 
     background: #00D3A2;
@@ -37,21 +45,36 @@
 }
 
 .button:active{
+
+/* Animación para: Botón "Comprar" al dejar el mouse encima.  */
+.buyButton:hover{
+
+    background: #00D3A2;
+    padding: 0 0 10px 0;
+    font-weight: bold;
+}
+
+/* Animación para: Botón "Comprar" al hacer click en el.  */
+.buyButton:active{
+
     background-color: #009572;
 }
 
+/* Ajustes para: Fila de información de conciertos en dashboard. */
 .concertInfoRow{
 
     display: flex;
     justify-content: space-between;
 }
 
+/* Ajustes para: Información de concierto en dashboard. */
 .concertInfo{
     text-align: center;
     width: 350px;
     height: 10px;
 }
 
+/* Ajustes para: Botones en formularios en general (Iniciar sesión, Registrar Usuario, etc...). */
 .formButton{
     text-align: center;
     background-color: #fde801;
@@ -62,12 +85,15 @@
     height: 40px;
     transition-duration: 0.2s;
 }
+
+/* Animación para: Botones en formularios al dejar el mouse encima. */
 .formButton:hover{
 
     background: #00D3A2;
     color: white;
 
 }
+
 .disableformButton{
     text-align: center;
     background-color: #6e6e6a;
@@ -84,3 +110,52 @@
     color: white;
 
 }
+
+
+/* Ajustes para: Botónes en la barra de navegación. */
+.navButton{
+    
+    white-space: normal;
+    /* height: 50px;
+    width: 140px; */
+    color: white;
+
+    padding: 13px 10px;
+
+    transition-duration: 0s;
+
+}
+
+/* Animación para: Botónes en la barra de navegación. */
+.navButton:hover{
+
+    color: #00D3A2;
+    text-decoration: overline;
+
+}
+
+/* Ajutes para: Botón "Cerrar Sesión" */
+.logOutButton{
+    white-space: normal;
+    text-align: left;
+    background-color: transparent;
+    padding: 13px 10px;
+    color: white;
+    border: none;
+    /* height: 40px;
+    width: 140px; */
+    transition-duration: 0;
+}
+
+.logOutButton:hover{
+
+    color: #00D3A2;
+    text-decoration: overline;
+
+}
+
+/* Padding para dejar la tabla del detalle centrada */
+.tablePadding{
+    padding: 50px 20px 30px 20px;
+}
+

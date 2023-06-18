@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
+
     return view('auth.login');
+
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -29,7 +32,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-//Route::post('/create' , [registerUser::class, 'make']);
+
 
 Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
 Route::post('concert-search', [ConcertController::class, 'searchDate'])->name('concert.search');
@@ -37,9 +40,20 @@ Route::post('concert-search', [ConcertController::class, 'searchDate'])->name('c
 Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 // Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
 
+
+
+//Entrega la vista con lo detalles.
+Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
+
+
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
 });
+
+
+Route::get('/concert-order/{id}', [SalesController::class, 'create'])->name('concert.buy');
+Route::post('/concert-order/{id}', [SalesController::class, 'store'])->name('concert.order.pay');
+Route::get('download-pdf/{id}', [SalesController::class, 'downloadPDF'])->name('pdf.download');
 
 

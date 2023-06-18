@@ -6,6 +6,7 @@
 <body>
 @section('content')
 
+
 @if (auth()->user()->role === 1)
         {{-- Opciones Cliente --}}
         <section class="container mt-4">
@@ -51,6 +52,7 @@
                     @endif
 
                 </div>
+
         </div>
         @endforeach
         </div>

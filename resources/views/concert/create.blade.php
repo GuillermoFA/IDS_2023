@@ -42,7 +42,9 @@
                                 @enderror
                             </div>
                             <div class="text-center rounded-5">
+
                                 <input id="button" type="button" value="Crear concierto" class="formButton">
+
                               </div>
                         </form>
 
