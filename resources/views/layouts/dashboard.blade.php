@@ -12,16 +12,16 @@
         <div class = "container">
             <ul class="nav flex-column menuVertical">
                 <li class="nav-item">
-                  <a class="nav-link textDark badge fs-5" href="concert">CREAR CONCIERTO</a>
+                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="concert">Crear Concierto</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link textDark badge fs-5" href="#">COMPRAS REALIZADAS</a>
+                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Compras Realizadas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link textDark badge fs-5" href="#">RECAUDACIONES</a>
+                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Recaudaciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link textDark badge fs-5 " href="#">BUSCAR CLIENTE</a>
+                    <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Buscar Cliente</a>
                   </li>
               </ul>
         </div>

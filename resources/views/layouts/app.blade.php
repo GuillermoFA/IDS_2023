@@ -22,15 +22,15 @@
             @auth
             <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                 <div>
-                    <div class="rectangulo">
+                    <div class="rectangule">
                         <a class="nav-item">
                             <form action="logout" method="POST">
                                 @csrf
-                                <button href="/dashboard" type="submit" class="textDark textoCerrar btn logOutButton ">Cerrar Sesión</button>
+                                <button href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
                             </form>
                         </a>
                     </div>
-                    <div class="rectanguloRotado"></div>
+                    <div class="rectanguleRotado"></div>
                 </div>
                 <div class="container">
                     <a href="{{ route('dashboard')}}">
@@ -51,14 +51,14 @@
                         <div>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="textoIniciar textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                    <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
                                 </li>
-                                <div class= "rectanguloMain">
+                                <div class= "rectanguleMain">
                                     <li class="nav-item">
-                                        <a href="{{ route('register') }}" class="textoRegistrarse textWhite nav-link active" aria-current="page">Regístrate</a>
+                                        <a href="{{ route('register') }}" class=" register textWhite  nav-link active" aria-current="page">Regístrate</a>
                                     </li>
                                 </div>
-                                <div class="rectanguloRotadoPrincipal"></div>
+                                <div class="rectanguleRotadePrincipal"></div>
                             </ul>
                         </div>
                     </div>

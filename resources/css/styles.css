@@ -168,7 +168,7 @@
     transform: translate(-150px,  9.7px);
 }
 
-.rectangulo { /* Texto para el cerrar sesion */
+.rectangule { /* Texto para el cerrar sesion */
     width: 420px;
     height: 53px;
     background-color: white;
@@ -178,7 +178,7 @@
     z-index: 999;
 }
 
-.rectanguloRotado { /* CSS puro */
+.rectanguleRotado { /* CSS puro */
     width: 100px;
     height: 60px;
     border-radius: 5%;
@@ -191,14 +191,14 @@
 }
 
 
-.textoCrear { /* CSS modifica posicionamiento CrearConcierto */
+.textCreate { /* CSS modifica posicionamiento CrearConcierto */
     font-size: 20.5px;
     vertical-align: top;
     line-height: 1;
     transform: translate(-100px,-35px);
 }
 
-.textoCerrar { /* CSS modifica posicionamiento Cerrar Sesion */
+.textClose{ /* CSS modifica posicionamiento Cerrar Sesion */
     font-size: 20.5px;
     vertical-align: top;
     line-height: 1;
@@ -206,7 +206,15 @@
     color: #010101;
 }
 
-.textoRegistrarse { /* CSS modifica posicionamiento Registrarse */
+.onText { /* CSS modifica posicionamiento Iniciar Sesion */
+    font-size: 27px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-25px,-68px);
+    color:white;
+}
+
+.register { /* CSS modifica posicionamiento Registrarse */
     font-size: 27px;
     vertical-align: top;
     line-height: 1;
@@ -214,13 +222,7 @@
     color: #010101;
 }
 
-.textoIniciar { /* CSS modifica posicionamiento Iniciar Sesion */
-    font-size: 27px;
-    vertical-align: top;
-    line-height: 1;
-    transform: translate(-25px,-68px);
-    color:white;
-}
+
 
 
 .jumbotronCustom {
@@ -232,7 +234,7 @@
     left: -500px; /* Ajusta la distancia desde la izquierda */
 }
 
-.rectanguloMain{ /* Texto para el cerrar sesion */
+.rectanguleMain{ /* Texto para el cerrar sesion */
     width: 300px;
     height: 53px;
     background-color: white;
@@ -242,7 +244,7 @@
     z-index: 999;
 }
 
-.rectanguloRotadoPrincipal { /* CSS puro */
+.rectanguleRotadePrincipal { /* CSS puro */
     width: 150px;
     height: 60px;
     border-radius: 5%;
@@ -265,7 +267,7 @@
 
 .carrousel{
     width: 1200px;
-    left: 150px;
+    left: 200px;
 }
 
 .menuVertical{
@@ -274,7 +276,7 @@
     position: absolute;
     text-align: center;
     left: 0px;
-    background-color: white;
+    background-color: #fde801;
 }
 
 li{
@@ -298,6 +300,24 @@ ul{
 }
 
 .adminButton:hover{
+
+    color: #00D3A2;
+
+}
+
+.adminButtonLeft{
+    text-align: center;
+    background-color: transparent;
+    padding: 16px 10px;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 280px;
+    transition-duration: 0;
+}
+
+.adminButtonLeft:hover{
 
     color: #00D3A2;
 
