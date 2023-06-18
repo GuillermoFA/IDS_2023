@@ -20,73 +20,68 @@
     <header>
         <div>
             @auth
-                <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-                    <div class="container">
-                        <a href="{{ route('dashboard')}}">
-                            <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
+
+            <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
+                <div>
+                    <div class="rectangule">
+                        <a class="nav-item">
+                            <form action="logout" method="POST">
+                                @csrf
+                                <button href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
+                            </form>
                         </a>
-
-                        <!-- <div class="jumbotron bg-black">
-                            <h1 class="display-7 text-white small">Bienvenido/a {{auth()->user()->name}}</h1>
-                        </div> -->
-                            <ul class="nav justify-content-end">
-                                @if(auth()->user()->role===2)
-                                <div class="collapse navbar-collapse">
-                                        <a class="text-right textWhite nav-link active navButton" aria-current="page" href="concert">Crear concierto</a>
-                                </div>
-                                @endif
-                                @if(auth()->user()->role===1)
-                                <div class="collapse navbar-collapse">
-                                        <a class="text-right textWhite nav-link active navButton" aria-current="page" href="detail">Detalle de Compras</a>
-                                </div>
-                                @endif
-                                <div class="collapse navbar-collapse">
-                                    <form action="logout" method="POST"">
-                                        @csrf
-                                        <button href="/dashboard" type="submit" class="logOutButton">Cerrar Sesión</button>
-                                    </form>
-
-                                </div>
-                            </ul>
-
-                        </div>
                     </div>
-                </nav>
+                    <div class="rectanguleRotado"></div>
+                </div>
+                <div class="container">
+                    <a href="{{ route('dashboard')}}">
+                    <img src="{{ asset('img/real 3.png') }}" class="imagen img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
+                    </a>
+                    <div class="jumbotron bg-black">
+                        <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
+                    </div>
+                </div>
+            </nav>
             @endauth
             @guest
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-                    <div class="container">
-                        <a href="{{ route('dashboard')}}">
-                            <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
-                            </a>
+                    <div class="container ">
+                        <a href="{{ route('login')}}">
+                            <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill imagen" style="float: left" alt="logo-Melody"/>
+                        </a>
                         <div>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="navButton textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
-                                </li>
-                                <li class="nav-item">
 
-                                    <a href="{{ route('register') }}" class="navButton textWhite nav-link active" aria-current="page">Regístrate</a>
+                                    <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
 
                                 </li>
+                                <div class= "rectanguleMain">
+                                    <li class="nav-item">
+                                        <a href="{{ route('register') }}" class=" register textWhite  nav-link active" aria-current="page">Regístrate</a>
+                                    </li>
+                                </div>
+                                <div class="rectanguleRotadePrincipal"></div>
                             </ul>
                         </div>
                     </div>
                 </nav>
             @endguest
+
         </div>
     </header>
     <main>
         @yield('title-page')
         @yield('content')
     </main>
-    <footer>
-        <div class="container text-center customYellow mw-100">
+
+    <footer class="footer">
+        <div class="">
+
             {{-- agregar un posicionamiento de bottom --}}
             Melody - Todos los derechos reservados {{ now()->year }}
         </div>
     </footer>
-
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
