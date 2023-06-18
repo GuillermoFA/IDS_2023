@@ -10,6 +10,7 @@ class Sales extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'userId',
         'concertId',
         'reservationNumber',
@@ -22,7 +23,13 @@ class Sales extends Model
     //Obtiene los datos del conciertos que coinciden con la 'concertoId' de la venta.
     public function concertData()
     {
-        return $this->belongsTo(Concert::class, "id");
+        
+        return $this->belongsTo(Concert::class, "concertId");
 
     }
+
+    // public function userData()
+    // {
+    //     return $this->belongsTo(User::class, "id");
+    // }
 }

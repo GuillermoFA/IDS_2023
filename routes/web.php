@@ -36,6 +36,8 @@ Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard
 //Entrega la vista con lo detalles.
 Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
 
+Route::get('viewPdf', [SalesController::class, 'generatePdf'])->name('viewPdf');
+
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');

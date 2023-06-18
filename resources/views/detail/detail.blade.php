@@ -49,7 +49,9 @@
                         {{$saleDetail->paymentMethod}}
                     </th>
                     <th>
-                        .pdf
+                        <a href="{{ route('viewPdf', ['saleId' => $saleDetail->id]) }}">
+                            <img src="{{ asset('img/pdf_icon.png') }}" width="50" height="50" style="rounded">
+                        </a>
                     </th>
                 </tr>
             </tbody>
