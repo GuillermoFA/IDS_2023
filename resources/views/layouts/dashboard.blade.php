@@ -5,77 +5,64 @@
 </head>
 <body>
 @section('content')
-<div >
-    <div class="concertRow">
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-    </div>
-    <div class="concertInfoRow">
-        <div>
-            <p class="concertInfo">Concierto 1</p>
-            <p class="concertInfo">Día: 10 de Mayo</p>
-            <p class="concertInfo">Valor de entrada: $25.000</p>
+
+@if (auth()->user()->role === 1)
+        {{-- Opciones Cliente --}}
+        <section class="container mt-4">
+            <div class="row">
+
+                <form action="{{ route('concert.search') }}" id=filtro method="POST">
+                    @csrf
+                    <div class="col mt-2">
+                        <label for="date" class="form-label">Filtrar fecha</label>
+                        <input type="date" class="form-control" name="date" id="date">
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-sm"> Filtrar </button>
+                </form>
+                @if(session('successmessage'))
+                <div class="jumbotron text-center" ">
+                    <h1 class="display-13  big">No hay conciertos disponibles para el día seleccionado, intenta con otra fecha o recarga la página</h1>
+                  </div>
+        @elseif ($concerts->count() > 0)
+        @foreach ($concerts as $concert)
+
+        <div class="col-md-3 mb-4">
+                <div class="card card-body text-center">
+                    <img src="{{ asset('img/concertIcon.png') }}" class="img"> </img>
+                    <h2 class="font-weight-bold mt-3 titulo-concierto" style="color: black; text-decoration: none;">{{$concert->name}}</h2>
+                    <p>
+                        Fecha del concierto: {{$concert->date}}<br>
+                    </p>
+                    <p>
+                        stock: {{$concert->stock}}<br>
+                    </p>
+                    <strong class="precio">
+                        Valor de la entrada: ${{$concert->price}} CLP
+                    </strong>
+                    @if($concert->stock>0)
+                    <div class="text-center">
+                        <button href="#####" type="button" class="formButton">Comprar</button>
+                    </div>
+                    @else
+                    <div class="text-center">
+                        <button href="#####" type="button" disabled class="disableformButton">Agotado</button>
+                    </div>
+                    @endif
+
+                </div>
         </div>
-        <div>
-            <p class="concertInfo">Concierto 2</p>
-            <p class="concertInfo">Día: 15 de Abril</p>
-            <p class="concertInfo">Valor de entrada: $25.000</p>
+        @endforeach
         </div>
-        <div>
-            <p class="concertInfo">Concierto 3</p>
-            <p class="concertInfo">Día: 25 de Enero</p>
-            <p class="concertInfo">Valor de entrada: $18.000</p>
-        </div>
-        <div>
-            <p class="concertInfo">Concierto 4</p>
-            <p class="concertInfo">Día: 8 de Febrero</p>
-            <p class="concertInfo">Valor de entrada: $19.990</p>
-        </div>
-    </div>
-    <div class="buttonRow">
-        <button class="buyButton">Comprar</button>
-        <button class="buyButton">Comprar</button>
-        <button class="buyButton">Comprar</button>
-        <button class="buyButton">Comprar</button>
-    </div>
-    <div class="concertRow">
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-        <img src="{{ asset('img/concertIcon.png') }}" class="img"></img>
-    </div>
-    <div class="concertInfoRow">
-        <div>
-            <p class="concertInfo">Concierto 5</p>
-            <p class="concertInfo">Día: 16 de Noviembre</p>
-            <p class="concertInfo">Valor de entrada: $21.000</p>
-        </div>
-        <div>
-            <p class="concertInfo">Concierto 6</p>
-            <p class="concertInfo">Día: 13 de Abril</p>
-            <p class="concertInfo">Valor de entrada: $45.000</p>
-        </div>
-        <div>
-            <p class="concertInfo">Concierto 7</p>
-            <p class="concertInfo">Día: 4 de Abril</p>
-            <p class="concertInfo">Valor de entrada: $30.000</p>
-        </div>
-        <div>
-            <p class="concertInfo">Concierto 8</p>
-            <p class="concertInfo">Día: 12 de Abril</p>
-            <p class="concertInfo">Valor de entrada: $50.000</p>
-        </div>
-    </div>
-    <div class="buttonRow">
-        <button class="buyButton">Comprar</button>
-        <button class="buyButton">Comprar</button>
-        <button class="buyButton">Comprar</button>
-        <button class="buyButton">Comprar</button>
-    </div>
-</div>
+        @else
+        <div class="jumbotron text-center" ">
+            <h1 class="display-13  big">No hay conciertos disponibles, Intenta más tarde</h1>
+          </div>
+        @endif
+    @endif
 @endsection
+<script>
+ const formulario = document.getElementById("formulario");
+</script>
 </body>
 </html>
-

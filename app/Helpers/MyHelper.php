@@ -58,3 +58,32 @@ function existConcertDay($date_concert)
     }
     return false;
 }
+
+function verifyStock($id, $quantity)
+{
+    $concert = Concert::find($id);
+
+    if ($quantity > $concert->stock) {
+        return false;
+    }
+    return true;
+}
+
+function discountStock($id, $quantity)
+{
+    $concert = Concert::find($id);
+
+    $concert->stock -= $quantity;
+    $concert->save();
+    return true;
+}
+
+function generateReservationNumber()
+{
+    do {
+        $number = mt_rand(1000, 9999);
+        // ejecutar foreach
+    } while (substr($number, 0, 1) === '0');
+
+    return $number;
+}

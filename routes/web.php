@@ -19,7 +19,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('layouts.dashboard');
+    return view('auth.login');
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -31,7 +31,10 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 //Route::post('/create' , [registerUser::class, 'make']);
 
-Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
+Route::post('concert-search', [ConcertController::class, 'searchDate'])->name('concert.search');
+
+Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
 // Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
 
 Route::group(['middleware' => 'admin'], function () {

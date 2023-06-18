@@ -12,24 +12,14 @@
     height: 200px;
 }
 
-.logOutButton{
-    text-align: center;
-    background-color: #FF5733;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    width: 120px;
-    height: 40px;
-    transition-duration: 0.2s;
-}
-
 .buttonRow{
     padding: 10px 130px 0 130px;
     display: flex;
     justify-content: space-between;
+
 }
 
-.buyButton{
+.button{
     text-align: center;
     background-color: #FF5733;
     color: white;
@@ -40,13 +30,13 @@
     transition-duration: 0.2s;
 }
 
-.buyButton:hover{
+.button:hover{
 
     background: #00D3A2;
-    padding: 0 0 10px 0;
+
 }
 
-.buyButton:active{
+.button:active{
     background-color: #009572;
 }
 
@@ -73,6 +63,22 @@
     transition-duration: 0.2s;
 }
 .formButton:hover{
+
+    background: #00D3A2;
+    color: white;
+
+}
+.disableformButton{
+    text-align: center;
+    background-color: #6e6e6a;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+.disableformButton:hover{
 
     background: #00D3A2;
     color: white;
