@@ -25,6 +25,7 @@
                         <a href="{{ route('dashboard')}}">
                             <img src="{{ asset('img/real 3.png') }}" class="img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
                         </a>
+
                         <!-- <div class="jumbotron bg-black">
                             <h1 class="display-7 text-white small">Bienvenido/a {{auth()->user()->name}}</h1>
                         </div> -->
@@ -44,8 +45,10 @@
                                         @csrf
                                         <button href="/dashboard" type="submit" class="logOutButton">Cerrar Sesión</button>
                                     </form>
+
                                 </div>
                             </ul>
+
                         </div>
                     </div>
                 </nav>
@@ -62,7 +65,9 @@
                                     <a href="{{ route('login') }}" class="navButton textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
                                 </li>
                                 <li class="nav-item">
+
                                     <a href="{{ route('register') }}" class="navButton textWhite nav-link active" aria-current="page">Regístrate</a>
+
                                 </li>
                             </ul>
                         </div>
