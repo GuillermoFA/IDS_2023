@@ -9,13 +9,14 @@ class Sales extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'reservation_number',
-        'quantity',
-        'total',
-        'payment_method',
-        'user_id',
-        'concert_id',
 
+        'id',
+        'userId',
+        'concertId',
+        'reservationNumber',
+        'paymentMethod',
+        'totalSale',
+        'quantity',
         'pdf_name',
         'path',
         'date'
@@ -23,6 +24,15 @@ class Sales extends Model
 
     public function concertDates()
     {
-        return $this->belongsTo(Concert::class, 'concert_id');
+
+        
+        return $this->belongsTo(Concert::class, "concertId");
+
+
     }
+
+    // public function userData()
+    // {
+    //     return $this->belongsTo(User::class, "id");
+    // }
 }
