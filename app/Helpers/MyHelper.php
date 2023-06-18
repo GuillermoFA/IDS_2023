@@ -32,7 +32,7 @@ function makeMessages()
         'quantity.required' => 'El campo cantidad de entradas es requerido.',
         'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
         'quantity.numeric' => 'La cantidad de entradas ingresadas no es numérica.',
-        'pay_method.required' => 'El método de pago es requerido.',
+        'payMethod.required' => 'El método de pago es requerido.',
 
 
     ];

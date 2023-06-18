@@ -89,7 +89,7 @@ class ConcertController extends Controller
         }
         return view('layouts.dashboard',compact('concerts'));
 
-
+    }
     //Obtiene las datos del usuario que inició sesión.
     public function myConcerts()
     {

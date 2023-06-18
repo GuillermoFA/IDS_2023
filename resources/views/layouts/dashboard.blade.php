@@ -106,11 +106,15 @@
                     </strong>
                     @if($concert->stock>0)
                     <div class="text-center">
-                        <button href="#####" type="button" class="formButton">Comprar</button>
-                    </div>
+                    <a href={{ route('concert.buy', ['id' => $concert->id]) }}
+                        class="formButton"
+                        type="submit">
+                        Comprar Entrada
+                    </a>
+                </div>
                     @else
                     <div class="text-center">
-                        <button href="#####" type="button" disabled class="disableformButton">Agotado</button>
+                        <button href= ## type="button" disabled class="disableformButton">Agotado</button>
                     </div>
                     @endif
 
