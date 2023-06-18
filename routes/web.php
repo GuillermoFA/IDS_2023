@@ -30,10 +30,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-//Route::post('/create' , [registerUser::class, 'make']);
 
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
-// Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
+
+//Entrega la vista con lo detalles.
+Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
 
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');

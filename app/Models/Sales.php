@@ -25,5 +25,4 @@ class Sales extends Model
     {
         return $this->belongsTo(Concert::class, 'concert_id');
     }
-
 }
