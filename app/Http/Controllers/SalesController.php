@@ -133,7 +133,7 @@ class SalesController extends Controller
 
 
         // Terminada la transaccion, redireccionar al usuario
-        echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='dashboard'; </script>";
+        echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='/dashboard'; </script>";
         // return redirect()->route('dashboard');
     }
 

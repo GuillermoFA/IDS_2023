@@ -37,7 +37,7 @@
                     <div class="nav-item">
                         <form id="logOut" action="logout" method="POST">
                             @csrf
-                            <button id="logOutButton" href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
+                            <button id="logOutButton" href="/dashboard" type="submit" class="btn logOutButton">Cerrar Sesión</button>
                         </form>
                     </div>
                         @if(auth()->user()->role===2)
@@ -46,12 +46,13 @@
                         </div>
                         @endif
                         @if(auth()->user()->role===1)
-                        <div class="collapse navbar-collapse">
-                            <a class="text-right textWhite nav-link active navButton" aria-current="page" href="detail">Detalle de Compras</a>
+                        <div class="">
+                            <a class="btn detailButton" aria-current="page" href="detail">Detalle de Compras</a>
                         </div>
                         @endif
-
+                    
                 </div>
+                <div class="rectanguleRotated z-index-2"></div>
             </nav>
             @endauth
             @guest
@@ -64,16 +65,15 @@
                             <ul class="nav justify-content-end">
 
                                 <li class="nav-item">
-
-                                    <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
-
+                                    <a href="{{ route('login') }}" class="login textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                    
                                 </li>
-                                <div class= "rectangule">
-                                    <li class="nav-item">
-                                        <a href="{{ route('register') }}" class=" register textWhite  nav-link active" aria-current="page">Regístrate</a>
-                                    </li>
-                                </div>
-                                <div class="rectanguleRotadePrincipal"></div>
+                                <li class="nav-item rectangule">
+                                    <a href="{{ route('register') }}" class="register nav-link active" aria-current="page">Regístrate</a>
+                                    
+                                </li>
+                                
+                                <div class="rectanguleRotated"></div>
                             </ul>
                         </div>
                     </div>
