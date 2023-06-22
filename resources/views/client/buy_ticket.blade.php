@@ -5,7 +5,6 @@
 
 
 @section('content')
-
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -16,14 +15,12 @@
                     <div class="card-body rounded-5">
                         <form id="formulario" action="{{ route('concert.order.pay', ['id' => $concert->id]) }}" method="POST" class="" novalidate>
                             @csrf
-
                             <div class="row customTab rounded-3 my-4">
                                 <h2>Nombre del concierto:</h2>
                                 <div class=" text-center position-relative top-0 start-50 translate-middle ">
                                     <h2>{{ $concert->name }}</h2>
                                 </div>
                             </div>
-
                             <div class="row customTab rounded-3 justify-content-start my-4">
                                 <div class="col-5">
                                     <h2>Fecha del concierto:</h2>
@@ -31,9 +28,7 @@
                                 <div class="col-5">
                                     <h2>{{ date('d/m/Y', strtotime($concert->date)) }}</h2>
                                 </div>
-
                             </div>
-
                             <div class="row customTab rounded-3 justify-content-start my-4">
                                 <div class="col-5">
                                     <h2>Valor de la entrada:</h2>
@@ -42,20 +37,16 @@
                                     <h2>{{ $concert->price }}</h2>
                                 </div>
                             </div>
-
                             <div class="mb-4">
                                 <label for="quantity" class="">Cantidad de entradas:</label>
                                 <input type="stock" placeholder="--Ingrese la cantidad de entradas--" id="quantity" name="quantity" class="form-control">
-
                             </div>
                             @error('quantity')
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }}</p>
                             @enderror
-
                             @if (session('message'))
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ session('message') }}</p>
                             @endif
-
                             <div class="mb-4">
 
                                 <label for="paymentMethod" class="">Medio de pago</label>
@@ -68,12 +59,9 @@
                                 </select>
                             </div>
 
-
                             @error('paymentMethod')
-
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }} </p>
                             @enderror
-
 
                              <input id="totalSum" name="total" value="{{ $concert->price }}" hidden>
                             <button id="BuyButton" type="button" class="buyButton">Comprar entrada</button>
@@ -81,13 +69,10 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
 @endsection
-
 
 @section('alerta')
     <script>

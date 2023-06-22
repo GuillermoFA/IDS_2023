@@ -10,7 +10,6 @@
     @if ($user->salesData->count() == 0)
             <h1 class="text-center">No hay entradas adquiridas por desplegar</h1>
     @else
-    
     <div class="tablePadding">
         <h3 class="text-center">
             Detalle de Compras Realizadas

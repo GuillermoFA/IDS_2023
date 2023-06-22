@@ -29,7 +29,7 @@ class ConcertController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+
         $messages = makeMessages();
         // Validar
         $this->validate($request, [
@@ -44,7 +44,6 @@ class ConcertController extends Controller
         if ($invalidDate) {
             return back()->with('message', 'La fecha debe ser mayor a ' . date("d-m-Y"));
         }
-
 
         // Verificar si en la fecha ingresada existe un concierto.
         $existConcert = existConcertDay($request->date);
@@ -66,7 +65,7 @@ class ConcertController extends Controller
 
     public function concertsList()
     {
-
+        //Solamente los clientes pueden ver los conciertos.
         if(Auth()->user()->role == '2')
         {
             return redirect()->route('dashboard');

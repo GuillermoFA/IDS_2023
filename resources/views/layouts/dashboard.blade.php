@@ -9,7 +9,7 @@
 <div >
     @auth
     @if (auth()->user()->role===2)
-    <div class = "container">
+    <div class = "container z">
         <div class = "container">
             <ul class="nav flex-column menuVertical">
                 <li class="nav-item">
@@ -26,7 +26,6 @@
                   </li>
               </ul>
         </div>
-
         <div id="carouselExampleIndicators" class="carousel slide carrousel" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -35,13 +34,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="./img/Carrusel1.jpg" class="d-block w-100" alt="...">
+                <img src="./img/Carrusel1.jpg" class="d-block w-100 carruselImg" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="./img/Carrusel2.jpg" class="d-block w-100" alt="...">
+                <img src="./img/Carrusel2.jpg" class="d-block w-100 carruselImg" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="./img/Carrusel3.jpg" class="d-block w-100" alt="...">
+                <img src="./img/Carrusel3.jpg" class="d-block w-100 carruselImg" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -53,23 +52,10 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-
-
-
-
-
-
-
-
     </div>
-
     @endif
     @endauth
-
 </div>
-
-
-
 @if (auth()->user()->role === 1)
         {{-- Opciones Cliente --}}
         <section class="container mt-4">

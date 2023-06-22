@@ -15,16 +15,13 @@ use Illuminate\Support\Facades\Auth;
 class SalesController extends Controller
 {
 
-
     public function create($id)
     {
         //Antes de poder entrar a comprar, verifica si el usuario está logeado
-
         if (auth()->user() == null)
         {
             return redirect()->route('login');
         }
-
 
         //Solo es posible comprar entradas si es un cliente quien desea hacerlo
         if(auth()->user()->role == '2')
@@ -50,6 +47,7 @@ class SalesController extends Controller
         ]);
     }
 
+    //Guarda la venta y genera un pdf relacionado
     public function store(Request $request, $id)
     {
         //Excepción, soluciona el problema N°4. "No cierra sesión cuando se está comprando una entrada"
@@ -79,7 +77,6 @@ class SalesController extends Controller
         }
 
         //Crear la orden de compra
-
         $detailOrder = Sales::create([
             'reservationNumber' => $request->reservationNumber,
             'quantity' => $request->quantity,
@@ -95,7 +92,6 @@ class SalesController extends Controller
 
         // Descontar el stock del concierto
         discountStock($id, $request->quantity);
-
 
         $user = auth()->user();
 
@@ -122,20 +118,15 @@ class SalesController extends Controller
         $path = 'pdfs\\' . $filename;
         Storage::disk('public')->put($path, $domPDF->output());
 
-
-
         $detailOrder->pdfName = $filename;
         $detailOrder->path = $path;
         $detailOrder->date = date("Y-m-d");
         $detailOrder->save();
 
-
-
         // Terminada la transaccion, redireccionar al usuario
         echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='/dashboard'; </script>";
         // return redirect()->route('dashboard');
     }
-
 
     public function downloadPDF($id)
     {
@@ -150,30 +141,8 @@ class SalesController extends Controller
 
         // Obtener el tipo MIME del archivo PDF
         $mimeType = Storage::mimeType($path);
+
         // Devolver el archivo PDF como una descarga
         return response()->download($path, $filename, ['Content-Type' => $mimeType]);
     }
-
-
-
-
-
-
-    public function pdf()
-    {
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf();
-
-        $view_html = view('');
-        $dompdf->loadHtml($view_html);
-
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-        // Output the generated PDF to Browser
-        return $dompdf->stream();
-    }
-
-
-
 }
