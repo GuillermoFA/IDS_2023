@@ -77,21 +77,20 @@
 
                 <form action="{{ route('concert.search') }}" id=filtro method="POST">
                     @csrf
-                    <div class="col mt-2">
+                    <div class="col mt-2 filter">
                         <label for="date" class="form-label">Filtrar fecha</label>
                         <input type="date" class="form-control" name="date" id="date">
                     </div>
-
-                    <button type="submit" class="btn btn-info btn-sm"> Filtrar </button>
+                  <button type="submit" class="btn btn-info btn-sm"> Filtrar </button>
                 </form>
-                @if(session('successmessage'))
-                <div class="jumbotron text-center" ">
-                    <h1 class="display-13  big">No hay conciertos disponibles para el día seleccionado, intenta con otra fecha o recarga la página</h1>
-                  </div>
-        @elseif ($concerts->count() > 0)
-        @foreach ($concerts as $concert)
+              @if(session('successmessage'))
+              <div class="jumbotron text-center" ">
+                <h1 class="display-13  big">No hay conciertos disponibles para el día seleccionado, intenta con otra fecha o recarga la página</h1>
+              </div>
+              @elseif ($concerts->count() > 0)
+              @foreach ($concerts as $concert)
 
-        <div class="col-md-3 mb-4">
+              <div class="col-md-3 mb-4">
                 <div class="card card-body text-center">
                     <img src="{{ asset('img/concertIcon.png') }}" class="img"> </img>
                     <h2 class="font-weight-bold mt-3 titulo-concierto" style="color: black; text-decoration: none;">{{$concert->name}}</h2>
@@ -117,10 +116,8 @@
                         <button href= ## type="button" disabled class="disableformButton">Agotado</button>
                     </div>
                     @endif
-
                 </div>
-
-        </div>
+              </div>
         @endforeach
         </div>
         @else

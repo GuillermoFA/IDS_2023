@@ -23,14 +23,6 @@
 
             <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
                 <div>
-                    <div class="rectangule">
-                        <a class="nav-item">
-                            <form action="logout" method="POST">
-                                @csrf
-                                <button href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
-                            </form>
-                        </a>
-                    </div>
                     <div class="rectanguleRotado"></div>
                 </div>
                 <div class="container">
@@ -40,6 +32,25 @@
                     <div class="jumbotron bg-black">
                         <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
                     </div>
+                </div>
+                <div class="rectangule">
+                    <a class="nav-item">
+                        <form action="logout" method="POST">
+                            @csrf
+                            <button href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
+                        </form>
+                    </a>
+                        @if(auth()->user()->role===2)
+                        <div class="collapse navbar-collapse">
+                            <a class="text-right textWhite nav-link active navButton" aria-current="page" href="concert">Crear concierto</a>
+                        </div>
+                        @endif
+                        @if(auth()->user()->role===1)
+                        <div class="collapse navbar-collapse">
+                            <a class="text-right textWhite nav-link active navButton" aria-current="page" href="detail">Detalle de Compras</a>
+                        </div>
+                        @endif
+
                 </div>
             </nav>
             @endauth
@@ -51,12 +62,13 @@
                         </a>
                         <div>
                             <ul class="nav justify-content-end">
+
                                 <li class="nav-item">
 
                                     <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
 
                                 </li>
-                                <div class= "rectanguleMain">
+                                <div class= "rectangule">
                                     <li class="nav-item">
                                         <a href="{{ route('register') }}" class=" register textWhite  nav-link active" aria-current="page">Regístrate</a>
                                     </li>

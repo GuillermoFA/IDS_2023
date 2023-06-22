@@ -14,43 +14,6 @@ class SalesController extends Controller
 {
 
 
-    //Genera un pdf con la información de una compra realizada.
-    public function generatePdf(Request $idSale)
-    {
-
-        $pdf = new Dompdf();
-        // $sale = Sales::findOrFail($idSale);
-        // $sale = new Sales();
-        $sale = Sales::findOrFail( $idSale)->first();
-
-        $user = User::where('id', $sale->userId)->first();
-        $concert = Concert::where('id', $sale->concertId)->first();
-        
-        $view = view('detail.viewPdf', ['sale' => $sale])->render();
-
-        $pdf->loadHtml($view);
-        $pdf->setPaper('A4', 'portrait');
-        $pdf->render();
-
-        $pdfName = 'pdf_' . Str::random(10) . '.pdf';
-        $path= 'pdfs\\' . $pdfName;
-
-        Storage::disk('public')->put($path, $pdf->output());
-
-        $saleDara = Sales::create([
-            'userId' => $sale->userId,
-            'concertId' => $sale->concertId,
-            'reservationNumber' => $sale->reservationNumber,
-            'paymentMethod' => $sale->paymentMethod,
-            'totalSale' => $sale->totalSale,
-            'quantity' => $sale->quantity,
-            'created_at' => $sale->created_at
-        ]);
-
-        
-        return view('detail.detail', ['user' => auth()->user()]);
-    }
-//nicolas 
     public function create($id)
     {
         $concert = Concert::find($id);
@@ -61,14 +24,14 @@ class SalesController extends Controller
 
     public function store(Request $request, $id)
     {
-        $reservation_number = generateReservationNumber();
+        $reservationNumber = generateReservationNumber();
 
-        $request->request->add(['reservation_number' => $reservation_number]);
+        $request->request->add(['reservationNumber' => $reservationNumber]);
 
         $messages = makeMessages();
         $this->validate($request, [
             'quantity' => ['required', 'numeric', 'min:1'],
-            'pay_method' => ['required'],
+            'payMethod' => ['required'],
             'total' => ['required']
         ], $messages);
 
@@ -81,14 +44,14 @@ class SalesController extends Controller
 
         //Crear la orden de compra
         $detail_order = Sales::create([
-            'reservation_number' => $request->reservation_number,
+            'reservationNumber' => $request->reservationNumber,
             'quantity' => $request->quantity,
             'total' => $request->total,
-            'payment_method' => $request->pay_method,
-            'user_id' => auth()->user()->id,
-            'concert_id' => $id,
+            'paymentMethod' => $request->payMethod,
+            'userId' => auth()->user()->id,
+            'concertId' => $id,
 
-            'pdf_name' => NULL,
+            'pdfName' => NULL,
             'path' => NULL,
             'date' => NULL
         ]);
@@ -123,7 +86,7 @@ class SalesController extends Controller
         Storage::disk('public')->put($path, $domPDF->output());
 
 
-        $detail_order->pdf_name = $filename;
+        $detail_order->pdfName = $filename;
         $detail_order->path = $path;
         $detail_order->date = date("Y-m-d");
         $detail_order->save();
@@ -140,7 +103,7 @@ class SalesController extends Controller
         $pdf = Sales::findOrFail($id);
 
         // Obtener la ruta del archivo PDF
-        $path = storage_path('app\public\pdfs\\' . $pdf->pdf_name);
+        $path = storage_path('app\public\pdfs\\' . $pdf->pdfName);
 
         // Obtener el nombre original del archivo
         $filename = $pdf->pdf_name;

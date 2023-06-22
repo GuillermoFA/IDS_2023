@@ -60,8 +60,8 @@
                             @endif
 
                             <div class="mb-4">
-                                <label for="pay_method" class="">Forma de pago</label>
-                                <select id="pay_method" name="pay_method" class="form-select" aria-label="Default select ">
+                                <label for="payMethod" class="">Forma de pago</label>
+                                <select id="payMethod" name="payMethod" class="form-select" aria-label="Default select ">
                                     <option selected value="">--Seleccione un método de pago--</option>
                                     <option value="1">Efectivo</option>
                                     <option value="2">Transferencia</option>
@@ -70,7 +70,7 @@
                                 </select>
                             </div>
 
-                            @error('pay_method')
+                            @error('payMethod')
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }} </p>
                             @enderror
 

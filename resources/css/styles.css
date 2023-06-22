@@ -128,25 +128,18 @@
 
 /* Ajustes para: Botónes en la barra de navegación. */
 .navButton{
-
-
     height: 50px;
-    width: 140px;
-
-    color: white;
-
-    padding: 13px 10px;
-
+    width: 210px;
+    font-size: 20px;
+    color: black;
+    transform: translate(145px, -46px);
     transition-duration: 0s;
 
 }
 
 /* Animación para: Botónes en la barra de navegación. */
 .navButton:hover{
-
     color: #00D3A2;
-    text-decoration: overline;
-
 }
 
 /* Ajutes para: Botón "Cerrar Sesión" */
@@ -155,6 +148,7 @@
     text-align: left;
     background-color: transparent;
     padding: 13px 10px;
+    font-size: 20px;
     color: white;
     border: none;
     /* height: 40px;
@@ -185,13 +179,13 @@
 
 .backgroundNav{
     height: 140px;
-    background: linear-gradient(to bottom, #fde801 18.5%, #fde801 1%,#010101 0%,#010101 54.644%, #fde801 2%, #fde801 100%);
+    background: linear-gradient(to bottom, #fde801 18.5%, #fde801 1%,#010101 0%,#010101 54.5%, #fde801 2%, #fde801 100%);
 }
 
 .imagen {
     width: 400px;
     height: auto; /* Mantiene la proporción original de la imagen */
-    transform: translate(-150px,  9.7px);
+    transform: translate(-150px,  9.6px);
 }
 
 .rectangule { /* Texto para el cerrar sesion */
@@ -204,14 +198,16 @@
     z-index: 999;
 }
 
-.rectanguleRotado { /* CSS puro */
-    width: 100px;
+
+/* CSS puro */
+.rectanguleRotado { 
+    width: 180px;
     height: 60px;
-    border-radius: 5%;
+    border-radius: 50px;
     background-color: white;
     position: absolute;
-    top: 50px;
-    right: 375px;
+    top: 77px;
+    right: 354px;
     transform:rotate(300deg);
     z-index: 300;
 }
@@ -360,5 +356,4 @@ ul{
 .tablePadding{
     padding: 50px 20px 30px 20px;
 }
-
 
