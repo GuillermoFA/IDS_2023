@@ -108,6 +108,14 @@
 
 }
 
+
+/* Ajustes para: Botónes en la barra de navegación. */
+.navButton{
+
+    white-space: normal;
+    /* height: 50px;
+  width: 140px; */}
+
 .disableformButton{
     text-align: center;
     background-color: #6e6e6a;
@@ -121,6 +129,7 @@
 .disableformButton:hover{
 
     background: #00D3A2;
+
     color: white;
 
 }
@@ -371,4 +380,5 @@ ul{
 {
     z-index: 0;
 }
+
 

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class SalesController extends Controller
 {
@@ -17,10 +19,12 @@ class SalesController extends Controller
     public function create($id)
     {
         //Antes de poder entrar a comprar, verifica si el usuario está logeado
+
         if (auth()->user() == null)
         {
             return redirect()->route('login');
         }
+
 
         //Solo es posible comprar entradas si es un cliente quien desea hacerlo
         if(auth()->user()->role == '2')
@@ -29,6 +33,18 @@ class SalesController extends Controller
         }
 
         $concert = Concert::find($id);
+
+        //si el usuario no ha iniciado sesion
+        if(!auth()->check()){
+            return redirect()->route('dashboard');
+        };
+
+        //si el usuario es un administrador
+        if(auth()->user()->role == 2){
+            return redirect()->route('dashboard');
+        }
+
+        //si el usuario es un cliente
         return view('client.buy_ticket', [
             'concert' => $concert
         ]);
@@ -42,6 +58,8 @@ class SalesController extends Controller
             auth()->logout();
             return redirect()->route('login');
         }
+        
+        $reservationNumber = generateReservationNumber();
 
         $reservationNumber = generateReservationNumber();
 
@@ -50,7 +68,9 @@ class SalesController extends Controller
         $messages = makeMessages();
         $this->validate($request, [
             'quantity' => ['required', 'numeric', 'min:1'],
-            'payMethod' => ['required'],
+
+            'paymentMethod' => ['required'],
+
             'total' => ['required']
         ], $messages);
 
@@ -58,15 +78,16 @@ class SalesController extends Controller
         $validStock = verifyStock($id, $request->quantity);
 
         if (!$validStock) {
-            return back()->with('message', 'No se dispone del stock suficiente para este concierto.');
+            return back()->with('message', 'La cantidad de entredas ingresadas supera las entradas disponibles a comprar.');
         }
 
         //Crear la orden de compra
-        $detail_order = Sales::create([
+
+        $detailOrder = Sales::create([
             'reservationNumber' => $request->reservationNumber,
             'quantity' => $request->quantity,
             'total' => $request->total,
-            'paymentMethod' => $request->payMethod,
+            'paymentMethod' => $request->paymentMethod,
             'userId' => auth()->user()->id,
             'concertId' => $id,
 
@@ -86,7 +107,7 @@ class SalesController extends Controller
 
         $data = [
             'user' => $user,
-            'detail_order' => $detail_order,
+            'detailOrder' => $detailOrder,
             'date' => date("d-m-Y"),
         ];
 
@@ -105,14 +126,17 @@ class SalesController extends Controller
         Storage::disk('public')->put($path, $domPDF->output());
 
 
-        $detail_order->pdfName = $filename;
-        $detail_order->path = $path;
-        $detail_order->date = date("Y-m-d");
-        $detail_order->save();
+
+        $detailOrder->pdfName = $filename;
+        $detailOrder->path = $path;
+        $detailOrder->date = date("Y-m-d");
+        $detailOrder->save();
+
 
 
         // Terminada la transaccion, redireccionar al usuario
-        return redirect()->route('dashboard');
+        echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='dashboard'; </script>";
+        // return redirect()->route('dashboard');
     }
 
 
@@ -125,7 +149,7 @@ class SalesController extends Controller
         $path = storage_path('app\public\pdfs\\' . $pdf->pdfName);
 
         // Obtener el nombre original del archivo
-        $filename = $pdf->pdf_name;
+        $filename = $pdf->pdfName;
 
         // Obtener el tipo MIME del archivo PDF
         $mimeType = Storage::mimeType($path);
