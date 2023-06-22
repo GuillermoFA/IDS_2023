@@ -16,6 +16,11 @@ class SalesController extends Controller
 
     public function create($id)
     {
+        if (auth()->user() == null)
+        {
+            return redirect()->route('login');
+        }
+
         $concert = Concert::find($id);
         return view('client.buy_ticket', [
             'concert' => $concert
