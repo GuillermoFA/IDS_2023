@@ -47,7 +47,7 @@
                         @endif
                         @if(auth()->user()->role===1)
                         <div class="">
-                            <a class="btn detailButton" aria-current="page" href="detail">Detalle de Compras</a>
+                            <a class="btn detailButton" aria-current="page" href="/detail">Detalle de Compras</a>
                         </div>
                         @endif
                     

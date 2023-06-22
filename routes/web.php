@@ -43,7 +43,7 @@ Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('c
 
 
 //Entrega la vista con lo detalles.
-Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
+Route::get('/detail', [ConcertController::class, 'myConcerts'])->name('detail');
 
 
 Route::get('viewPdf', [SalesController::class, 'generatePdf'])->name('viewPdf');

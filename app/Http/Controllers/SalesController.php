@@ -52,14 +52,11 @@ class SalesController extends Controller
 
     public function store(Request $request, $id)
     {
-
         //Excepción, soluciona el problema N°4. "No cierra sesión cuando se está comprando una entrada"
-        if($request->quantity == null){
+        if($request->total == null){
             auth()->logout();
             return redirect()->route('login');
         }
-        
-        $reservationNumber = generateReservationNumber();
 
         $reservationNumber = generateReservationNumber();
 

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Concert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConcertController extends Controller
 {
@@ -65,12 +66,12 @@ class ConcertController extends Controller
 
     public function concertsList()
     {
-        //Solo un cliente puede acceder a esta vista
 
-        if(auth()->user()->role == '2')
+        if(Auth()->user()->role == '2')
         {
             return redirect()->route('dashboard');
         }
+
         $concerts = Concert::getConcerts();
         return view('layouts.dashboard', [
             'concerts' => $concerts,
@@ -99,7 +100,10 @@ class ConcertController extends Controller
     //Obtiene las datos del usuario que inició sesión.
     public function myConcerts()
     {
+        if(Auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
         return view('detail.detail', ['user' => auth()->user()]);
-
     }
 }

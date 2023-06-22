@@ -100,7 +100,7 @@
 
             Swal.fire({
                 title:`Monto Total: ${total.value}`,
-                text: '¿Estás seguro que quieres comfirmar estos datos?',
+                text: '¿Estás seguro que quieres confirmar estos datos?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#4DD091',
@@ -125,12 +125,12 @@
 @endsection
 
 @section('script')
-    <script>
+    <!-- <script>
         const cantidad = document.getElementById('quantity');
         cantidad.addEventListener('change', (e) => {
             e.preventDefault();
             const venta = {{ $concert->price }} * cantidad.value;
             document.getElementById('totalSum').value = venta;
         })
-    </script>
+    </script> -->
 @endsection
