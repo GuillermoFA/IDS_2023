@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
@@ -57,8 +57,8 @@
                             @endif
 
                             <div class="mb-4">
-                                <label for="pay_method" class="">Medio de pago</label>
-                                <select id="pay_method" name="pay_method" class="form-select" aria-label="Default select ">
+                                <label for="paymentMethod" class="">Medio de pago</label>
+                                <select id="paymentMethod" name="paymentMethod" class="form-select" aria-label="Default select ">
                                     <option selected value="">--Seleccione un método de pago--</option>
                                     <option value="1">Efectivo</option>
                                     <option value="2">Transferencia</option>
@@ -67,11 +67,11 @@
                                 </select>
                             </div>
 
-                            @error('pay_method')
+                            @error('paymentMethod')
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }} </p>
                             @enderror
 
-                            <input id="total-sum" name="total" value="{{ $concert->price }}" hidden>
+                            <input id="totalSum" name="total" value="{{ $concert->price }}" hidden>
                             <button id="boton" type="button" class="btn customYellow">Comprar entrada</button>
                         </form>
                     </div>
@@ -91,7 +91,7 @@
 
         boton.addEventListener('click', (e) => {
             e.preventDefault();
-            const total = document.getElementById("total-sum");
+            const total = document.getElementById("totalSum");
 
             Swal.fire({
                 title:`Monto Total: ${total.value}`,
@@ -125,7 +125,7 @@
         cantidad.addEventListener('change', (e) => {
             e.preventDefault();
             const venta = {{ $concert->price }} * cantidad.value;
-            document.getElementById('total-sum').value = venta;
+            document.getElementById('totalSum').value = venta;
         })
     </script>
 @endsection

@@ -8,6 +8,8 @@ use App\Models\Sales;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class SalesController extends Controller
 {
@@ -15,6 +17,18 @@ class SalesController extends Controller
     public function create($id)
     {
         $concert = Concert::find($id);
+
+        //si el usuario no ha iniciado sesion
+        if(!auth()->check()){
+            return redirect()->route('dashboard');
+        };
+
+        //si el usuario es un administrador
+        if(auth()->user()->role == 2){
+            return redirect()->route('dashboard');
+        }
+
+        //si el usuario es un cliente
         return view('client.buy_ticket', [
             'concert' => $concert
         ]);
@@ -22,14 +36,14 @@ class SalesController extends Controller
 
     public function store(Request $request, $id)
     {
-        $reservation_number = generateReservationNumber();
+        $reservationNumber = generateReservationNumber();
 
-        $request->request->add(['reservation_number' => $reservation_number]);
+        $request->request->add(['reservationNumber' => $reservationNumber]);
 
         $messages = makeMessages();
         $this->validate($request, [
             'quantity' => ['required', 'numeric', 'min:1'],
-            'pay_method' => ['required'],
+            'paymentMethod' => ['required'],
             'total' => ['required']
         ], $messages);
 
@@ -41,15 +55,15 @@ class SalesController extends Controller
         }
 
         //Crear la orden de compra
-        $detail_order = Sales::create([
-            'reservation_number' => $request->reservation_number,
+        $detailOrder = Sales::create([
+            'reservationNumber' => $request->reservationNumber,
             'quantity' => $request->quantity,
             'total' => $request->total,
-            'payment_method' => $request->pay_method,
-            'user_id' => auth()->user()->id,
-            'concert_id' => $id,
+            'paymentMethod' => $request->paymentMethod,
+            'userId' => auth()->user()->id,
+            'concertId' => $id,
 
-            'pdf_name' => NULL,
+            'pdfName' => NULL,
             'path' => NULL,
             'date' => NULL
         ]);
@@ -65,7 +79,7 @@ class SalesController extends Controller
 
         $data = [
             'user' => $user,
-            'detail_order' => $detail_order,
+            'detailOrder' => $detailOrder,
             'date' => date("d-m-Y"),
         ];
 
@@ -84,10 +98,10 @@ class SalesController extends Controller
         Storage::disk('public')->put($path, $domPDF->output());
 
 
-        $detail_order->pdf_name = $filename;
-        $detail_order->path = $path;
-        $detail_order->date = date("Y-m-d");
-        $detail_order->save();
+        $detailOrder->pdfName = $filename;
+        $detailOrder->path = $path;
+        $detailOrder->date = date("Y-m-d");
+        $detailOrder->save();
 
 
 
@@ -103,10 +117,10 @@ class SalesController extends Controller
         $pdf = Sales::findOrFail($id);
 
         // Obtener la ruta del archivo PDF
-        $path = storage_path('app\public\pdfs\\' . $pdf->pdf_name);
+        $path = storage_path('app\public\pdfs\\' . $pdf->pdfName);
 
         // Obtener el nombre original del archivo
-        $filename = $pdf->pdf_name;
+        $filename = $pdf->pdfName;
 
         // Obtener el tipo MIME del archivo PDF
         $mimeType = Storage::mimeType($path);

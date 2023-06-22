@@ -81,7 +81,7 @@
 
 /* Ajustes para: Botónes en la barra de navegación. */
 .navButton{
-    
+
     white-space: normal;
     /* height: 50px;
     width: 140px; */
@@ -125,3 +125,6 @@
 .tablePadding{
     padding: 50px 20px 30px 20px;
 }
+
+
+
