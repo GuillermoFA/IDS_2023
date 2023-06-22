@@ -28,11 +28,11 @@
 .buyButton{
 
     text-align: center;
-    background-color: #FF5733;
+    background-color: #00D3A2;
     color: white;
     border: none;
     border-radius: 15px;
-    width: 90px;
+    width: 150px;
     height: 40px;
     transition-duration: 0.2s;
 }
@@ -42,9 +42,8 @@
 /* Animación para: Botón "Comprar" al dejar el mouse encima.  */
 .buyButton:hover{
 
-    background: #00D3A2;
-    padding: 0 0 10px 0;
-    font-weight: bold;
+    background: #009572;
+    color: white;
 }
 
 /* Animación para: Botón "Comprar" al hacer click en el.  */
@@ -153,23 +152,31 @@
 
 /* Ajutes para: Botón "Cerrar Sesión" */
 .logOutButton{
-    white-space: normal;
-    text-align: left;
-    background-color: transparent;
-    padding: 13px 10px;
-    font-size: 20px;
-    color: white;
-    border: none;
-    /* height: 40px;
-    width: 140px; */
-    transition-duration: 0;
+    font-size: 25px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-10px, 5px);
+    color: black;
 }
 
 .logOutButton:hover{
 
     color: #00D3A2;
+}
 
+/* Ajuste para botón "Detalle de Compras" en el nav */
+.detailButton{
 
+    font-size: 25px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(160px, -50px);
+    color: black;
+}
+
+.detailButton:hover{
+
+    color: #00D3A2;
 }
 
 .footer {
@@ -207,18 +214,42 @@
     z-index: 999;
 }
 
+.blackRectangule
+{
+    width: 420px;
+    height: 53px;
+    background-color: black;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    z-index: 999;
+}
+
 
 /* CSS puro */
-.rectanguleRotado { 
+.rectanguleRotated { 
     width: 180px;
     height: 60px;
     border-radius: 50px;
     background-color: white;
     position: absolute;
     top: 77px;
-    right: 354px;
+    right: 350px;
     transform:rotate(300deg);
     z-index: 300;
+}
+
+.blackrectanguleRotated
+{
+    width: 180px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: black;
+    position: absolute;
+    top: 77px;
+    right: 550px;
+    transform:rotate(300deg);
+    z-index: -2;
 }
 
 
@@ -227,14 +258,6 @@
     vertical-align: top;
     line-height: 1;
     transform: translate(-100px,-35px);
-}
-
-.textClose{ /* CSS modifica posicionamiento Cerrar Sesion */
-    font-size: 20.5px;
-    vertical-align: top;
-    line-height: 1;
-    transform: translate(10px,0px);
-    color: #010101;
 }
 
 .onText { /* CSS modifica posicionamiento Iniciar Sesion */
@@ -249,8 +272,27 @@
     font-size: 27px;
     vertical-align: top;
     line-height: 1;
-    transform: translate(-15px,7px);
+    transform: translate(-15px,4px);
     color: #010101;
+}
+
+.register:hover{
+    color: #00d4a1;
+}
+
+.login
+{
+    font-size: 27px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-150px,-67px);
+    color: white;
+    
+}
+
+.login:hover
+{
+    color: #00d4a1;
 }
 
 
@@ -381,4 +423,30 @@ ul{
     z-index: 0;
 }
 
+.z-index-5
+{
+    z-index: 10;
+}
 
+.z-index-10
+{
+    z-index: 10;
+}
+
+.cancelButton
+{
+    text-align: center;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 150px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+
+.cancelButton:hover
+{
+    background-color: crimson;
+    color: white;
+}

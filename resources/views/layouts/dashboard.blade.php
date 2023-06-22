@@ -105,8 +105,8 @@
                     </strong>
                     @if($concert->stock>0)
                     <div class="text-center">
-                    <a href={{ route('concert.buy', ['id' => $concert->id]) }}
-                        class="formButton"
+                    <a href="{{ route('concert.buy', ['id' => $concert->id]) }}"
+                        class="buyButton btn"
                         type="submit">
                         Comprar Entrada
                     </a>

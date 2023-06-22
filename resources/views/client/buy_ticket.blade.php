@@ -76,8 +76,8 @@
 
 
                              <input id="totalSum" name="total" value="{{ $concert->price }}" hidden>
-                            <button id="BuyButton" type="button" class="btn customYellow">Comprar entrada</button>
-                            <a id="CancelButton" class="btn customRed textWhite" onclick="history.back()">Cancelar</a>
+                            <button id="BuyButton" type="button" class="buyButton">Comprar entrada</button>
+                            <a id="CancelButton" class="cancelButton btn" onclick="history.back()">Cancelar</a>
                         </form>
                     </div>
                 </div>
