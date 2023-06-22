@@ -22,6 +22,12 @@ class SalesController extends Controller
             return redirect()->route('login');
         }
 
+        //Solo es posible comprar entradas si es un cliente quien desea hacerlo
+        if(auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
+
         $concert = Concert::find($id);
         return view('client.buy_ticket', [
             'concert' => $concert
