@@ -15,19 +15,17 @@
     <title>Melody - @yield('title')</title>
 
 </head>
-
 <body>
     <header>
         <div>
             @auth
-
             <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav z-index-0">
                 <div>
                     <div class="rectanguleRotado z-index-1"></div>
                 </div>
                 <div class="container">
                     <a href="{{ route('dashboard')}}">
-                    <img src="{{ asset('img/real 3.png') }}" class="imagen img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
+                        <img src="{{ asset('img/real 3.png') }}" class="imagen img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
                     </a>
                     <div class="jumbotron bg-black z-index-2">
                         <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
@@ -42,15 +40,14 @@
                     </div>
                         @if(auth()->user()->role===2)
                         <div class="collapse navbar-collapse">
-                            <a class="text-right textWhite nav-link active navButton" aria-current="page" href="concert">Crear concierto</a>
+                            <a class="text-right textWhite nav-link active btn createConcertButton" aria-current="page" href="concert">Crear concierto</a>
                         </div>
                         @endif
                         @if(auth()->user()->role===1)
                         <div class="">
-                            <a class="btn detailButton" aria-current="page" href="detail">Detalle de Compras</a>
+                            <a class="btn detailButton" aria-current="page" href="/detail">Detalle de Compras</a>
                         </div>
                         @endif
-                    
                 </div>
                 <div class="rectanguleRotated z-index-2"></div>
             </nav>
@@ -70,26 +67,22 @@
                                 </li>
                                 <li class="nav-item rectangule">
                                     <a href="{{ route('register') }}" class="register nav-link active" aria-current="page">Regístrate</a>
-                                    
                                 </li>
-                                
                                 <div class="rectanguleRotated"></div>
                             </ul>
                         </div>
                     </div>
                 </nav>
             @endguest
-
         </div>
     </header>
     <main>
         @yield('title-page')
+        <div class="whiteSpace">white space</div>
         @yield('content')
     </main>
-
     <footer class="footer">
         <div class="">
-
             {{-- agregar un posicionamiento de bottom --}}
             Melody - Todos los derechos reservados {{ now()->year }}
         </div>
@@ -99,7 +92,6 @@
 </body>
     @yield('script')
     @yield('alerta')
-
 </html>
 
 

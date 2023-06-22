@@ -15,16 +15,10 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function dashboard()
-    {
-        // Retornar al dashboard
-        $concerts = concert::getConcerts();
-        return view('layouts.dashboard',['concerts'=>$concets]);
-    }
-
     public function loginAuth(Request $request)
     {
         $messages = makeMessages();
+        
         // Validar la información
         $this->validate($request, [
             'email' => ['required', 'email'],
@@ -33,10 +27,9 @@ class LoginController extends Controller
 
         if(!auth()->attempt($request->only('email', 'password'), $request->remember))
         {
-            // return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
             return back()->with('message', 'Usuario no registrado o contraseña incorrecta');
         }
-        //Auth::logout();
+
         return redirect()->route('dashboard');
     }
 

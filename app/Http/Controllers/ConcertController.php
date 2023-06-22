@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Concert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConcertController extends Controller
 {
@@ -28,7 +29,7 @@ class ConcertController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+
         $messages = makeMessages();
         // Validar
         $this->validate($request, [
@@ -43,7 +44,6 @@ class ConcertController extends Controller
         if ($invalidDate) {
             return back()->with('message', 'La fecha debe ser mayor a ' . date("d-m-Y"));
         }
-
 
         // Verificar si en la fecha ingresada existe un concierto.
         $existConcert = existConcertDay($request->date);
@@ -65,12 +65,12 @@ class ConcertController extends Controller
 
     public function concertsList()
     {
-        //Solo un cliente puede acceder a esta vista
-
-        if(auth()->user()->role == '2')
+        //Solamente los clientes pueden ver los conciertos.
+        if(Auth()->user()->role == '2')
         {
             return redirect()->route('dashboard');
         }
+
         $concerts = Concert::getConcerts();
         return view('layouts.dashboard', [
             'concerts' => $concerts,
@@ -99,7 +99,10 @@ class ConcertController extends Controller
     //Obtiene las datos del usuario que inició sesión.
     public function myConcerts()
     {
+        if(Auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
         return view('detail.detail', ['user' => auth()->user()]);
-
     }
 }

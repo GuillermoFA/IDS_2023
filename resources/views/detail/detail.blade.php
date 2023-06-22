@@ -7,6 +7,9 @@
 @section('content')
 
 <!-- Tabla con datos de las ventas realizadas por el usuario autenticado -->
+    @if ($user->salesData->count() == 0)
+            <h1 class="text-center">No hay entradas adquiridas por desplegar</h1>
+    @else
     <div class="tablePadding">
         <h3 class="text-center">
             Detalle de Compras Realizadas
@@ -37,20 +40,42 @@
                         {{$saleDetail->concertDates->date}}
                     </th>
                     <th>
-                        {{$saleDetail->created_at}}
+                        {{$saleDetail->created_at->toDateString()}}
                     </th>
                     <th>
                         {{$saleDetail->quantity}}
                     </th>
                     <th>
-                        ${{$saleDetail->total/1000}}.000
+                        @if ($saleDetail->total/1000 >= 1000000)
+                            ${{$saleDetail->total/1000000000}}.000.000.000
+                        @elseif ($saleDetail->total/1000 >= 1000)
+                            ${{$saleDetail->total/1000000}}.000.000
+                        @else
+                            ${{$saleDetail->total/1000}}.000
+                        @endif
                     </th>
                     <th>
-                        {{$saleDetail->paymentMethod}}
+                    @switch($saleDetail->paymentMethod)
+                        @case('1')
+                            Efectivo
+                        @break
+
+                        @case('2')
+                            Transferencia
+                        @break
+
+                        @case('3')
+                            Tarjeta de Débito
+                        @break
+
+                        @case('4')
+                            Tarjeta de Crédito
+                        @break
+                    @endswitch
                     </th>
                     <th>
-                        <a href={{ route('pdf.download', ['id' => $saleDetail->id ]) }}>
-                            <img src="{{ asset('img/pdf_icon.png') }}" width="50" height="50" style="rounded">
+                        <a href="{{ route('pdf.download', ['id' => $saleDetail->id ]) }}">
+                            <img src="{{ asset('img/pdf_icon.png') }}" width='50' height='50'></img>
                         </a>
                     </th>
                 </tr>
@@ -58,5 +83,5 @@
             @endforeach
         </table>
     </div>
-
+    @endif
 @endsection
