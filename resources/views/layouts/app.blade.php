@@ -34,12 +34,12 @@
                     </div>
                 </div>
                 <div class="rectangule">
-                    <a class="nav-item">
-                        <form action="logout" method="POST">
+                    <div class="nav-item">
+                        <form id="logOut" action="logout" method="POST">
                             @csrf
-                            <button href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
+                            <button id="logOutButton" href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
                         </form>
-                    </a>
+                    </div>
                         @if(auth()->user()->role===2)
                         <div class="collapse navbar-collapse">
                             <a class="text-right textWhite nav-link active navButton" aria-current="page" href="concert">Crear concierto</a>

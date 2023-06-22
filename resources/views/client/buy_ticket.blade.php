@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-{{ $concert->name }}
+<!-- {{ $concert->name }} -->
 @endsection
 
 
@@ -75,7 +75,8 @@
                             @enderror
 
                             <input id="total-sum" name="total" value="{{ $concert->price }}" hidden>
-                            <button id="boton" type="button" class="btn customYellow">Comprar entrada</button>
+                            <button id="BuyButton" type="button" class="btn customYellow">Comprar entrada</button>
+                            <a id="CancelButton" class="btn customRed textWhite" onclick="history.back()">Cancelar</a>
                         </form>
                     </div>
                 </div>
@@ -89,7 +90,7 @@
 
 @section('alerta')
     <script>
-        const boton = document.getElementById("boton");
+        const boton = document.getElementById("BuyButton");
         const formulario = document.getElementById("formulario");
 
         boton.addEventListener('click', (e) => {
@@ -103,7 +104,7 @@
                 showCancelButton: true,
                 confirmButtonColor: '#4DD091',
                 cancelButtonColor: '#FF5C77',
-                confirmButtonText: 'Enviar',
+                confirmButtonText: 'Comprar',
                 cancelButtonText: 'Cancelar',
                 allowOutsideClick: false,
             }).then((result) => {
