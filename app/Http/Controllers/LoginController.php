@@ -18,7 +18,8 @@ class LoginController extends Controller
     public function dashboard()
     {
         // Retornar al dashboard
-        return view('layouts.dashboard');
+        $concerts = concert::getConcerts();
+        return view('layouts.dashboard',['concerts'=>$concets]);
     }
 
     public function loginAuth(Request $request)

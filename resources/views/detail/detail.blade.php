@@ -31,25 +31,27 @@
                         {{$saleDetail->reservationNumber}}
                     </th>
                     <th>
-                        {{$saleDetail->concertData->name}}  
+                        {{$saleDetail->concertDates->name}}
                     </th>
                     <th>
-                        {{$saleDetail->concertData->date}}
+                        {{$saleDetail->concertDates->date}}
                     </th>
                     <th>
-                        {{$saleDetail->created_at}}  
+                        {{$saleDetail->created_at}}
                     </th>
                     <th>
                         {{$saleDetail->quantity}}
                     </th>
                     <th>
-                        ${{$saleDetail->totalSale/1000}}.000
+                        ${{$saleDetail->total/1000}}.000
                     </th>
                     <th>
                         {{$saleDetail->paymentMethod}}
                     </th>
                     <th>
-                        .pdf
+                        <a href={{ route('pdf.download', ['id' => $saleDetail->id ]) }}>
+                            <img src="{{ asset('img/pdf_icon.png') }}" width="50" height="50" style="rounded">
+                        </a>
                     </th>
                 </tr>
             </tbody>

@@ -15,9 +15,7 @@
                         <h4>Registrar usuario</h4>
                     </div>
                     <div class="card-body rounded-5">
-
-                        <form id="formulario" action="{{ route('register')}}" method="POST" novalidate>
-
+                        <form id="form" action="{{ route('register')}}" method="POST" novalidate>
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name_user" class="form-label">Nombre</label>
@@ -41,7 +39,7 @@
                                 @enderror
                             </div>
                             <div class="text-center rounded-5">
-                                <input id="boton" type="button" value="Registrarse >" class="formButton">
+                                <input id="button" type="button" value="Registrarse" class="formButton">
                               </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿Ya tienes una cuenta?</label>
@@ -58,10 +56,10 @@
 
     <script>
         // Aqui va nuestro script de sweetalert
-        const boton = document.getElementById("boton");
-        const formulario = document.getElementById("formulario");
+        const button = document.getElementById("button");
+        const form = document.getElementById("form");
 
-        boton.addEventListener('click', (e) => {
+        button.addEventListener('click', (e) => {
             e.preventDefault();
             Swal.fire({
                 title: '¿Estás seguro que quieres enviar estos datos?',
@@ -75,7 +73,7 @@
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    formulario.submit();
+                    form.submit();
                 }
             })
         })

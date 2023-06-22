@@ -32,7 +32,9 @@ function makeMessages()
         'quantity.required' => 'El campo cantidad de entradas es requerido.',
         'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
         'quantity.numeric' => 'La cantidad de entradas ingresadas no es numérica.',
+
         'paymentMethod.required' => 'El campo medio de pago es requerido.',
+
 
 
     ];
@@ -67,11 +69,6 @@ function existConcertDay($dateConcert)
 }
 
 
-
-
-
-
-
 function verifyStock($id, $quantity)
 {
     $concert = Concert::find($id);
@@ -96,6 +93,8 @@ function generateReservationNumber()
 {
     do {
         $number = mt_rand(1000, 9999);
+
+        // ejecutar foreach
     } while (substr($number, 0, 1) === '0');
 
     return $number;

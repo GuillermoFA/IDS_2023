@@ -6,6 +6,7 @@ use Dompdf\Dompdf;
 use App\Models\Concert;
 use App\Models\Sales;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,14 @@ use Illuminate\Support\Facades\Auth;
 class SalesController extends Controller
 {
 
+
     public function create($id)
     {
+        if (auth()->user() == null)
+        {
+            return redirect()->route('login');
+        }
+
         $concert = Concert::find($id);
 
         //si el usuario no ha iniciado sesion
@@ -43,7 +50,9 @@ class SalesController extends Controller
         $messages = makeMessages();
         $this->validate($request, [
             'quantity' => ['required', 'numeric', 'min:1'],
+
             'paymentMethod' => ['required'],
+
             'total' => ['required']
         ], $messages);
 
@@ -55,6 +64,7 @@ class SalesController extends Controller
         }
 
         //Crear la orden de compra
+
         $detailOrder = Sales::create([
             'reservationNumber' => $request->reservationNumber,
             'quantity' => $request->quantity,
@@ -96,6 +106,7 @@ class SalesController extends Controller
         // Guardar el PDF en la carpeta public
         $path = 'pdfs\\' . $filename;
         Storage::disk('public')->put($path, $domPDF->output());
+
 
 
         $detailOrder->pdfName = $filename;
@@ -147,6 +158,7 @@ class SalesController extends Controller
         // Output the generated PDF to Browser
         return $dompdf->stream();
     }
+
 
 
 }

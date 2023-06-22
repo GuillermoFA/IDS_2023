@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('quantity');
             $table->foreign('userId')->references('id')->on('users');
             $table->foreign('concertId')->references('id')->on('concerts');
-
             $table->string('pdfName')->nullable();;
             $table->string('path')->nullable();;
             $table->date('date')->nullable();;
