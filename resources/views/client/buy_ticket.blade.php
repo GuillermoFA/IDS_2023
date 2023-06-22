@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-<!-- {{ $concert->name }} -->
+    Comprar Concierto
 @endsection
 
 

@@ -43,6 +43,8 @@ class SalesController extends Controller
             return redirect()->route('login');
         }
 
+        $reservationNumber = generateReservationNumber();
+
         $request->request->add(['reservationNumber' => $reservationNumber]);
 
         $messages = makeMessages();
