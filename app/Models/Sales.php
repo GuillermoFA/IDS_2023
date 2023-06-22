@@ -9,7 +9,6 @@ class Sales extends Model
 {
     use HasFactory;
     protected $fillable = [
-
         'id',
         'userId',
         'concertId',
@@ -17,18 +16,20 @@ class Sales extends Model
         'paymentMethod',
         'total',
         'quantity',
-        'pdf_name',
+        'pdfName',
         'path',
         'date'
     ];
 
     public function concertDates()
     {
+
         return $this->belongsTo(Concert::class, "concertId");
     }
 
      public function userData()
     {
          return $this->belongsTo(User::class, "id");
+
     }
 }
