@@ -18,9 +18,18 @@ class SalesController extends Controller
 
     public function create($id)
     {
+        //Antes de poder entrar a comprar, verifica si el usuario está logeado
+
         if (auth()->user() == null)
         {
             return redirect()->route('login');
+        }
+
+
+        //Solo es posible comprar entradas si es un cliente quien desea hacerlo
+        if(auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
         }
 
         $concert = Concert::find($id);
@@ -43,6 +52,13 @@ class SalesController extends Controller
 
     public function store(Request $request, $id)
     {
+
+        //Excepción, soluciona el problema N°4. "No cierra sesión cuando se está comprando una entrada"
+        if($request->quantity == null){
+            auth()->logout();
+            return redirect()->route('login');
+        }
+        
         $reservationNumber = generateReservationNumber();
 
         $request->request->add(['reservationNumber' => $reservationNumber]);

@@ -65,6 +65,12 @@ class ConcertController extends Controller
 
     public function concertsList()
     {
+        //Solo un cliente puede acceder a esta vista
+
+        if(auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
         $concerts = Concert::getConcerts();
         return view('layouts.dashboard', [
             'concerts' => $concerts,
