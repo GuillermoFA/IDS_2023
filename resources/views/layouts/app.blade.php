@@ -21,19 +21,19 @@
         <div>
             @auth
 
-            <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
+            <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav z-index-0">
                 <div>
-                    <div class="rectanguleRotado"></div>
+                    <div class="rectanguleRotado z-index-1"></div>
                 </div>
                 <div class="container">
                     <a href="{{ route('dashboard')}}">
                     <img src="{{ asset('img/real 3.png') }}" class="imagen img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
                     </a>
-                    <div class="jumbotron bg-black">
+                    <div class="jumbotron bg-black z-index-2">
                         <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
                     </div>
                 </div>
-                <div class="rectangule">
+                <div class="rectangule z-index-0">
                     <div class="nav-item">
                         <form id="logOut" action="logout" method="POST">
                             @csrf
