@@ -3,7 +3,8 @@
 @section('title')
     Detalle
 @endsection
-
+</head>
+<body>
 @section('content')
 
 <!-- Tabla con datos de las ventas realizadas por el usuario autenticado -->

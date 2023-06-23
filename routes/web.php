@@ -19,11 +19,7 @@ use App\Http\Controllers\SalesController;
 |
 */
 
-Route::get('/', function () {
-
-    return view('auth.login');
-
-});
+Route::redirect('/', '/dashboard');
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'store'])->name('register');
