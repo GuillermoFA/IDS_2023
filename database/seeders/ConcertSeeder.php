@@ -16,16 +16,16 @@ class ConcertSeeder extends Seeder
     {
         $concerts = [
             [
-                'name' => 'Concierto 1',
+                'name' => 'Tomorrowland',
                 'price' => 20000,
                 'stock' => 150,
-                'date' => '2023-06-20',
+                'date' => '2023-07-20',
             ],
             [
-                'name' => 'Concierto 2',
+                'name' => 'Ultra Miami',
                 'price' => 25000,
                 'stock' => 300,
-                'date' => '2023-06-25',
+                'date' => '2023-07-25',
             ],
             // Agrega más conciertos si lo deseas
         ];
