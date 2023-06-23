@@ -63,7 +63,7 @@
 
                                 <li class="nav-item">
                                     <a href="{{ route('login') }}" class="login textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
-                                    
+
                                 </li>
                                 <li class="nav-item rectangule">
                                     <a href="{{ route('register') }}" class="register nav-link active" aria-current="page">Regístrate</a>

@@ -24,16 +24,17 @@ class SalesController extends Controller
         }
 
         //Solo es posible comprar entradas si es un cliente quien desea hacerlo
-        if(auth()->user()->role == '2')
-        {
-            return redirect()->route('dashboard');
-        }
+        // if(auth()->user()->role == '2')
+        // {
+        //     return redirect()->route('dashboard');
+        // }
 
         $concert = Concert::find($id);
 
         //si el usuario no ha iniciado sesion
         if(!auth()->check()){
-            return redirect()->route('dashboard');
+            return redirect()->route('login');
+            // return redirect()->route('dashboard');
         };
 
         //si el usuario es un administrador

@@ -51,7 +51,7 @@
 
                                 <label for="paymentMethod" class="">Medio de pago</label>
                                 <select id="paymentMethod" name="paymentMethod" class="form-select" aria-label="Default select ">
-                                    <option selected value="">--Seleccione un método de pago--</option>
+                                    <option selected value="">--Seleccione un medio de pago--</option>
                                     <option value="1">Efectivo</option>
                                     <option value="2">Transferencia</option>
                                     <option value="3">Tarjeta de Débito</option>
@@ -110,12 +110,12 @@
 @endsection
 
 @section('script')
-    <!-- <script>
+    <script>
         const cantidad = document.getElementById('quantity');
         cantidad.addEventListener('change', (e) => {
             e.preventDefault();
             const venta = {{ $concert->price }} * cantidad.value;
             document.getElementById('totalSum').value = venta;
         })
-    </script> -->
+    </script>
 @endsection

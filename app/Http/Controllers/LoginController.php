@@ -12,13 +12,16 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(auth()->check()){
+            return redirect()->route('dashboard');
+        };
         return view('auth.login');
     }
 
     public function loginAuth(Request $request)
     {
         $messages = makeMessages();
-        
+
         // Validar la información
         $this->validate($request, [
             'email' => ['required', 'email'],

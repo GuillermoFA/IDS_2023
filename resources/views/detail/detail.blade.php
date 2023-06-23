@@ -75,7 +75,7 @@
                     </th>
                     <th>
                         <a href="{{ route('pdf.download', ['id' => $saleDetail->id ]) }}">
-                            <img src="{{ asset('img/pdf_icon.png') }}" width='50' height='50'></img>
+                            <img src="{{ asset('img/pdf_icon.png') }}" width='50' height='50'>
                         </a>
                     </th>
                 </tr>
