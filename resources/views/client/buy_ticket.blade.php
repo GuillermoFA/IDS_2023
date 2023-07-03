@@ -6,6 +6,10 @@
 <body>
 
 @section('content')
+    @if (session('success'))
+    @endif
+    {{-- @if (session('info'))
+    @endif --}}
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -35,7 +39,7 @@
                                     <h2>Valor de la entrada:</h2>
                                 </div>
                                 <div class="col-5">
-                                    <h2>{{ $concert->price }}</h2>
+                                    <h2>$ {{ $concert->price }} CLP</h2>
                                 </div>
                             </div>
                             <div class="mb-4">
@@ -45,9 +49,11 @@
                             @error('quantity')
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }}</p>
                             @enderror
+
                             @if (session('message'))
                                 <p class="textRed my-2 rounded-lg text-lg p-2"> {{ session('message') }}</p>
                             @endif
+
                             <div class="mb-4">
 
                                 <label for="paymentMethod" class="">Medio de pago</label>
@@ -65,8 +71,10 @@
                             @enderror
 
                              <input id="totalSum" name="total" value="{{ $concert->price }}" hidden>
-                            <button id="BuyButton" type="button" class="buyButton">Comprar entrada</button>
-                            <a id="CancelButton" class="cancelButton btn" onclick="history.back()">Cancelar</a>
+                            <button id="BuyButton" type="button" class="btn buyButton">
+                                <p>Comprar entrada</p>
+                            </button>
+                            <a class="btn cancelButtonColorRed " onclick="history.back()">Cancelar</a>
                         </form>
                     </div>
                 </div>
@@ -85,7 +93,7 @@
             const total = document.getElementById("totalSum");
 
             Swal.fire({
-                title:`Monto Total: ${total.value}`,
+                title:`Monto Total: $ ${total.value} CLP`,
                 text: '¿Estás seguro que quieres confirmar estos datos?',
                 icon: 'warning',
                 showCancelButton: true,
@@ -117,6 +125,10 @@
             e.preventDefault();
             const venta = {{ $concert->price }} * cantidad.value;
             document.getElementById('totalSum').value = venta;
+            //Si es un valor negativo, deja el total en cero
+            if(venta < 0){
+                document.getElementById('totalSum').value = 0;
+            }
         })
     </script>
 @endsection

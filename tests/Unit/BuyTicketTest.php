@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\Concert;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class BuyTicketTest extends TestCase
@@ -29,9 +30,16 @@ class BuyTicketTest extends TestCase
             'password' => bcrypt('ejemplo123')
         ]);
 
-        $response = $this->get('/concert-order/{id}', [
-            'email' => 'ejemplo@gmail.com',
-            'password' => 'ejemplo123',
+        $concert = Concert::create([
+            'name' => 'Fiesta Feliz',
+            'price' => 23000,
+            'stock' => 150,
+            'date' => date_create('2023-08-23'),
+        ]);
+
+
+        $response = $this->get("/concert-order/{'$concert->id'}", [
+            $user
         ]);
 
         // $this->assertTrue(true);

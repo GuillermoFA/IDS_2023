@@ -70,7 +70,7 @@
             <span>{{ $detailOrder->quantity }}</span>
         </p>
         <p>Valor de la Entrada:
-            <span>{{ $detailOrder->concertDates->price }}</span>
+            <span>$ {{ $detailOrder->concertDates->price }} CLP</span>
         </p>
     </div>
     <hr>
@@ -85,7 +85,7 @@
     </div>
     <hr>
     <div class="total">
-        <p class="totalPay">Total pagado: {{ $detailOrder->total }}</p>
+        <p class="totalPay"> $ Total pagado: {{ $detailOrder->total }} CLP</p>
 
         <p class="totalPay">Medio de pago</p>
         @switch($detailOrder->paymentMethod)

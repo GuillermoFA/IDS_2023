@@ -17,28 +17,20 @@ class SalesController extends Controller
 
     public function create($id)
     {
-        //Antes de poder entrar a comprar, verifica si el usuario está logeado
-        if (auth()->user() == null)
-        {
-            return redirect()->route('login');
-        }
-
-        //Solo es posible comprar entradas si es un cliente quien desea hacerlo
-        // if(auth()->user()->role == '2')
-        // {
-        //     return redirect()->route('dashboard');
-        // }
-
         $concert = Concert::find($id);
 
         //si el usuario no ha iniciado sesion
         if(!auth()->check()){
             return redirect()->route('login');
-            // return redirect()->route('dashboard');
         };
 
         //si el usuario es un administrador
         if(auth()->user()->role == 2){
+            return redirect()->route('dashboard');
+        }
+
+        //Si el concierto no existe
+        if($concert == null){
             return redirect()->route('dashboard');
         }
 
@@ -48,9 +40,18 @@ class SalesController extends Controller
         ]);
     }
 
-    //Guarda la venta y genera un pdf relacionado
+
+    /*
+     *
+     *  Guarda la venta y genera un pdf relacionado
+     * --------------------------------------------
+     * Parametros =
+     *              request : la solicitud enviada
+     *              id : id del concierto
+     */
     public function store(Request $request, $id)
     {
+        //borrar
         //Excepción, soluciona el problema N°4. "No cierra sesión cuando se está comprando una entrada"
         if($request->total == null){
             auth()->logout();
@@ -113,22 +114,47 @@ class SalesController extends Controller
         $domPDF->render();
 
         // Generar nombre de archivo aleatorio
-        $filename = 'user_' . Str::random(10) . '.pdf';
+        $filename = 'Comprobante_' . Str::random(10) . '.pdf';
 
         // Guardar el PDF en la carpeta public
         $path = 'pdfs\\' . $filename;
         Storage::disk('public')->put($path, $domPDF->output());
 
+        //Agregar el pdf a la venta
         $detailOrder->pdfName = $filename;
         $detailOrder->path = $path;
         $detailOrder->date = date("Y-m-d");
         $detailOrder->save();
 
+
+        // Mensaje de venta exitosa
+        toastr()->success('Tu compra se ha realizado con éxito!');
+        //toastr()->info('Tu comprobante se descargará de inmediato');
+
+        // Obtener la ruta del archivo PDF
+        //$path2 = storage_path('app\public\pdfs\\' . $filename);
+        // Obtener el tipo MIME del archivo PDF
+        //$mimeType = Storage::mimeType($path2);
+        // Descargar pdf
+        //return response()->download($path2, $filename, ['Content-Type' => $mimeType]);
+
+
         // Terminada la transaccion, redireccionar al usuario
-        echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='/dashboard'; </script>";
-        // return redirect()->route('dashboard');
+        //echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='/dashboard'; </script>";
+        return redirect()->route('dashboard');
     }
 
+
+
+
+
+    /*
+     *
+     *  Descarga el archivo pdf de una venta
+     * --------------------------------------------
+     * Parametros =
+     *              id : id de la venta
+     */
     public function downloadPDF($id)
     {
         // Obtener la información del PDF desde la base de datos
@@ -146,4 +172,5 @@ class SalesController extends Controller
         // Devolver el archivo PDF como una descarga
         return response()->download($path, $filename, ['Content-Type' => $mimeType]);
     }
+
 }

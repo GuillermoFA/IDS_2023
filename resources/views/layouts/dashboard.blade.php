@@ -2,8 +2,8 @@
 @section('title')
     Menu
 @endsection
-</head>
-<body>
+
+
 @section('content')
 
 <div >
@@ -70,7 +70,7 @@
                   <button type="submit" class="btn btn-info btn-sm"> Filtrar </button>
                 </form>
               @if(session('successmessage'))
-              <div class="jumbotron text-center" ">
+              <div class="jumbotron text-center" >
                 <h1 class="display-13  big">No hay conciertos disponibles para el día seleccionado, intenta con otra fecha o recarga la página</h1>
               </div>
               @elseif ($concerts->count() > 0)
@@ -78,7 +78,7 @@
 
               <div class="col-md-3 mb-4">
                 <div class="card card-body text-center">
-                    <img src="{{ asset('img/concertIcon.png') }}" class="img"> </img>
+                    <img src="{{ asset('img/concertIcon.png') }}" class="img">
                     <h2 class="font-weight-bold mt-3 titulo-concierto" style="color: black; text-decoration: none;">{{$concert->name}}</h2>
                     <p>
                         Fecha del concierto: {{$concert->date}}<br>
@@ -107,14 +107,12 @@
         @endforeach
         </div>
         @else
-        <div class="jumbotron text-center" ">
+        <div class="jumbotron text-center" >
             <h1 class="display-13  big">No hay conciertos disponibles, Intenta más tarde</h1>
           </div>
         @endif
     @endif
 @endsection
-<script>
- const formulario = document.getElementById("formulario");
-</script>
-</body>
-</html>
+
+
+
