@@ -47,12 +47,10 @@
                         {{$saleDetail->quantity}}
                     </th>
                     <th>
-                        @if ($saleDetail->total/1000 >= 1000000)
-                            ${{$saleDetail->total/1000000000}}.000.000.000
-                        @elseif ($saleDetail->total/1000 >= 1000)
-                            ${{$saleDetail->total/1000000}}.000.000
-                        @else
+                        @if ($saleDetail->total > 999 && $saleDetail->total <= 999999)
                             ${{$saleDetail->total/1000}}.000
+                        @elseif ($saleDetail->total > 999.999)
+                            ${{$saleDetail->total/1000000}}
                         @endif
                     </th>
                     <th>

@@ -6,6 +6,8 @@ use Dompdf\Dompdf;
 use App\Models\Concert;
 use App\Models\Sales;
 use Illuminate\Http\Request;
+use Response;
+use toastr;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -114,7 +116,7 @@ class SalesController extends Controller
         $domPDF->render();
 
         // Generar nombre de archivo aleatorio
-        $filename = 'Comprobante_' . Str::random(10) . '.pdf';
+        $filename = 'Comprobante_' . Str::random(10) . Sales::latest()->first()->id. '.pdf';
 
         // Guardar el PDF en la carpeta public
         $path = 'pdfs\\' . $filename;
@@ -126,27 +128,24 @@ class SalesController extends Controller
         $detailOrder->date = date("Y-m-d");
         $detailOrder->save();
 
-
-        // Mensaje de venta exitosa
-        toastr()->success('Tu compra se ha realizado con éxito!');
-        //toastr()->info('Tu comprobante se descargará de inmediato');
+        //echo "<script> alert('Se realizó la compra correctamente');</script>";
+        //toastr()->success('Tu comprobante se descargarpa de inmediato');
+        // Obtener la información del PDF desde la base de datos
+        $pdf = Sales::latest()->first();
 
         // Obtener la ruta del archivo PDF
-        //$path2 = storage_path('app\public\pdfs\\' . $filename);
+        $path = storage_path('app\public\pdfs\\' . $pdf->pdfName);
+
+        // Obtener el nombre original del archivo
+        $filename = $pdf->pdfName;
+
         // Obtener el tipo MIME del archivo PDF
-        //$mimeType = Storage::mimeType($path2);
-        // Descargar pdf
-        //return response()->download($path2, $filename, ['Content-Type' => $mimeType]);
+        $mimeType = Storage::mimeType($path);
 
+        return Response::download($path, $filename, ['Content-Type' => $mimeType, 'location' => '/dashboard']);
 
-        // Terminada la transaccion, redireccionar al usuario
-        //echo "<script> alert('Tu compra se ha realizado con éxito'); location.href='/dashboard'; </script>";
-        return redirect()->route('dashboard');
+        //return response()->download($path, $filename, ['Content-Type' => $mimeType, 'location' => '/dashboard']);
     }
-
-
-
-
 
     /*
      *
@@ -157,6 +156,7 @@ class SalesController extends Controller
      */
     public function downloadPDF($id)
     {
+
         // Obtener la información del PDF desde la base de datos
         $pdf = Sales::findOrFail($id);
 
