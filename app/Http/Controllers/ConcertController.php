@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Concert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ConcertController extends Controller
 {
@@ -18,7 +19,9 @@ class ConcertController extends Controller
 
     public function index()
     {
-        $concerts = concert::getConcerts();
+        $currentDate = Carbon::now();
+        $concerts = Concert::whereDate('date','>',$currentDate)->get();
+        //$concerts = concert::getConcerts();
         return view('layouts.dashboard',['concerts'=>$concerts]);
     }
 
@@ -80,6 +83,8 @@ class ConcertController extends Controller
     public function searchDate(Request $request)
     {
 
+        $currentDate = Carbon::now();
+        $concerts = Concert::whereDate('date','>',$currentDate)->get();
         $date=$request->date;
 
         if($date === null){
@@ -88,11 +93,16 @@ class ConcertController extends Controller
                 'concerts' => $concerts,
             ]);
         }
-        $concerts = Concert::whereDate('date','=',$date)->get();
-        if($concerts->count() == 0)
+
+        if($date>$currentDate){
+            $concerts = Concert::whereDate('date','=',$date)->get();
+        }
+        else
+        //if($concerts->count() == 0)
         {
             return redirect(url('dashboard'))->with('successmessage','data saved successfully');
         }
+
         return view('layouts.dashboard',compact('concerts'));
 
     }
