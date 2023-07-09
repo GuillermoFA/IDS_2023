@@ -14,34 +14,46 @@
     <script src="sweetalert2.all.min.js"></script>
     <title>Melody - @yield('title')</title>
 
-</head>
+    <link rel="icon" href="{{ asset('img/melody_icon.png') }}" type="image/png" sizes="16x16 32x32" >
 
+</head>
 <body>
     <header>
         <div>
             @auth
-
-            <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
-                <div>
-                    <div class="rectangule">
-                        <a class="nav-item">
-                            <form action="logout" method="POST">
-                                @csrf
-                                <button href="/dashboard" type="submit" class="textDark textClose btn logOutButton">Cerrar Sesión</button>
-                            </form>
+                <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav z-index-0">
+                    <div>
+                        <div class="rectanguleRotado z-index-1"></div>
+                    </div>
+                    <div class="container">
+                        <a href="{{ route('dashboard')}}">
+                            <img src="{{ asset('img/real 3.png') }}" class="imagen img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
                         </a>
+                        <div class="jumbotron bg-black z-index-2">
+                            <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
+                        </div>
                     </div>
-                    <div class="rectanguleRotado"></div>
-                </div>
-                <div class="container">
-                    <a href="{{ route('dashboard')}}">
-                    <img src="{{ asset('img/real 3.png') }}" class="imagen img-fluid rounded-pill" style="float: left" alt="logo-Melody"/>
-                    </a>
-                    <div class="jumbotron bg-black">
-                        <h1 class="display-7 text-white jumbotronCustom">Bienvenido/a {{auth()->user()->name}}</h1>
+                    <div class="rectangule z-index-0">
+                        <div class="nav-item">
+                            <form id="logOut" action="logout" method="POST">
+                                @csrf
+                                <button id="logOutButton" href="/dashboard" type="submit" class="btn logOutButton">Cerrar Sesión</button>
+                            </form>
+                        </div>
+                        @if(auth()->user()->role===2)
+                        <div class="collapse navbar-collapse">
+                            <a class="text-right textWhite nav-link active btn createConcertButton" aria-current="page" href="concert">Crear concierto</a>
+                        </div>
+                        @endif
+                        @if(auth()->user()->role===1)
+                        <div class="">
+                            <a class="btn detailButton" aria-current="page" href="/detail">Detalle de Compras</a>
+                        </div>
+                        @endif
                     </div>
-                </div>
-            </nav>
+                    <div class="rectanguleRotated z-index-2">
+                    </div>
+                </nav>
             @endauth
             @guest
                 <nav class="navbar navbar-expand-lg navbar-light navbar-lg backgroundNav">
@@ -51,33 +63,29 @@
                         </a>
                         <div>
                             <ul class="nav justify-content-end">
-                                <li class="nav-item">
 
-                                    <a href="{{ route('login') }}" class="onText textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="login textWhite nav-link active" aria-current="page">Iniciar Sesión</a>
 
                                 </li>
-                                <div class= "rectanguleMain">
-                                    <li class="nav-item">
-                                        <a href="{{ route('register') }}" class=" register textWhite  nav-link active" aria-current="page">Regístrate</a>
-                                    </li>
-                                </div>
-                                <div class="rectanguleRotadePrincipal"></div>
+                                <li class="nav-item rectangule">
+                                    <a href="{{ route('register') }}" class="register nav-link active" aria-current="page">Regístrate</a>
+                                </li>
+                                <div class="rectanguleRotated"></div>
                             </ul>
                         </div>
                     </div>
                 </nav>
             @endguest
-
         </div>
     </header>
     <main>
         @yield('title-page')
+        <div class="whiteSpace">white space</div>
         @yield('content')
     </main>
-
     <footer class="footer">
         <div class="">
-
             {{-- agregar un posicionamiento de bottom --}}
             Melody - Todos los derechos reservados {{ now()->year }}
         </div>
@@ -87,7 +95,6 @@
 </body>
     @yield('script')
     @yield('alerta')
-
 </html>
 
 

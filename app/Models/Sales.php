@@ -9,20 +9,27 @@ class Sales extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'reservation_number',
-        'quantity',
+        'id',
+        'userId',
+        'concertId',
+        'reservationNumber',
+        'paymentMethod',
         'total',
-        'payment_method',
-        'user_id',
-        'concert_id',
-
-        'pdf_name',
+        'quantity',
+        'pdfName',
         'path',
         'date'
     ];
 
     public function concertDates()
     {
-        return $this->belongsTo(Concert::class, 'concert_id');
+
+        return $this->belongsTo(Concert::class, "concertId");
+    }
+
+     public function userData()
+    {
+         return $this->belongsTo(User::class, "id");
+
     }
 }

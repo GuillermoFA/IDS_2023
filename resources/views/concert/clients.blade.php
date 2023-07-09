@@ -82,7 +82,7 @@
                             <td scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <p class="text-center">
-                                    {{ $detail_order->reservation_number }}
+                                    {{ $detail_order->reservationNumber }}
                                 </p>
                             </td>
                             {{-- Nombre de Concierto --}}
@@ -118,7 +118,7 @@
                             {{-- Medio Pago --}}
                             <td class="px-6 py-4">
                                 <p class="text-center">
-                                    @switch($detail_order->payment_method)
+                                    @switch($detail_order->paymentMethod)
                                         @case('1')
                                             Efectivo
                                         @break
@@ -139,8 +139,8 @@
                             </td>
                             <td class="px-6 py-4">
                                 <a class="w-auto h-auto"
-                                    href="{{ route('pdf.descargar', ['id' => $detail_order->voucher->id]) }}">
-                                    <img class="mx-auto" src="{{ asset('img/pdf.png') }}" alt="pdf-image">
+                                    href="{{ route('pdf.download', ['id' => $detail_order->id]) }}">
+                                    <img class="mx-auto" src="{{ asset('img/pdfSmall.png') }}" alt="pdf-image">
                                 </a>
                             </td>
                         </tr>
@@ -154,10 +154,8 @@
             </div>
         @endif
     @elseif($client)
-        <p class="text-2xl text-white text-center font-bold">El cliente {{ $client->name }} no ha adquirido entradas</p>
+        <p class="text-2xl text-black text-center font-bold">El cliente {{ $client->name }} no ha adquirido entradas</p>
     @endif
 
 
 @endsection
-
-

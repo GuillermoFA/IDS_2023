@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Concert;
 use App\Models\Sales;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ConcertController extends Controller
 {
@@ -18,7 +20,9 @@ class ConcertController extends Controller
 
     public function index()
     {
-        $concerts = concert::getConcerts();
+        $currentDate = Carbon::now();
+        $concerts = Concert::whereDate('date','>',$currentDate)->get();
+        //$concerts = concert::getConcerts();
         return view('layouts.dashboard',['concerts'=>$concerts]);
     }
 
@@ -29,7 +33,7 @@ class ConcertController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+
         $messages = makeMessages();
         // Validar
         $this->validate($request, [
@@ -44,7 +48,6 @@ class ConcertController extends Controller
         if ($invalidDate) {
             return back()->with('message', 'La fecha debe ser mayor a ' . date("d-m-Y"));
         }
-
 
         // Verificar si en la fecha ingresada existe un concierto.
         $existConcert = existConcertDay($request->date);
@@ -66,6 +69,12 @@ class ConcertController extends Controller
 
     public function concertsList()
     {
+        //Solamente los clientes pueden ver los conciertos.
+        if(Auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
+
         $concerts = Concert::getConcerts();
         return view('layouts.dashboard', [
             'concerts' => $concerts,
@@ -75,6 +84,8 @@ class ConcertController extends Controller
     public function searchDate(Request $request)
     {
 
+        $currentDate = Carbon::now();
+        $concerts = Concert::whereDate('date','>',$currentDate)->get();
         $date=$request->date;
 
         if($date === null){
@@ -83,17 +94,26 @@ class ConcertController extends Controller
                 'concerts' => $concerts,
             ]);
         }
-        $concerts = Concert::whereDate('date','=',$date)->get();
-        if($concerts->count() == 0)
+
+        if($date>$currentDate){
+            $concerts = Concert::whereDate('date','=',$date)->get();
+        }
+        else
+        //if($concerts->count() == 0)
         {
             return redirect(url('dashboard'))->with('successmessage','data saved successfully');
         }
+
         return view('layouts.dashboard',compact('concerts'));
 
     }
     //Obtiene las datos del usuario que inició sesión.
     public function myConcerts()
     {
+        if(Auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
         return view('detail.detail', ['user' => auth()->user()]);
     }
 
@@ -121,7 +141,7 @@ class ConcertController extends Controller
             ]);
         }
 
-        $detail_orders = Sales::where('user_id', $client->id)->paginate(5);
+        $detail_orders = Sales::where('userId', $client->id)->paginate(5);
         return view('concert.clients', [
             'message' => null,
             'client' => $client,

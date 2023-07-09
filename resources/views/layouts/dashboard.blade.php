@@ -22,7 +22,7 @@
                   <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Recaudaciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Buscar Cliente</a>
+                    <a class="nav-link textDark badge fs-4 adminButtonLeft" href="clients">Buscar Cliente</a>
                   </li>
               </ul>
         </div>

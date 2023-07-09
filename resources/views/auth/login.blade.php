@@ -45,11 +45,9 @@
                                 <a class="textHere" href="register">Regístrate</a>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

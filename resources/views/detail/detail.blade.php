@@ -3,10 +3,14 @@
 @section('title')
     Detalle
 @endsection
-
+</head>
+<body>
 @section('content')
 
 <!-- Tabla con datos de las ventas realizadas por el usuario autenticado -->
+    @if ($user->salesData->count() == 0)
+            <h1 class="text-center">No hay entradas adquiridas por desplegar</h1>
+    @else
     <div class="tablePadding">
         <h3 class="text-center">
             Detalle de Compras Realizadas
@@ -31,30 +35,52 @@
                         {{$saleDetail->reservationNumber}}
                     </th>
                     <th>
-                        {{$saleDetail->concertData->name}}  
+                        {{$saleDetail->concertDates->name}}
                     </th>
                     <th>
-                        {{$saleDetail->concertData->date}}
+                        {{$saleDetail->concertDates->date}}
                     </th>
                     <th>
-                        {{$saleDetail->created_at}}  
+                        {{$saleDetail->created_at->toDateString()}}
                     </th>
                     <th>
                         {{$saleDetail->quantity}}
                     </th>
                     <th>
-                        ${{$saleDetail->totalSale/1000}}.000
+                        @if ($saleDetail->total > 999 && $saleDetail->total <= 999999)
+                            ${{$saleDetail->total/1000}}.000
+                        @elseif ($saleDetail->total > 999.999)
+                            ${{$saleDetail->total/1000000}}
+                        @endif
                     </th>
                     <th>
-                        {{$saleDetail->paymentMethod}}
+                    @switch($saleDetail->paymentMethod)
+                        @case('1')
+                            Efectivo
+                        @break
+
+                        @case('2')
+                            Transferencia
+                        @break
+
+                        @case('3')
+                            Tarjeta de Débito
+                        @break
+
+                        @case('4')
+                            Tarjeta de Crédito
+                        @break
+                    @endswitch
                     </th>
                     <th>
-                        .pdf
+                        <a href="{{ route('pdf.download', ['id' => $saleDetail->id ]) }}">
+                            <img src="{{ asset('img/pdf_icon.png') }}" width='50' height='50'>
+                        </a>
                     </th>
                 </tr>
             </tbody>
             @endforeach
         </table>
     </div>
-
+    @endif
 @endsection

@@ -19,11 +19,7 @@ use App\Http\Controllers\SalesController;
 |
 */
 
-Route::get('/', function () {
-
-    return view('auth.login');
-
-});
+Route::redirect('/', '/dashboard');
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'store'])->name('register');
@@ -32,19 +28,15 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAuth'])->name('loginAuth');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-
-
 Route::get('/dashboard', [ConcertController::class, 'index'])->name('dashboard');
 Route::post('concert-search', [ConcertController::class, 'searchDate'])->name('concert.search');
 
 Route::get('/concert-list', [ConcertController::class, 'concertsList'])->name('concert.list');
-// Route::get('/dashboard', [LoginController::class, 'logOut'])->name('logOut');
-
-
 
 //Entrega la vista con lo detalles.
-Route::get('detail', [ConcertController::class, 'myConcerts'])->name('detail');
+Route::get('/detail', [ConcertController::class, 'myConcerts'])->name('detail');
 
+Route::get('viewPdf', [SalesController::class, 'generatePdf'])->name('viewPdf');
 
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
@@ -52,8 +44,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/clients',[ConcertController::class, 'clients'])->name('clients.list');
 Route::get('/clients-search',[ConcertController::class, 'searchClient'])->name('client.search');
 });
-
-
 
 Route::get('/concert-order/{id}', [SalesController::class, 'create'])->name('concert.buy');
 Route::post('/concert-order/{id}', [SalesController::class, 'store'])->name('concert.order.pay');

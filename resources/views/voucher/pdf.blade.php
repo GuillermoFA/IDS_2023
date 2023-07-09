@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>{{ $detail_order->reservation_number . '-' . $detail_order->concertDates->date }}</title>
+    <title>{{ $detailOrder->reservationNumber . '-' . $detailOrder->concertDates->date }}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap');
 
@@ -34,11 +34,11 @@
             flex-direction: column;
             align-items: flex-end;
         }
-        .total-pay {
+        .totalPay {
             margin-bottom: 0px;
             text-align: center;
         }
-        .method-pay {
+        .methodPay {
             color: #a9a9a9;
             font-weight: bold;
             margin-top: 5px;
@@ -48,7 +48,7 @@
 </head>
 
 <body>
-    <h1 class="title">Comprobante de Entradas: {{ $detail_order->reservation_number }}</h1>
+    <h1 class="title">Comprobante de Entradas: {{ $detailOrder->reservationNumber }}</h1>
     <div>
         <h3>Productora Melody</h3>
         <h3>Fecha:
@@ -58,19 +58,19 @@
     <div>
         <h2>Datos del concierto</h2>
         <p>Reserva de número:
-            <span>{{ $detail_order->reservation_number }}</span>
+            <span>{{ $detailOrder->reservationNumber }}</span>
         </p>
         <p>Concierto:
-            <span>{{ $detail_order->concertDates->name }}</span>
+            <span>{{ $detailOrder->concertDates->name }}</span>
         </p>
         <p>Fecha del concierto:
-            <span>{{ $detail_order->concertDates->date }}</span>
+            <span>{{ $detailOrder->concertDates->date }}</span>
         </p>
         <p>Cantidad de entradas:
-            <span>{{ $detail_order->quantity }}</span>
+            <span>{{ $detailOrder->quantity }}</span>
         </p>
-        <p>Valor Entrada:
-            <span>{{ $detail_order->concertDates->price }}</span>
+        <p>Valor de la Entrada:
+            <span>$ {{ $detailOrder->concertDates->price }} CLP</span>
         </p>
     </div>
     <hr>
@@ -85,33 +85,27 @@
     </div>
     <hr>
     <div class="total">
-        <p class="total-pay">Total pagado: {{ $detail_order->total }}</p>
+        <p class="totalPay"> $ Total pagado: {{ $detailOrder->total }} CLP</p>
 
-        <p class="total-pay">Método de pago</p>
-        @switch($detail_order->payment_method)
+        <p class="totalPay">Medio de pago</p>
+        @switch($detailOrder->paymentMethod)
             @case(1)
-                <p class="method-pay">Efectivo</p>
+                <p class="methodPay">Efectivo</p>
             @break
 
             @case(2)
-                <p class="method-pay">Transferencia</p>
+                <p class="methodPay">Transferencia</p>
             @break
 
             @case(3)
-                <p class="method-pay">Débito</p>
+                <p class="methodPay">Tarjeta de Débito</p>
             @break
 
             @case(4)
-                <p class="method-pay">Crédito</p>
+                <p class="methodPay">Tarjeta de Crédito</p>
             @break
         @endswitch
     </div>
 </body>
 
 </html>
-
-
-
-
-
-

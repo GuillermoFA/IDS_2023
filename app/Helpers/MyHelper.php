@@ -36,7 +36,9 @@ function makeMessages()
         'quantity.required' => 'El campo cantidad de entradas es requerido.',
         'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
         'quantity.numeric' => 'La cantidad de entradas ingresadas no es numérica.',
-        'pay_method.required' => 'El método de pago es requerido.',
+
+        'paymentMethod.required' => 'El campo medio de pago es requerido.',
+
 
 
     ];
@@ -56,10 +58,10 @@ function validDate($date)
     return false;
 }
 
-function existConcertDay($date_concert)
+function existConcertDay($dateConcert)
 {
     $concerts = Concert::getConcerts();
-    $date = date($date_concert);
+    $date = date($dateConcert);
 
     foreach ($concerts as $concert) {
 
