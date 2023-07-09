@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Concert;
+use App\Models\Sales;
 use Illuminate\Http\Request;
 
 class ConcertController extends Controller
@@ -89,11 +90,42 @@ class ConcertController extends Controller
         }
         return view('layouts.dashboard',compact('concerts'));
 
-
+    }
     //Obtiene las datos del usuario que inició sesión.
     public function myConcerts()
     {
         return view('detail.detail', ['user' => auth()->user()]);
+    }
 
+    public function clients()
+    {
+        $client = null;
+        return view('concert.clients', [
+            'message' => null,
+            'client' => $client,
+            'detail_orders' => null
+        ]);
+    }
+
+    public function searchClient(Request $request)
+    {
+
+        $email = $request->email_search;
+        $client = User::where('email', "=", $email)->first();
+
+        if (!$client) {
+            return view('concert.clients', [
+                'message' => 'el correo electrónico no existe',
+                'client' => $client,
+                'detail_orders' => null
+            ]);
+        }
+
+        $detail_orders = Sales::where('user_id', $client->id)->paginate(5);
+        return view('concert.clients', [
+            'message' => null,
+            'client' => $client,
+            'detail_orders' => $detail_orders
+        ]);
     }
 }

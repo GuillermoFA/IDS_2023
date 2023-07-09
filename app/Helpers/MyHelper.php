@@ -29,6 +29,10 @@ function makeMessages()
         'name.min' => 'El campo nombre del concierto no puede ser inferior a :min caracteres.',
         'price.min' => 'El valor de la entrada no puede ser inferior a $20.000 pesos',
 
+        'email_search.required' => 'Ingrese un correo electrónico válido.',
+        'email_search.email' => 'Ingrese un correo electrónico válido.',
+        'email_search.string' => 'Ingrese un correo electrónico válido.',
+
         'quantity.required' => 'El campo cantidad de entradas es requerido.',
         'quantity.min' => 'La cantidad de entradas debe ser mayor o igual a :min.',
         'quantity.numeric' => 'La cantidad de entradas ingresadas no es numérica.',

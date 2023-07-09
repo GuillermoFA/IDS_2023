@@ -350,20 +350,28 @@ ul{
 }
 
 
-
-
-
-
-
-
-
-    text-decoration: overline;
-
-}
-
 /* Padding para dejar la tabla del detalle centrada */
 .tablePadding{
     padding: 50px 20px 30px 20px;
+}
+
+
+/* Ajutes para: Botón "Cerrar Sesión" */
+.submitButtomSearch{
+    white-space: normal;
+    text-align: center;
+    background-color: #ff562d;
+    padding: 20px 10px;
+    color: white;
+    border: none;
+    /* height: 40px;
+    width: 140px; */
+
+}
+
+.submitButtomSearch:hover{
+
+    color: #00D3A2;
 }
 
 

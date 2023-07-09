@@ -15,7 +15,7 @@
                         <h4>Registrar usuario</h4>
                     </div>
                     <div class="card-body rounded-5">
-                        <form id="formulario" action="{{ route('register')}}" method="POST" novalidate>
+                        <form id="form" action="{{ route('register')}}" method="POST" novalidate>
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name_user" class="form-label">Nombre</label>
