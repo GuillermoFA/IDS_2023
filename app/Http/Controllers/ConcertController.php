@@ -135,7 +135,7 @@ class ConcertController extends Controller
 
         if (!$client) {
             return view('concert.clients', [
-                'message' => 'el correo electrónico no existe',
+                'message' => 'El correo electrónico no existe, intente nuevamente.',
                 'client' => $client,
                 'detail_orders' => null
             ]);

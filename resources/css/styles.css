@@ -375,3 +375,7 @@ ul{
 }
 
 
+.paginationUse{
+    transform: translate(0px,-150px);
+}
+
