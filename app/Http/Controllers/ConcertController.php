@@ -115,6 +115,7 @@ class ConcertController extends Controller
             return redirect()->route('dashboard');
         }
         return view('detail.detail', ['user' => auth()->user()]);
+
     }
 
     public function clients()
@@ -147,5 +148,6 @@ class ConcertController extends Controller
             'client' => $client,
             'detail_orders' => $detail_orders
         ]);
+
     }
 }
