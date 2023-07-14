@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Concert;
+use App\Models\Sales;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -114,5 +115,39 @@ class ConcertController extends Controller
             return redirect()->route('dashboard');
         }
         return view('detail.detail', ['user' => auth()->user()]);
+
+    }
+
+    public function clients()
+    {
+        $client = null;
+        return view('concert.clients', [
+            'message' => null,
+            'client' => $client,
+            'detail_orders' => null
+        ]);
+    }
+
+    public function searchClient(Request $request)
+    {
+
+        $email = $request->email_search;
+        $client = User::where('email', "=", $email)->first();
+
+        if (!$client) {
+            return view('concert.clients', [
+                'message' => 'El correo electrónico no existe, intente nuevamente.',
+                'client' => $client,
+                'detail_orders' => null
+            ]);
+        }
+
+        $detail_orders = Sales::where('userId', $client->id)->paginate(5);
+        return view('concert.clients', [
+            'message' => null,
+            'client' => $client,
+            'detail_orders' => $detail_orders
+        ]);
+
     }
 }

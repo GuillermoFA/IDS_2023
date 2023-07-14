@@ -41,10 +41,13 @@ Route::get('viewPdf', [SalesController::class, 'generatePdf'])->name('viewPdf');
 Route::group(['middleware' => 'admin'], function () {
     Route::post('concert', [ConcertController::class, 'store'])->name('concert');
     Route::get('concert', [ConcertController::class, 'create'])->name('concert.create');
+    Route::get('/clients',[ConcertController::class, 'clients'])->name('clients.list');
+Route::get('/clients-search',[ConcertController::class, 'searchClient'])->name('client.search');
 });
 
 Route::get('/concert-order/{id}', [SalesController::class, 'create'])->name('concert.buy');
 Route::post('/concert-order/{id}', [SalesController::class, 'store'])->name('concert.order.pay');
 Route::get('download-pdf/{id}', [SalesController::class, 'downloadPDF'])->name('pdf.download');
+
 
 

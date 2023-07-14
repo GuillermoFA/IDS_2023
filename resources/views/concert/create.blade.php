@@ -11,6 +11,7 @@
                         <h4>Crear concierto</h4>
                     </div>
                     <div class="card-body rounded-5">
+
                         <form id="form" action="{{ route('concert')}}" method="POST" class="form-create"novalidate>
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
