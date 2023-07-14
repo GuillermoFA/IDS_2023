@@ -8,13 +8,12 @@
 
 </head>
 <body>
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="font-weight-bold text-3xl card-header customYellow text-center">
-                        <h4>Inicia Sesión en Melody</h4>
+                        <h4>Iniciar Sesión en Melody</h4>
                     </div>
                     <div class="card-body rounded-5">
                         <form action="{{ route('loginAuth')}}" method="POST" novalidate>
@@ -43,14 +42,12 @@
                             </div>
                             <div class= "textRegister text-center">
                                 <label for="cuenta">¿No tiene una cuenta?</label>
-                                <a class="textHere" href="register">Registrate</a>
+                                <a class="textHere" href="register">Regístrate</a>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection

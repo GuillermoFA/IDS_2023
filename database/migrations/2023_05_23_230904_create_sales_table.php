@@ -16,11 +16,14 @@ return new class extends Migration
             $table->unsignedBigInteger('userId');
             $table->unsignedBigInteger('concertId');
             $table->integer("reservationNumber");
-            $table->string("paymentMethod");
-            $table->integer('totalSale');
+            $table->integer("paymentMethod");
+            $table->integer('total');
             $table->integer('quantity');
             $table->foreign('userId')->references('id')->on('users');
             $table->foreign('concertId')->references('id')->on('concerts');
+            $table->string('pdfName')->nullable();;
+            $table->string('path')->nullable();;
+            $table->date('date')->nullable();;
             $table->timestamps();
         });
     }

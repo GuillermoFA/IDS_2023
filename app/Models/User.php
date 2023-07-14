@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Attribute;
+use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Type\Integer;
 
 class User extends Authenticatable
 {
@@ -18,6 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'id',
         'email',
         'role',
         'password',
@@ -43,4 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //Obtiene los datos de las ventas que coinciden con el 'id' del usuario.
+    public function salesData()
+    {
+        return $this->hasMany(Sales::class, 'userId');
+    }
 }

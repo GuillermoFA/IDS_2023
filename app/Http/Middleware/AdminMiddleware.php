@@ -18,6 +18,6 @@ class AdminMiddleware
         if (auth()->check() && auth()->user()->role===2)
             return $next($request);
 
-        return redirect('/');
+        return redirect('dashboard');
     }
 }

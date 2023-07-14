@@ -12,18 +12,16 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(auth()->check()){
+            return redirect()->route('dashboard');
+        };
         return view('auth.login');
-    }
-
-    public function dashboard()
-    {
-        // Retornar al dashboard
-        return view('layouts.dashboard');
     }
 
     public function loginAuth(Request $request)
     {
         $messages = makeMessages();
+
         // Validar la información
         $this->validate($request, [
             'email' => ['required', 'email'],
@@ -32,10 +30,9 @@ class LoginController extends Controller
 
         if(!auth()->attempt($request->only('email', 'password'), $request->remember))
         {
-            // return redirect()->route('login')->with("error",'Correo o contraseña incorrecto');
             return back()->with('message', 'Usuario no registrado o contraseña incorrecta');
         }
-        //Auth::logout();
+
         return redirect()->route('dashboard');
     }
 
