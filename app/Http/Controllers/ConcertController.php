@@ -40,7 +40,7 @@ class ConcertController extends Controller
             'name' => ['required', 'min:5'],
             'price' => ['required', 'numeric', 'min:20000', 'max:2147483647'],
             'stock' => ['required', 'numeric', 'between:100,400'],
-            'date' => ['required', 'date', 'after:today','unique:Concerts,date']
+            'date' => ['required', 'date', 'after:today','unique:Concerts,date'],
         ], $messages);
 
         //  Verificamos si la fecha ingresada es mayor a la fecha actual.
@@ -61,6 +61,7 @@ class ConcertController extends Controller
             'price' => $request->price,
             'stock' => $request->stock,
             'date' => $request->date,
+            'originalStock' => $request->stock,
 
         ]);
         echo "<script> alert('El concierto se creó correctamente'); location.href='dashboard'; </script>";
@@ -148,6 +149,19 @@ class ConcertController extends Controller
             'client' => $client,
             'detail_orders' => $detail_orders
         ]);
+        }
 
+        public function concertsListAdmin()
+        {
+            //lista de conciertos para mostar.
+            if(Auth()->user()->role == '1')
+            {
+                return redirect()->route('dashboard');
+            }
+
+            $concerts = Concert::getConcerts();
+            return view('concert.sales', [
+                'concerts' => $concerts,
+            ]);
     }
 }

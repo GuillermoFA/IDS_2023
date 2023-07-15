@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Concert extends Model
 {
+    public $timestamps = false;
     use HasFactory;
     protected $fillable = [
         'name',
         'price',
         'stock',
-        'date'
+        'date' ,
+        'originalStock'
     ];
 
     public static function getConcerts()

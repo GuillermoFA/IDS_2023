@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('stock');
             #price of the ticket
             $table->integer('price');
-            $table->timestamps();
+            $table->integer('originalStock');
         });
     }
 

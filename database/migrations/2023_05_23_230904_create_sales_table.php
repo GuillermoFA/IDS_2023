@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('pdfName')->nullable();;
             $table->string('path')->nullable();;
             $table->date('date')->nullable();;
-            $table->timestamps();
         });
     }
 

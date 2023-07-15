@@ -2,11 +2,12 @@
 @section('title')
     Menu
 @endsection
-
+</head>
+<body>
 
 @section('content')
 
-<div >
+<div>
     @auth
     @if (auth()->user()->role===2)
     <div class = "container z">
@@ -16,7 +17,7 @@
                   <a class="nav-link textDark badge fs-4 adminButtonLeft" href="concert">Crear Concierto</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Compras Realizadas</a>
+                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="{{ route('concert.sales') }}">Compras Realizadas</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Recaudaciones</a>

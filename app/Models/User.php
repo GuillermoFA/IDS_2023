@@ -12,6 +12,8 @@ use Ramsey\Uuid\Type\Integer;
 
 class User extends Authenticatable
 {
+    public $timestamps = false;
+    public $rememberToken =false;
     use HasApiTokens, HasFactory, Notifiable;
 
      /**

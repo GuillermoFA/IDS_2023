@@ -97,6 +97,3 @@
     @yield('alerta')
 </html>
 
-
-
-
