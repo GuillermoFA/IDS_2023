@@ -39,7 +39,7 @@
                                     <h2>Valor de la entrada:</h2>
                                 </div>
                                 <div class="col-5">
-                                    <h2>$ {{ $concert->price }} CLP</h2>
+                                    <h2>{{'$' . number_format($concert->price, 0,',','.') . ' CLP'}}</h2>
                                 </div>
                             </div>
                             <div class="mb-4">

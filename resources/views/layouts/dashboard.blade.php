@@ -88,7 +88,7 @@
                         stock: {{$concert->stock}}<br>
                     </p>
                     <strong class="precio">
-                        Valor de la entrada: ${{$concert->price}} CLP
+                        Valor de la entrada: {{'$' . number_format($concert->price, 0,',','.') . ' CLP'}}
                     </strong>
                     @if($concert->stock>0)
                     <div class="text-center">
