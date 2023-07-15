@@ -41,17 +41,13 @@
                         {{$saleDetail->concertDates->date}}
                     </th>
                     <th>
-                        {{$saleDetail->created_at->toDateString()}}
+                        {{$saleDetail->date}}
                     </th>
                     <th>
                         {{$saleDetail->quantity}}
                     </th>
                     <th>
-                        @if ($saleDetail->total > 999 && $saleDetail->total <= 999999)
-                            ${{$saleDetail->total/1000}}.000
-                        @elseif ($saleDetail->total > 999.999)
-                            ${{$saleDetail->total/1000000}}
-                        @endif
+                        {{'$' . number_format($saleDetail->total, 0,',','.')}}
                     </th>
                     <th>
                     @switch($saleDetail->paymentMethod)

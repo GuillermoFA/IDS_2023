@@ -91,7 +91,7 @@ class SalesController extends Controller
 
             'pdfName' => NULL,
             'path' => NULL,
-            'date' => NULL
+            'date' => date('y-m-d')
         ]);
 
         // Descontar el stock del concierto
@@ -116,7 +116,7 @@ class SalesController extends Controller
         $domPDF->render();
 
         // Generar nombre de archivo aleatorio
-        $filename = 'Comprobante_' . Str::random(10) . Sales::latest()->first()->id. '.pdf';
+        $filename = 'Comprobante_' . Str::random(10) . Sales::latest('id')->first()->id. '.pdf';
 
         // Guardar el PDF en la carpeta public
         $path = 'pdfs\\' . $filename;
@@ -131,7 +131,7 @@ class SalesController extends Controller
         //echo "<script> alert('Se realizó la compra correctamente');</script>";
         //toastr()->success('Tu comprobante se descargarpa de inmediato');
         // Obtener la información del PDF desde la base de datos
-        $pdf = Sales::latest()->first();
+        $pdf = Sales::latest('id')->first();
 
         // Obtener la ruta del archivo PDF
         $path = storage_path('app\public\pdfs\\' . $pdf->pdfName);
