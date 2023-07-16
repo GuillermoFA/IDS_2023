@@ -32,5 +32,11 @@ class Sales extends Model
     {
          return $this->belongsTo(User::class, "id");
 
+
+    public function user()
+    {
+     
+        return $this->belongsTo(User::class, 'userId', 'id');
+
     }
 }

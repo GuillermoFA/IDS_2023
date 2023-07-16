@@ -54,7 +54,9 @@
 
                     @else
                         <div class="text-center">
-                            <a href="{{ route("dashboard", ['id' => $concert->id]) }}"
+
+                            <a href="{{ route('concert.salesPerConcert', ['id' => $concert->id]) }}"
+
                                 class="buyButton btn"
                                 type="submit">
                                 Ver detalle

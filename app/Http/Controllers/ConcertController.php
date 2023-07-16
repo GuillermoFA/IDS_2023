@@ -68,6 +68,7 @@ class ConcertController extends Controller
         //return redirect()->route('dashboard');
     }
 
+
     public function concertsList()
     {
         //Solamente los clientes pueden ver los conciertos.
@@ -151,8 +152,9 @@ class ConcertController extends Controller
         ]);
         }
 
-        public function concertsListAdmin()
-        {
+
+    public function concertsListAdmin()
+    {
             //lista de conciertos para mostar.
             if(Auth()->user()->role == '1')
             {
@@ -164,4 +166,17 @@ class ConcertController extends Controller
                 'concerts' => $concerts,
             ]);
     }
+
+
+    public function salesPerConcert(Request $request, $id){
+        $concert = Concert::find($id);
+
+       $sales = Sales::where('concertId', $id)->get();
+        return view('concert.concertSales', [
+            'concert' => $concert,
+            'sales' => $sales,
+        ]);
+
+    }
+
 }
