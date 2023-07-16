@@ -35,7 +35,6 @@
     transition-duration: 0.2s;
 }
 
-
 /* Animación para: Botón "Comprar" al dejar el mouse encima.  */
 .buyButton:hover{
 
@@ -127,15 +126,15 @@
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
     }
-
+    
     20%, 80% {
       transform: translate3d(2px, 0, 0);
     }
-
+    
     30%, 50%, 70% {
       transform: translate3d(-4px, 0, 0);
     }
-
+  
     40%, 60% {
       transform: translate3d(4px, 0, 0);
     }
@@ -234,7 +233,7 @@
 
 
 /* CSS puro */
-.rectanguleRotated {
+.rectanguleRotated { 
     width: 180px;
     height: 60px;
     border-radius: 50px;
@@ -421,55 +420,6 @@ ul{
     width: 140px; */
 
 }
-
-
-/* Ajustes para: Botónes en la barra de navegación. */
-.navButton{
-
-    white-space: normal;
-    /* height: 50px;
-    width: 140px; */
-    color: white;
-
-    padding: 13px 10px;
-
-    transition-duration: 0s;
-
-}
-
-/* Animación para: Botónes en la barra de navegación. */
-.navButton:hover{
-
-    color: #00D3A2;
-    text-decoration: overline;
-
-}
-
-/* Ajutes para: Botón "Cerrar Sesión" */
-.logOutButton{
-    white-space: normal;
-    text-align: left;
-    background-color: transparent;
-    padding: 13px 10px;
-    color: white;
-    border: none;
-    /* height: 40px;
-    width: 140px; */
-    transition-duration: 0;
-}
-
-.logOutButton:hover{
-
-    color: #00D3A2;
-    text-decoration: overline;
-
-}
-
-/* Padding para dejar la tabla del detalle centrada */
-.tablePadding{
-    padding: 50px 20px 30px 20px;
-}
-
 
 .submitButtomSearch:hover{
 
