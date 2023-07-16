@@ -2,6 +2,10 @@
     background-color:#fde801;
 }
 
+.customTab{
+    background-color: #F9BC02;
+}
+
 .customTransparent{
     background-color: transparent;
     color: white;
@@ -36,10 +40,24 @@
     color: #045acf;
 }
 
-.backgroundNav{
-    background: linear-gradient(to bottom, #fde801 0%, #fde801 23%,#181B19 25%,#181B19 76.02%, #fde801 50%, #fde801 100% );
-}
-
 .textWhite{
     color: #ffff;
 }
+
+.cancelButtonColorRed{
+    text-align: center;
+    background-color: #F32E0E;
+    color: #F4FAE8;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+
+.cancelButtonColorRed:hover
+{
+    background-color: #FA4F17;
+    color: #F4FAE8;
+}
+

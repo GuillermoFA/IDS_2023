@@ -1,16 +1,19 @@
 
-
-.concertRow{
+/* Ajustes para: Fila de imagenes de conciertos. */
+.imgRow{
 
     padding: 50px 50px 0 50px;
     display: flex;
     justify-content: space-between;
 }
 
+/* Ajuste para: imagen de concierto */
 .img{
     width: 250px;
     height: 200px;
 }
+
+/* Ajustes para: Fila de Botones "Comprar" en Dashboard */
 
 .buttonRow{
     padding: 10px 130px 0 130px;
@@ -19,39 +22,59 @@
 
 }
 
-.button{
+/* Ajustes para: Botón "Comprar" en Dashboard */
+.buyButton{
+
     text-align: center;
-    background-color: #FF5733;
+    background-color: #00D3A2;
     color: white;
     border: none;
     border-radius: 15px;
-    width: 90px;
+    width: 150px;
     height: 40px;
     transition-duration: 0.2s;
 }
 
-.button:hover{
+/* Animación para: Botón "Comprar" al dejar el mouse encima.  */
+.buyButton:hover{
 
-    background: #00D3A2;
-
+    background: #4af3A2;
+    color: white;
 }
 
-.button:active{
+/* Animación para: Botón "Comprar" al hacer click en el.  */
+.buyButton:active{
+
     background-color: #009572;
 }
 
+/* Ajustes para: Fila de información de conciertos en dashboard. */
 .concertInfoRow{
 
     display: flex;
     justify-content: space-between;
 }
 
+/* Ajustes para: Información de concierto en dashboard. */
 .concertInfo{
     text-align: center;
     width: 350px;
     height: 10px;
 }
 
+.formAdmin{
+    text-align: center;
+    background-color: #ff562d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+    height: 100px;
+    transition-duration: 0.2s;
+    justify-content: space-between;
+}
+
+/* Ajustes para: Botones en formularios en general (Iniciar sesión, Registrar Usuario, etc...). */
 .formButton{
     text-align: center;
     background-color: #fde801;
@@ -62,12 +85,27 @@
     height: 40px;
     transition-duration: 0.2s;
 }
+
+
+.formAdmin:hover{
+
+    background: #00D3A2;
+    color: white;
+}
+
+/* Animación para: Botones en formularios al dejar el mouse encima. */
 .formButton:hover{
 
     background: #00D3A2;
     color: white;
-
 }
+
+/* Ajustes para: Botónes en la barra de navegación. */
+.navButton{
+
+    white-space: normal;
+}
+
 .disableformButton{
     text-align: center;
     background-color: #6e6e6a;
@@ -78,9 +116,381 @@
     height: 40px;
     transition-duration: 0.2s;
 }
+
 .disableformButton:hover{
 
-    background: #00D3A2;
-    color: white;
+    background: grey;
+    animation: shake 0.4s;
+}
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
 
+/* Ajustes para: Botónes en la barra de navegación. */
+.navButton{
+    height: 50px;
+    width: 210px;
+    font-size: 20px;
+    color: black;
+    transform: translate(145px, -46px);
+    transition-duration: 0s;
+}
+
+/* Animación para: Botónes en la barra de navegación. */
+.navButton:hover{
+    color: #00D3A2;
+}
+
+/* Ajutes para: Botón "Cerrar Sesión" */
+.logOutButton{
+    font-size: 25px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-10px, 5px);
+    color: black;
+}
+
+.logOutButton:hover{
+
+    color: #00D3A2;
+}
+
+/* Ajuste para botón "Detalle de Compras" en el nav */
+.detailButton{
+
+    font-size: 25px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(160px, -50px);
+    color: black;
+}
+
+.detailButton:hover{
+
+    color: #00D3A2;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px; /* ajusta la altura */
+    background-color: #fde801;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.backgroundNav{
+    height: 140px;
+    width: 100%;
+    background: linear-gradient(to bottom, #fde801 18.5%, #fde801 1%,#010101 0%,#010101 54.5%, #fde801 2%, #fde801 100%);
+}
+
+.imagen {
+    width: 400px;
+    height: auto; /* Mantiene la proporción original de la imagen */
+    transform: translate(-150px,  9.2px);
+}
+
+.rectangule { /* Texto para el cerrar sesion */
+    width: 420px;
+    height: 53px;
+    background-color: white;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    z-index: 999;
+}
+
+.blackRectangule
+{
+    width: 420px;
+    height: 53px;
+    background-color: black;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    z-index: 999;
+}
+
+
+/* CSS puro */
+.rectanguleRotated { 
+    width: 180px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: white;
+    position: absolute;
+    top: 77px;
+    right: 350px;
+    transform:rotate(300deg);
+    z-index: 300;
+}
+
+.blackrectanguleRotated
+{
+    width: 180px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: black;
+    position: absolute;
+    top: 77px;
+    right: 550px;
+    transform:rotate(300deg);
+    z-index: -2;
+}
+
+
+.textCreate { /* CSS modifica posicionamiento CrearConcierto */
+    font-size: 20.5px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-100px,-35px);
+}
+
+.onText { /* CSS modifica posicionamiento Iniciar Sesion */
+    font-size: 27px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-25px,-68px);
+    color:white;
+}
+
+.register { /* CSS modifica posicionamiento Registrarse */
+    font-size: 27px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-15px,4px);
+    color: #010101;
+}
+
+.register:hover{
+    color: #00d4a1;
+}
+
+.login{
+    font-size: 27px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(-150px,-67px);
+    color: white;
+}
+
+.login:hover{
+    color: #00d4a1;
+}
+
+.jumbotronCustom {
+    padding: 0px; /* Ajusta el relleno interno */
+    margin-bottom: -20px; /* Ajusta el margen inferior */
+    font-size: 28px; /* Ajusta el tamaño de fuente */
+    position: relative; /* Establece la posición relativa */
+    top: -30px; /* Ajusta la distancia desde la parte superior */
+    left: -500px; /* Ajusta la distancia desde la izquierda */
+}
+
+.rectanguleMain{ /* Texto para el cerrar sesion */
+    width: 300px;
+    height: 53px;
+    background-color: white;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    z-index: 999;
+}
+
+.rectanguleRotadePrincipal { /* CSS puro */
+    width: 150px;
+    height: 60px;
+    border-radius: 5%;
+    background-color: white;
+    position: absolute;
+    transform: translate(60px,-25px) rotate(310deg);
+    z-index: 300;
+}
+
+.leftPanel{
+    display: flex;
+    flex-direction: column;
+}
+
+.left-panel button {
+    margin-bottom: 40px;
+}
+
+.carrousel{
+    width: 1200px;
+    left: 200px;
+}
+
+.menuVertical{
+    width: 350px;
+    height: 86vh;
+    position: absolute;
+    text-align: center;
+    left: 0px;
+    background-color: #fde801;
+}
+
+li{
+    height: 100px;
+}
+
+ul{
+    padding-top: 150px;
+}
+
+.adminButton{
+
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 140px;
+    transition-duration: 0;
+}
+
+.adminButton:hover{
+
+    color: #00D3A2;
+
+}
+
+.adminButtonLeft{
+    text-align: center;
+    background-color: transparent;
+    padding: 16px 10px;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 280px;
+    transition-duration: 0;
+}
+
+.adminButtonLeft:hover{
+
+    color: #00D3A2;
+}
+
+/* Padding para dejar la tabla del detalle centrada */
+.tablePadding{
+    padding: 50px 20px 30px 20px;
+}
+
+.z-index-2
+{
+    z-index: -2;
+}
+
+.z-index-1
+{
+    z-index: -1;
+}
+
+
+/* Ajutes para: Botón "Cerrar Sesión" */
+.submitButtomSearch{
+    white-space: normal;
+    text-align: center;
+    background-color: #ff562d;
+    padding: 20px 10px;
+    color: white;
+    border: none;
+    /* height: 40px;
+    width: 140px; */
+
+}
+
+.submitButtomSearch:hover{
+
+    color: #00D3A2;
+}
+
+.paginationUse{
+    transform: translate(0px,-150px);
+}
+.z-index-0
+{
+    z-index: 0;
+}
+
+.z-index-5
+{
+    z-index: 10;
+}
+
+.z-index-10
+{
+    z-index: 10;
+}
+
+/* Botón para cancelar la compra de un ticket */
+.cancelButton
+{
+    text-align: center;
+    background-color: #F32E0E;
+    color: #F4FAE8;
+    border: none;
+    border-radius: 15px;
+    width: 80px;
+    height: 40px;
+    transition-duration: 0.2s;
+}
+
+.cancelButton:hover
+{
+    background-color: #FA4F17;
+    color: #F4FAE8;
+}
+
+/* Espacio blanco entre la barra de navegación y el contenido.
+Ayuda a tapar el diseño */
+.whiteSpace
+{
+    color: white;
+    width: 100%;
+    height: 20px;
+    background-color: white;
+    position: relative;
+    transform: translate(0, -15px);
+}
+
+/* Ajusta las imagenes mostradas en la vista del administrador */
+.carruselImg
+{
+    width: 1280px;
+    height: 720px;
+}
+
+.createConcertButton
+{
+    font-size: 27px;
+    vertical-align: top;
+    line-height: 1;
+    transform: translate(160px,-52px);
+    color: black;
+}
+
+.createConcertButton:hover{
+    color: #00D3A2;
 }

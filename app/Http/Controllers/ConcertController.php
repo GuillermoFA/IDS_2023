@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Concert;
+use App\Models\Sales;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ConcertController extends Controller
 {
@@ -17,7 +20,9 @@ class ConcertController extends Controller
 
     public function index()
     {
-        $concerts = concert::getConcerts();
+        $currentDate = Carbon::now();
+        $concerts = Concert::whereDate('date','>',$currentDate)->get();
+        //$concerts = concert::getConcerts();
         return view('layouts.dashboard',['concerts'=>$concerts]);
     }
 
@@ -28,14 +33,14 @@ class ConcertController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
+
         $messages = makeMessages();
         // Validar
         $this->validate($request, [
             'name' => ['required', 'min:5'],
             'price' => ['required', 'numeric', 'min:20000', 'max:2147483647'],
             'stock' => ['required', 'numeric', 'between:100,400'],
-            'date' => ['required', 'date', 'after:today','unique:Concerts,date']
+            'date' => ['required', 'date', 'after:today','unique:Concerts,date'],
         ], $messages);
 
         //  Verificamos si la fecha ingresada es mayor a la fecha actual.
@@ -43,7 +48,6 @@ class ConcertController extends Controller
         if ($invalidDate) {
             return back()->with('message', 'La fecha debe ser mayor a ' . date("d-m-Y"));
         }
-
 
         // Verificar si en la fecha ingresada existe un concierto.
         $existConcert = existConcertDay($request->date);
@@ -57,13 +61,21 @@ class ConcertController extends Controller
             'price' => $request->price,
             'stock' => $request->stock,
             'date' => $request->date,
+            'originalStock' => $request->stock,
 
         ]);
         echo "<script> alert('El concierto se creó correctamente'); location.href='dashboard'; </script>";
         //return redirect()->route('dashboard');
     }
+
     public function concertsList()
     {
+        //Solamente los clientes pueden ver los conciertos.
+        if(Auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
+
         $concerts = Concert::getConcerts();
         return view('layouts.dashboard', [
             'concerts' => $concerts,
@@ -73,6 +85,8 @@ class ConcertController extends Controller
     public function searchDate(Request $request)
     {
 
+        $currentDate = Carbon::now();
+        $concerts = Concert::whereDate('date','>',$currentDate)->get();
         $date=$request->date;
 
         if($date === null){
@@ -81,11 +95,84 @@ class ConcertController extends Controller
                 'concerts' => $concerts,
             ]);
         }
-        $concerts = Concert::whereDate('date','=',$date)->get();
-        if($concerts->count() == 0)
+
+        if($date>$currentDate){
+            $concerts = Concert::whereDate('date','=',$date)->get();
+        }
+        else
+        //if($concerts->count() == 0)
         {
             return redirect(url('dashboard'))->with('successmessage','data saved successfully');
         }
+
         return view('layouts.dashboard',compact('concerts'));
+
+    }
+    //Obtiene las datos del usuario que inició sesión.
+    public function myConcerts()
+    {
+        if(Auth()->user()->role == '2')
+        {
+            return redirect()->route('dashboard');
+        }
+        return view('detail.detail', ['user' => auth()->user()]);
+
+    }
+
+    public function clients()
+    {
+        $client = null;
+        return view('concert.clients', [
+            'message' => null,
+            'client' => $client,
+            'detail_orders' => null
+        ]);
+    }
+
+    public function searchClient(Request $request)
+    {
+
+        $email = $request->email_search;
+        $client = User::where('email', "=", $email)->first();
+
+        if (!$client) {
+            return view('concert.clients', [
+                'message' => 'El correo electrónico no existe, intente nuevamente.',
+                'client' => $client,
+                'detail_orders' => null
+            ]);
+        }
+
+        $detail_orders = Sales::where('userId', $client->id)->paginate(5);
+        return view('concert.clients', [
+            'message' => null,
+            'client' => $client,
+            'detail_orders' => $detail_orders
+        ]);
+        }
+
+    public function concertsListAdmin()
+    {
+            //lista de conciertos para mostar.
+            if(Auth()->user()->role == '1')
+            {
+                return redirect()->route('dashboard');
+            }
+
+            $concerts = Concert::getConcerts();
+            return view('concert.sales', [
+                'concerts' => $concerts,
+            ]);
+    }
+
+    public function salesPerConcert(Request $request, $id){
+        $concert = Concert::find($id);
+
+       $sales = Sales::where('concertId', $id)->get();
+        return view('concert.concertSales', [
+            'concert' => $concert,
+            'sales' => $sales,
+        ]);
+
     }
 }

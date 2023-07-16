@@ -11,7 +11,8 @@
                         <h4>Crear concierto</h4>
                     </div>
                     <div class="card-body rounded-5">
-                        <form id="formulario" action="{{ route('concert')}}" method="POST" class="fomulario-crear"novalidate>
+
+                        <form id="form" action="{{ route('concert')}}" method="POST" class="form-create"novalidate>
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name" class="form-label">Nombre</label>
@@ -42,10 +43,11 @@
                                 @enderror
                             </div>
                             <div class="text-center rounded-5">
+
                                 <input id="button" type="button" value="Crear concierto" class="formButton">
+
                               </div>
                         </form>
-
                     </div>
                 </div>
             </div>

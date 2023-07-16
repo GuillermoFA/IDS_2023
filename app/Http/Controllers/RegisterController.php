@@ -12,19 +12,15 @@ class RegisterController extends Controller
 {
     public function index()
     {
+        if(Auth()->check())
+        {
+            return redirect()->route('dashboard');
+        }
         return view('auth.register');
     }
 
-    public function show()
-    {
-        return view('formulario');
-    }
-
-
     public function store(Request $request)
     {
-
-
         $messages = makeMessages();
         // Validación
         $this->validate($request, [
