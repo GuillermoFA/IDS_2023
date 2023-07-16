@@ -22,4 +22,9 @@ class Concert extends Model
         return self::all();
     }
 
+    public function detailOrder()
+    {
+        return $this->hasMany(Sales::class, 'concertId');
+    }
+
 }
