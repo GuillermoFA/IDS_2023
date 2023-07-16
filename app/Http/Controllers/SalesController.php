@@ -173,4 +173,10 @@ class SalesController extends Controller
         return response()->download($path, $filename, ['Content-Type' => $mimeType]);
     }
 
+    public function SalesData()
+    {
+        $sales = Sales::getSales();
+        return $sales;
+    }
+
 }

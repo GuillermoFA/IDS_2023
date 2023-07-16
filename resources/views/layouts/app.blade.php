@@ -11,7 +11,9 @@
     @vite('resources/css/color.css')
     @vite('resources/css/styles.css')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0 "></script>
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
     <title>Melody - @yield('title')</title>
 
     <link rel="icon" href="{{ asset('img/melody_icon.png') }}" type="image/png" sizes="16x16 32x32" >

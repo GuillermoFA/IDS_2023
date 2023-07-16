@@ -165,8 +165,21 @@ class ConcertController extends Controller
             return view('concert.sales', [
                 'concerts' => $concerts,
             ]);
-    }
 
+    }
+        public function concertsSalesCollection()
+        {
+            $concerts = Concert::getConcerts();
+            return view('concert.salesCollection', [
+                'concerts' => $concerts,
+            ]);;
+        }
+
+        public function concertAllSalesData()
+        {
+            $concerts = Concert::withSum('detailOrder', 'total')->get();
+            return response()->json($concerts);
+        }
 
     public function salesPerConcert(Request $request, $id){
         $concert = Concert::find($id);
@@ -178,5 +191,6 @@ class ConcertController extends Controller
         ]);
 
     }
+
 
 }

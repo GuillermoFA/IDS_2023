@@ -44,7 +44,15 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/clients',[ConcertController::class, 'clients'])->name('clients.list');
     Route::get('/clients-search',[ConcertController::class, 'searchClient'])->name('client.search');
     Route::get('/concert-sales', [ConcertController::class, 'concertsListAdmin'])->name('concert.sales');
+
+    Route::get('/salesCollection', [ConcertController::class, 'concertsSalesCollection'])->name('concert.salesCollection');
+
+    Route::get('/ConcertTotalSalesData', [ConcertController::class, 'concertAllSalesData']);
+
+    Route::get('/SalesData', [SalesController::class, 'SalesData']);
+
     Route::get('/concert-concertSales/{id}', [ConcertController::class, 'salesPerConcert'])->name('concert.salesPerConcert');
+
 
 });
 

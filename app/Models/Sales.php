@@ -39,4 +39,9 @@ class Sales extends Model
         return $this->belongsTo(User::class, 'userId', 'id');
 
     }
+    
+    public static function getSales()
+    {
+        return self::all();
+    }
 }
