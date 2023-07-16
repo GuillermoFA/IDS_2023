@@ -33,4 +33,10 @@ class Sales extends Model
          return $this->belongsTo(User::class, "id");
 
     }
+    public function user()
+    {
+        // La relación belongsTo (pertenece a) indica que cada venta pertenece a un usuario.
+        // 'userId' es la clave foránea en la tabla de ventas que hace referencia a la clave primaria en la tabla de usuarios.
+        return $this->belongsTo(User::class, 'userId', 'id');
+    }
 }

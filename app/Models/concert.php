@@ -21,5 +21,10 @@ class Concert extends Model
     {
         return self::all();
     }
+    public function sales()
+    {
+        // La relación tieneMany (tiene muchos) indica que un concierto puede tener varias ventas asociadas.
+        return $this->hasMany(Sales::class, 'concertId');
+    }
 
 }
