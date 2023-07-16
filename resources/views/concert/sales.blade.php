@@ -9,7 +9,7 @@
 
 <!-- Tabla con datos de las ventas totales de los conciertos -->
     @if ($concerts->count() === 0)
-            <h1 class="text-center">No hay concierto por mostrar</h1>
+            <h1 class="text-center">No hay conciertos por mostrar</h1>
     @else
     <div class="tablePadding">
         <h3 class="text-center">

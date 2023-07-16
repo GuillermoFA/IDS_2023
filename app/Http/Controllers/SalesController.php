@@ -105,7 +105,7 @@ class SalesController extends Controller
         $data = [
             'user' => $user,
             'detailOrder' => $detailOrder,
-            'date' => date("d-m-Y"),
+            'date' => date("d-m-Y")
         ];
 
         //Vista del pdf constructor

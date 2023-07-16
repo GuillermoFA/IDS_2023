@@ -191,6 +191,4 @@ class ConcertController extends Controller
         ]);
 
     }
-
-
 }
