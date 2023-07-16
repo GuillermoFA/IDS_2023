@@ -4,6 +4,8 @@ let TransferPercentage = document.getElementById('TransferPercentage');
 let DebitPercentage = document.getElementById('DebitPercentage');
 let CreditPercentage = document.getElementById('CreditPercentage');
 
+
+
 const ctxMethod = document.getElementById('MethodChart');
 const ctxPercentage= document.getElementById('PercentageChart').getContext('2d');
 
@@ -29,7 +31,7 @@ function generateChart()
             data: {
                 labels: ["Efectivo", "Transferencia", "Tarjeta de Débito", "Tarjeta de Crédito"],
                 datasets: [{
-                label: 'Total de venta del día',
+                label: 'Total de venta por Medio de Pago',
                 data: salesByMethod,
                 borderWidth: 1
                 }]
@@ -87,4 +89,4 @@ function generateChart()
 }
 
 generateChart();
-generatePercentageChart();
+//generatePercentageChart();

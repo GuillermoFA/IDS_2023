@@ -27,18 +27,16 @@ function generateChart()
             const concertSales = [];
             const concertSalesDate = [];
 
-            const concertSelected = 0;
-      
+            var concertSelected = 0;
+
+            //Se indentifica la id del concierto que se ha seleccionado.
             concerts.forEach(concert => {
-              console.log(concert.name + " | " + ctxSelectConcert.innerText);
-              if(concert.name == ctxSelectConcert.value){
+              if(concert.name == ctxSelectConcert.options[ctxSelectConcert.selectedIndex].text){
                 concertSelected = concert.id;
               }
             });
 
-            console.log(concertSelected);
-            console.log()
-
+            //Falta revisar.
             sales.forEach(sale => {
                 if(sale.concertId == concertSelected)
                 {
@@ -47,8 +45,8 @@ function generateChart()
                 }
             });
             concertSalesDate.push('...')
-            console.log(concertSales);
 
+            //Gráfico de barras para el concierto seleccionado
             chart = new Chart(ctx, {
                 type: 'bar',
                 data: {

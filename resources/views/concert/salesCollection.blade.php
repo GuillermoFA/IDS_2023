@@ -15,20 +15,20 @@
                 </td>
             </tr>
             <tr>
-                <td rowspan="2">&nbsp;
-                    <select id="SelectConcert">
+                <td rowspan="2" class="">&nbsp;
+                    <select id="SelectConcert" class="CollectionSelect" >
                         @foreach($concerts as $concert)
                             <option value="bar-concerts">{{$concert->name}}</option>
                         @endforeach
                     </select>
-                    <div class="BarChart">
+                    <div class="BarChartSelect">
                         <canvas id="ConcertChart"></canvas>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>&nbsp;
-                    <div class ="BarChart">
+                    <div class ="BarChartPayment">
                         <canvas id="MethodChart"></canvas>
                     </div>
                 </td>
