@@ -152,6 +152,7 @@ class ConcertController extends Controller
         ]);
         }
 
+
     public function concertsListAdmin()
     {
             //lista de conciertos para mostar.
@@ -166,6 +167,7 @@ class ConcertController extends Controller
             ]);
     }
 
+
     public function salesPerConcert(Request $request, $id){
         $concert = Concert::find($id);
 
@@ -176,4 +178,5 @@ class ConcertController extends Controller
         ]);
 
     }
+
 }

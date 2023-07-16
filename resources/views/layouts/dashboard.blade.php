@@ -4,10 +4,7 @@
 @endsection
 </head>
 <body>
-
 @section('content')
-
-
 <div>
     @auth
     @if (auth()->user()->role===2)

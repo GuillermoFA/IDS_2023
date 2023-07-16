@@ -95,6 +95,5 @@
 </body>
     @yield('script')
     @yield('alerta')
-
 </html>
 
