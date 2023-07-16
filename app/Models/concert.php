@@ -27,4 +27,9 @@ class Concert extends Model
         return $this->hasMany(Sales::class, 'concertId');
     }
 
+    public function detailOrder()
+    {
+        return $this->hasMany(Sales::class, 'concertId');
+    }
+
 }

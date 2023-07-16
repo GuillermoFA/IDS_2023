@@ -18,7 +18,7 @@
                   <a class="nav-link textDark badge fs-4 adminButtonLeft" href="{{ route('concert.sales') }}">Compras Realizadas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Recaudaciones</a>
+                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="{{route('concert.salesCollection')}}">Recaudaciones</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link textDark badge fs-4 adminButtonLeft" href="clients">Buscar Cliente</a>
