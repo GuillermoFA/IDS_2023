@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ConcertController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\SalesController;
 
 /*
 |--------------------------------------------------------------------------

@@ -73,6 +73,7 @@ function existConcertDay($dateConcert)
 }
 
 
+
 function verifyStock($id, $quantity)
 {
     $concert = Concert::find($id);
@@ -93,10 +94,12 @@ function discountStock($id, $quantity)
 }
 
 
+
 function generateReservationNumber()
 {
     do {
         $number = mt_rand(1000, 9999);
+
 
         // ejecutar foreach
     } while (substr($number, 0, 1) === '0');

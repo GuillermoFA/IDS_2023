@@ -68,6 +68,7 @@ class ConcertController extends Controller
         //return redirect()->route('dashboard');
     }
 
+
     public function concertsList()
     {
         //Solamente los clientes pueden ver los conciertos.
