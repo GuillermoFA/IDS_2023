@@ -552,3 +552,16 @@ Ayuda a tapar el diseño */
 .findClientForm{
     padding: 30px 0px 0px 0px ;
 }
+
+.filterForm{
+
+    text-align: center;
+
+}
+
+.filterbutton{
+
+    transform: translate(0px, 10px);
+
+}
+
