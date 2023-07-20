@@ -60,7 +60,7 @@
         <section class="container mt-4">
             <div class="row">
 
-                <form action="{{ route('concert.search') }}" id=filtro method="POST">
+                <form action="{{ route('concert.search') }}" id="filtro" method="POST">
                     @csrf
                     <div class="filterForm">
                       <div class="">
