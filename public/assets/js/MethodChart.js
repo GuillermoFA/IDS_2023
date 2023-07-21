@@ -36,15 +36,22 @@ function generateChart()
           return;
         }
 
+        var percentages = [];
+        var total = salesByMethod[0] + salesByMethod[1] + salesByMethod[2] + salesByMethod[3]; 
+
+        for (let c = 0; c < 4; c++) {
+          percentages[c] = Math.round((salesByMethod[c]/total)*100) + '%';
+        }
+
         let colorHex = ['#FA4F17', '#00d4a1', '#fde801', '#e3e3e3'];
-        let labels = ['Efectivo', 'Transferencia', 'Tarjeta de Débito', 'Tarjeta de Crédito'];
+        let labels = ['Efectivo ' + percentages[0], 'Transferencia ' + percentages[1], 'Tarjeta de Débito ' + percentages[2], 'Tarjeta de Crédito ' + percentages[3]];
 
         new Chart(ctxMethod, {
             type: 'bar',
             data: {
                 labels: labels,
                 datasets: [{
-                label: 'Total de venta por Medio de Pago',
+                label: [],
                 data: salesByMethod,
                 borderWidth: 1,
                 backgroundColor: colorHex
@@ -52,10 +59,10 @@ function generateChart()
             },
             options: {
                 scales: {
-                y: {
-                    beginAtZero: true
-                }
-                }
+                  y: {
+                      beginAtZero: true
+                  }
+                },
             }
         });
 
@@ -92,11 +99,19 @@ function generateChart()
               formatter: (value) => {
                 return value + ' %';
               }
+            },
+            legend: {
+              labels: {
+                font: {
+                  size: 20,
+                  weight: 'bold'
+                }
+              }
             }
           }
         }
     })
-    })
+  })
 }
 
 generateChart();
