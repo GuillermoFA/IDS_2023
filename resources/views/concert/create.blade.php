@@ -16,28 +16,28 @@
                             @csrf
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="name" class="form-label">Nombre</label>
-                                <input type="text"  id="name" name="name" placeholder="Ingrese el nombre del concierto" class="form-control">
+                                <input type="text"  id="name" name="name" placeholder="Ingrese el nombre del concierto" data-toggle="tooltip" title="-El nombre tiene que tener como minimo 5 caracteres" class="form-control">
                                 @error('name')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="ticket_price" class="form-label">Precio</label>
-                                <input type="price" placeholder="Ingrese el precio" id="price" name="price" class="form-control">
+                                <input type="price" placeholder="Ingrese el precio" data-toggle="tooltip" title="-El valor minimo de entrada es de $20.000 &#10-El valor ingresado solo tiene que contener numeros" id="price" name="price" class="form-control">
                                 @error('price')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="stock" class="form-label">Stock de entradas</label>
-                                <input type="stock" placeholder="Ingrese stock de entradas" id="stock" name="stock" class="form-control">
+                                <input type="stock" placeholder="Ingrese stock de entradas" data-toggle="tooltip" title="-El minimo de entradas es de 100 y el maximo es de 400 &#10-El valor ingresado solo tiene que contener numeros" id="stock" name="stock" class="form-control">
                                 @error('stock')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3 font-weight-bold text-3xl textRegister">
                                 <label for="date" class="form-label">Fecha</label>
-                                <input type="date" placeholder="Ingrese la fecha" id="date" name="date" class="form-control">
+                                <input type="date" placeholder="Ingrese la fecha" id="date" name="date" data-toggle="tooltip" title="-La fecha del concierto tiene que ser superior a la de hoy" class="form-control">
                                 @error('date')
                                     <p class="textRed my-2 rounded-lg text-lg p-2">{{ $message }}</p>
                                 @enderror
@@ -86,6 +86,7 @@
         })
     })
     </script>
+
 @endsection
 </body>
 </html>

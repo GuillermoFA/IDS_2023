@@ -22,7 +22,7 @@ function generateChart()
         fetch('/SalesData')
         .then(response => response.json())
         .then(salesData =>{
-            
+
             const sales = salesData;
 
             var concertSales = [];
@@ -96,6 +96,7 @@ function generateChart()
                         beginAtZero: true
                       }
                   }
+                }
                 });
               }
         })

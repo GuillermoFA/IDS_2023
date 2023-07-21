@@ -2,7 +2,8 @@
 @section('title')
     Buscar Cliente
 @endsection
-
+</head>
+<body>
 @section('content')
 <div class="findClientForm">
     <form action="{{ route('client.search') }}" class="my-0" method="GET" novalidate>
