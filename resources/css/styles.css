@@ -521,7 +521,7 @@ Ayuda a tapar el diseño */
     align-items: center;
     vertical-align: middle;
     margin: 0px 0px 0px 0px;
-    transform: translate(140px, 30px);
+    transform: translate(140px,80px);
 }
 
 .BarChartPayment{
