@@ -68,7 +68,7 @@
                           <input type="date" class="border border-warning rounded h-50" name="date" id="date">
                       </div>
                     
-                    <button type="submit" class="btn btn-info filterbutton"> Filtrar </button>
+                    <button type="submit" class="btn filterbutton"> Filtrar </button>
                   </div>
                 </form>
               @if(session('successmessage'))
@@ -78,7 +78,7 @@
               @elseif ($concerts->count() > 0)
               @foreach ($concerts as $concert)
 
-              <div class="col-md-3 mb-4">
+              <div class="col-md-3 mb-4 p-2">
                 <div class="card card-body text-center">
                     <img src="{{ asset('img/concertIcon.png') }}" class="img">
                     <h2 class="font-weight-bold mt-3 titulo-concierto" style="color: black; text-decoration: none;">{{$concert->name}}</h2>

@@ -521,7 +521,7 @@ Ayuda a tapar el diseño */
     align-items: center;
     vertical-align: middle;
     margin: 0px 0px 0px 0px;
-    transform: translate(140px, 30px);
+    transform: translate(140px,80px);
 }
 
 .BarChartPayment{
@@ -561,11 +561,48 @@ Ayuda a tapar el diseño */
 
 .filterbutton{
     transform: translate(0px, 10px);
+    background-color: #6ca9ff;
+    color: #ffffff;
 }
+
+.filterbutton:hover{
+    background-color: #3c8dff;
+    color: #ffffff;
+}
+
 
 .errorChartMessage{
     color: #f62e30;
     font-size: 20px;
-    padding: 20px;
 }
+
+.formBuyTicket{
+    width: 650px;
+    margin: auto;
+    border: 3px solid;
+    border-color: #eeeeee;
+    border-radius: 20px;
+    
+}
+
+.formBuyTicketText{
+    text-align: center;
+    font-size: 27px;
+}
+
+.formBuyTicketTitle{
+    font-size: 30px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.formBuyTicketInput{
+    width: 280px;
+    margin: auto;
+}
+
+.formBuyTicketLabel{
+    transform: translate(0px, 30px);
+}
+
 

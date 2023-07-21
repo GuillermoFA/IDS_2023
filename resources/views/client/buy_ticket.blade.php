@@ -10,54 +10,50 @@
     @endif
     {{-- @if (session('info'))
     @endif --}}
-    <div class="container mt-5 mb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="font-weight-bold text-3xl card-header customYellow text-center">
-                        <h4>Comprar Entrada</h4>
+    <div class="formBuyTicket">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <div>
+                        <h4 class="formBuyTicketTitle">Comprar Entrada</h4>
                     </div>
                     <div class="card-body rounded-5">
                         <form id="formulario" action="{{ route('concert.order.pay', ['id' => $concert->id]) }}" method="POST" class="" novalidate>
                             @csrf
-                            <div class="row customTab rounded-3 my-4">
+                            <div class="row rounded-3">
                                 <h2>Nombre del concierto:</h2>
-                                <div class=" text-center position-relative top-0 start-50 translate-middle ">
-                                    <h2>{{ $concert->name }}</h2>
+                                <div>
+                                    <h2 class="formBuyTicketText">{{ $concert->name }}</h2>
                                 </div>
                             </div>
-                            <div class="row customTab rounded-3 justify-content-start my-4">
-                                <div class="col-5">
-                                    <h2>Fecha del concierto:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2>{{ date('d/m/Y', strtotime($concert->date)) }}</h2>
+                            <div class="row rounded-3 justify-content-start my-4">
+                                <h2>Fecha del concierto:</h2>
+                                <div>
+                                    <h2 class="formBuyTicketText">{{ date('d/m/Y', strtotime($concert->date)) }}</h2>
                                 </div>
                             </div>
-                            <div class="row customTab rounded-3 justify-content-start my-4">
-                                <div class="col-5">
-                                    <h2>Valor de la entrada:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2>{{'$' . number_format($concert->price, 0,',','.') . ' CLP'}}</h2>
+                            <div class="row rounded-3 justify-content-start my-4">
+                                <h2>Valor de la entrada:</h2>
+                                <div >
+                                    <h2 class="formBuyTicketText">{{'$' . number_format($concert->price, 0,',','.') . ' CLP'}}</h2>
                                 </div>
                             </div>
-                            <div class="mb-4">
-                                <label for="quantity" class="">Cantidad de entradas:</label>
-                                <input type="stock" placeholder="--Ingrese la cantidad de entradas--" id="quantity" name="quantity" class="form-control">
+                            <hr>
+                            <div class="">
+                                <label for="quantity" class="formBuyTicketLabel">Cantidad de entradas:</label>
+                                <input type="stock" placeholder="--Ingrese la cantidad de entradas--" id="quantity" name="quantity" class="form-control formBuyTicketInput">
                             </div>
                             @error('quantity')
-                                <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }}</p>
+                                <p class="textRed my-2 rounded-lg text-lg"> {{ $message }}</p>
                             @enderror
 
                             @if (session('message'))
-                                <p class="textRed my-2 rounded-lg text-lg p-2"> {{ session('message') }}</p>
+                                <p class="textRed my-2 rounded-lg text-lg"> {{ session('message') }}</p>
                             @endif
+                            <div class="">
 
-                            <div class="mb-4">
-
-                                <label for="paymentMethod" class="">Medio de pago</label>
-                                <select id="paymentMethod" name="paymentMethod" class="form-select" aria-label="Default select ">
+                                <label for="paymentMethod" class="formBuyTicketLabel">Medio de pago:</label>
+                                <select id="paymentMethod" name="paymentMethod" class="form-select formBuyTicketInput" aria-label="Default select ">
                                     <option selected value="">--Seleccione un medio de pago--</option>
                                     <option value="1">Efectivo</option>
                                     <option value="2">Transferencia</option>
@@ -67,13 +63,13 @@
                             </div>
 
                             @error('paymentMethod')
-                                <p class="textRed my-2 rounded-lg text-lg p-2"> {{ $message }} </p>
+                                <p class="textRed my-2 rounded-lg text-lg"> {{ $message }} </p>
                             @enderror
-
-                             <input id="totalSum" name="total" value="{{ $concert->price }}" hidden>
-                            <button id="BuyButton" type="button" class="btn buyButton">
-                                <p>Comprar entrada</p>
-                            </button>
+                            <div class="m-4">
+                                <input id="totalSum" name="total" value="{{ $concert->price }}" hidden>
+                                <button id="BuyButton" type="button" class="btn buyButton">
+                                    <p>Comprar entrada</p>
+                                </button>
                             <a class="btn cancelButtonColorRed " onclick="history.back()">Cancelar</a>
                         </form>
                     </div>
