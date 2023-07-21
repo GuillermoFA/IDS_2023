@@ -4,6 +4,9 @@ let TransferPercentage = document.getElementById('TransferPercentage');
 let DebitPercentage = document.getElementById('DebitPercentage');
 let CreditPercentage = document.getElementById('CreditPercentage');
 
+let ctxPaymentError = document.getElementById('PaymentChartError');
+let ctxPieError = document.getElementById('PieChartError');
+
 
 
 const ctxMethod = document.getElementById('MethodChart');
@@ -24,16 +27,26 @@ function generateChart()
             salesByMethod[sale.paymentMethod - 1] = sale.total + salesByMethod[sale.paymentMethod - 1];
         });
 
-        console.log(salesByMethod);
+        //console.log(salesByMethod);
+        if(sales.length == 0)
+        {
+          ctxPaymentError.innerHTML = "No hay ventas Realizadas";
+          ctxPieError.innerHTML = "No hay ventas Realizadas";
+          return;
+        }
+
+        let colorHex = ['#FA4F17', '#00d4a1', '#fde801', '#e3e3e3'];
+        let labels = ['Efectivo', 'Transferencia', 'Tarjeta de Débito', 'Tarjeta de Crédito'];
 
         new Chart(ctxMethod, {
             type: 'bar',
             data: {
-                labels: ["Efectivo", "Transferencia", "Tarjeta de Débito", "Tarjeta de Crédito"],
+                labels: labels,
                 datasets: [{
                 label: 'Total de venta por Medio de Pago',
                 data: salesByMethod,
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: colorHex
                 }]
             },
             options: {
@@ -44,9 +57,6 @@ function generateChart()
                 }
             }
         });
-
-    let labels = ['Efectivo', 'Transferencia', 'Tarjeta de Débito', 'Tarjeta de Crédito'];
-    let colorHex = ['#FB3640', '#EFCA08', '#43AA8B', '#253D5B'];
 
     let myChart = new Chart(ctxPercentage, {
         type: 'pie',

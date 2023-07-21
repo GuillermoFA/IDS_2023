@@ -515,20 +515,20 @@ Ayuda a tapar el diseño */
 }
 
 .BarChartSelect{
-    width: 500px;
-    text-align: center;
+    width: 650px;
+    height: 500px;
+    align-items: center;
     vertical-align: middle;
     margin: 0px 0px 0px 0px;
-    scale: 1.5;
-    transform: translate(250px, 80px);
+    transform: translate(140px, 30px);
 }
 
 .BarChartPayment{
-    width: 500px;
+    width: 600px;
     text-align: center;
     vertical-align: middle;
     margin: 0px 0px 0px 0px;
-    transform: translate(300px, 0px);
+    transform: translate(200px, 0px);
 }
 
 .DivSelect{
@@ -536,11 +536,12 @@ Ayuda a tapar el diseño */
     vertical-align: middle;
     border-radius: 10px;
     border-color: #4af3A2;
-    padding: 20px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
 }
 
 .CollectionSelect{
     vertical-align: middle;
+    font-size: 25px;
     border-radius: 10px;
     border-color: #4af3A2;
 }
@@ -554,14 +555,15 @@ Ayuda a tapar el diseño */
 }
 
 .filterForm{
-
     text-align: center;
-
 }
 
 .filterbutton{
-
     transform: translate(0px, 10px);
-
 }
 
+.errorChartMessage{
+    color: #f62e30;
+    font-size: 20px;
+    padding: 20px;
+}
