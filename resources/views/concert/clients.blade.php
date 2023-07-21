@@ -4,28 +4,30 @@
 @endsection
 
 @section('content')
-<form action="{{ route('client.search') }}" class="my-0" method="GET" novalidate>
-    <div class="ms-2"></div>
-    <div class="d-flex align-items-center customCyan">
-      <label for="email_search" class="text-center fs-3 fw-bold fst-italic">Ingresar correo electrónico</label>
-      <div class="position-relative flex-grow-1 p-5 bd-highlight">
-        <input type="email" name="email_search" placeholder="ejemplo@correo.com" class="form-control text-center">
-      </div>
-      <button type="submit" class="submitButtomSearch rounded-pill fs-4">
-        <span class="">Buscar cliente</span>
-      </button>
-      <a href="{{ route('clients.list') }}" class="submitButtomSearch ms-5 rounded-pill fs-4 text-decoration-none">
-        <span class="">Refrescar búsqueda</span>
-      </a>
-    <div class="ms-2"></div>
-    </div>
-  </form>
-
+<div class="findClientForm">
+    <form action="{{ route('client.search') }}" class="my-0" method="GET" novalidate>
+        <div class="ms-2"></div>
+        <div class="p-5 d-flex align-items-center customYellow">
+        <label for="email_search" class="text-center fs-3 fw-bold fst-italic">Ingresar correo electrónico</label>
+        <div class="position-relative flex-grow-1 p-5 bd-highlight">
+            <input type="email" name="email_search" placeholder="ejemplo@correo.com" class="form-control text-center">
+        </div>
+        <button type="submit" class="submitButtomSearch fs-4">
+            <span class="">Buscar cliente</span>
+        </button>
+        <a href="{{ route('clients.list') }}" class="submitButtomSearch ms-5 fs-4 text-decoration-none">
+            <span class="">Refrescar búsqueda</span>
+        </a>
+        <div class="ms-2"></div>
+        </div>
+    </form>
+  </div>
   @if ($client == null)
         @if ($message)
                 <p class="textRed my-2 rounded-lg text-lg text-center">{{$message}}</p>
         @endif
     @elseif($detail_orders->count() > 0)
+    <center>
         <h2 class="text-center fs-4 fw-bold py-1">Cliente {{ $client->name }}</h2>
         <div class="table table-responsive table-striped table-bordered border-dark ">
             <table class="">
@@ -155,7 +157,7 @@
             </div>
              @endif
         </div>
-
+        </center>
     @elseif($client)
         <p class="text-2xl text-black text-center text-bold">El cliente {{ $client->name }} no ha adquirido entradas</p>
     @endif

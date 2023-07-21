@@ -88,16 +88,15 @@ class ConcertController extends Controller
 
         $currentDate = Carbon::now();
         $concerts = Concert::whereDate('date','>',$currentDate)->get();
-        $date=$request->date;
+        $date = $request->date;
 
         if($date === null){
-            $concerts = Concert::getConcerts();
             return view('layouts.dashboard', [
                 'concerts' => $concerts,
             ]);
         }
 
-        if($date>$currentDate){
+        if($date > $currentDate){
             $concerts = Concert::whereDate('date','=',$date)->get();
         }
         else
