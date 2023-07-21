@@ -20,6 +20,7 @@
             </tr>
             <tr>
                 <td rowspan="2" class="">&nbsp;
+
                     <center>
                         <h3 style="font-size:24px">Ventas por Concierto</h3>
                     </center>
@@ -33,6 +34,7 @@
                     </div>
                     <h3 class="errorChartMessage" id="ChartSelectedError"></h3>
                     </center>
+
                     <div class="BarChartSelect">
                         <canvas id="ConcertChart"></canvas>
                     </div>
@@ -40,10 +42,12 @@
             </tr>
             <tr>
                 <td>&nbsp;
+
                     <center>
                         <h3 style="font-size:24px">Ventas por Medio de Pago</h3>
                         <h3 class="errorChartMessage" id="PaymentChartError"></h3>
                     </center>
+
                     <div class ="BarChartPayment">
                         <canvas id="MethodChart"></canvas>
                     </div>

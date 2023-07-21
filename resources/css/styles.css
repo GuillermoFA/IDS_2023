@@ -515,6 +515,7 @@ Ayuda a tapar el diseño */
 }
 
 .BarChartSelect{
+
     width: 650px;
     height: 500px;
     align-items: center;
@@ -567,3 +568,4 @@ Ayuda a tapar el diseño */
     font-size: 20px;
     padding: 20px;
 }
+

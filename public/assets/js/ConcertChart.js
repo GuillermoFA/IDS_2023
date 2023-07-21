@@ -29,7 +29,9 @@ function generateChart()
             var concertSalesDate = [];
 
             var concertSelected = 0;
+
             var concertSelectedName = "";
+
 
             //Se indentifica la id del concierto que se ha seleccionado.
             concerts.forEach(concert => {
@@ -63,6 +65,7 @@ function generateChart()
                 }
             });
 
+
             if(concertSalesDate.length == 0)
             {
               ctxError.innerHTML = "No hay ventas para el concierto " + concertSelectedName;
@@ -92,7 +95,6 @@ function generateChart()
                       y: {
                         beginAtZero: true
                       }
-                    }
                   }
                 });
               }

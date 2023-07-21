@@ -4,6 +4,7 @@ let TransferPercentage = document.getElementById('TransferPercentage');
 let DebitPercentage = document.getElementById('DebitPercentage');
 let CreditPercentage = document.getElementById('CreditPercentage');
 
+
 let ctxPaymentError = document.getElementById('PaymentChartError');
 let ctxPieError = document.getElementById('PieChartError');
 
