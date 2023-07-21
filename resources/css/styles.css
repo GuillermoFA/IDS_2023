@@ -413,17 +413,20 @@ ul{
     white-space: normal;
     text-align: center;
     background-color: #ff562d;
-    padding: 20px 10px;
+    padding: 8px 10px;
     color: white;
     border: none;
+    border-radius: 15px;
     /* height: 40px;
     width: 140px; */
+    transition-duration: 0.05s;
 
 }
 
 .submitButtomSearch:hover{
 
-    color: #00D3A2;
+    color: white;
+    background-color: #00D3A2;
 }
 
 .paginationUse{
@@ -494,3 +497,75 @@ Ayuda a tapar el diseño */
 .createConcertButton:hover{
     color: #00D3A2;
 }
+
+.ChartTable{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    padding: 30px 30px 30px 30px;
+    border-color: #FA4F17;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.PieChart{
+    width: 300px;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.BarChartSelect{
+
+    width: 650px;
+    height: 500px;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0px 0px 0px 0px;
+    transform: translate(140px, 30px);
+}
+
+.BarChartPayment{
+    width: 600px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px 0px 0px 0px;
+    transform: translate(200px, 0px);
+}
+
+.DivSelect{
+    font-size: 30px;
+    vertical-align: middle;
+    border-radius: 10px;
+    border-color: #4af3A2;
+    padding: 5px 0px 0px 0px;
+}
+
+.CollectionSelect{
+    vertical-align: middle;
+    font-size: 25px;
+    border-radius: 10px;
+    border-color: #4af3A2;
+}
+
+.ConcertSalesTable{
+ padding: 0px 100px 0px 0px ;   
+}
+
+.findClientForm{
+    padding: 30px 0px 0px 0px ;
+}
+
+.filterForm{
+    text-align: center;
+}
+
+.filterbutton{
+    transform: translate(0px, 10px);
+}
+
+.errorChartMessage{
+    color: #f62e30;
+    font-size: 20px;
+    padding: 20px;
+}
+

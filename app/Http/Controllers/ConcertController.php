@@ -68,6 +68,7 @@ class ConcertController extends Controller
         //return redirect()->route('dashboard');
     }
 
+
     public function concertsList()
     {
         //Solamente los clientes pueden ver los conciertos.
@@ -87,16 +88,15 @@ class ConcertController extends Controller
 
         $currentDate = Carbon::now();
         $concerts = Concert::whereDate('date','>',$currentDate)->get();
-        $date=$request->date;
+        $date = $request->date;
 
         if($date === null){
-            $concerts = Concert::getConcerts();
             return view('layouts.dashboard', [
                 'concerts' => $concerts,
             ]);
         }
 
-        if($date>$currentDate){
+        if($date > $currentDate){
             $concerts = Concert::whereDate('date','=',$date)->get();
         }
         else
@@ -151,6 +151,7 @@ class ConcertController extends Controller
         ]);
         }
 
+
     public function concertsListAdmin()
     {
             //lista de conciertos para mostar.
@@ -163,7 +164,21 @@ class ConcertController extends Controller
             return view('concert.sales', [
                 'concerts' => $concerts,
             ]);
+
     }
+        public function concertsSalesCollection()
+        {
+            $concerts = Concert::getConcerts();
+            return view('concert.salesCollection', [
+                'concerts' => $concerts,
+            ]);;
+        }
+
+        public function concertAllSalesData()
+        {
+            $concerts = Concert::withSum('detailOrder', 'total')->get();
+            return response()->json($concerts);
+        }
 
     public function salesPerConcert(Request $request, $id){
         $concert = Concert::find($id);

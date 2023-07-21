@@ -13,7 +13,7 @@
         <h3 class="text-center">
             {{$concert->name}}    Fecha:{{$concert->date}}
         </h3>
-        <table class="table table-responsive table-striped table-bordered border-dark">
+        <table class="table table-striped table-bordered border-dark">
             <thead>
                 <tr class="bg-secondary bg-opacity-25">
                     <th scope="col">Numero de reserva</th>
@@ -44,10 +44,26 @@
                         {{$sale->quantity}}
                     </th>
                     <th>
-                        {{$sale->paymentMethod}}
+                        @switch($sale->paymentMethod)
+                            @case('1')
+                                Efectivo
+                            @break
+
+                            @case('2')
+                                Transferencia
+                            @break
+
+                            @case('3')
+                                Tarjeta de Débito
+                            @break
+
+                            @case('4')
+                                Tarjeta de Crédito
+                            @break
+                        @endswitch
                     </th>
                     <th>
-                        {{$sale->total}}
+                        {{'$' . number_format($sale->total, 0,',','.')}}
                     </th>
                 </tr>
             </tbody>

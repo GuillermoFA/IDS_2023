@@ -4,9 +4,7 @@
 @endsection
 </head>
 <body>
-
 @section('content')
-
 <div>
     @auth
     @if (auth()->user()->role===2)
@@ -20,7 +18,7 @@
                   <a class="nav-link textDark badge fs-4 adminButtonLeft" href="{{ route('concert.sales') }}">Compras Realizadas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="#">Recaudaciones</a>
+                  <a class="nav-link textDark badge fs-4 adminButtonLeft" href="{{route('concert.salesCollection')}}">Recaudaciones</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link textDark badge fs-4 adminButtonLeft" href="clients">Buscar Cliente</a>
@@ -62,13 +60,16 @@
         <section class="container mt-4">
             <div class="row">
 
-                <form action="{{ route('concert.search') }}" id=filtro method="POST">
+                <form action="{{ route('concert.search') }}" id="filtro" method="POST">
                     @csrf
-                    <div class="col mt-2 filter">
-                        <label for="date" class="form-label">Filtrar fecha</label>
-                        <input type="date" class="form-control" name="date" id="date">
-                    </div>
-                  <button type="submit" class="btn btn-info btn-sm"> Filtrar </button>
+                    <div class="filterForm">
+                      <div class="">
+                          <label for="date" class="textDark badge fs-4">Filtrar fecha</label>
+                          <input type="date" class="border border-warning rounded h-50" name="date" id="date">
+                      </div>
+                    
+                    <button type="submit" class="btn btn-info filterbutton"> Filtrar </button>
+                  </div>
                 </form>
               @if(session('successmessage'))
               <div class="jumbotron text-center" >
